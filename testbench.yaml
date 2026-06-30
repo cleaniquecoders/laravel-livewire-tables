@@ -5,6 +5,7 @@ providers:
   - Livewire\LivewireServiceProvider
   - BladeUI\Icons\BladeIconsServiceProvider
   - BladeUI\Heroicons\BladeHeroiconsServiceProvider
+  - Flux\FluxServiceProvider
   - Rappasoft\LaravelLivewireTables\LaravelLivewireTablesServiceProvider
   - Workbench\App\Providers\WorkbenchServiceProvider
 

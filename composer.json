@@ -33,6 +33,7 @@
         "ext-sqlite3": "*",
         "larastan/larastan": "^3.0",
         "laravel/pint": "^1.10",
+        "livewire/flux": "^2.15",
         "monolog/monolog": "*",
         "nunomaduro/collision": "^8.0|^9.0",
         "orchestra/testbench": "^10.0|^11.0",

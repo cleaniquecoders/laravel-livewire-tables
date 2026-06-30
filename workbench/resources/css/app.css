@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+@import '../../../vendor/livewire/flux/dist/flux.css';
+
+/*
+| Dark mode is driven by a `.dark` class on <html> (toggled by Flux's
+| appearance system), so register the class-based dark variant.
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+| Tailwind v4 generates only the utility classes it finds in scanned source.
+| The package builds many of its table classes as literal strings in PHP and
+| Blade, so scan both the package source and the workbench views/components.
+*/
+@source '../../../src/**/*.php';
+@source '../../../resources/views/**/*.blade.php';
+@source '../views/**/*.blade.php';
+@source '../../app/**/*.php';
