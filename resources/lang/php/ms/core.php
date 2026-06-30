@@ -31,4 +31,11 @@ return [
     'You are currently selecting all' => 'Anda sedang memilih semua',
     'You are not connected to the internet' => 'Anda tidak disambungkan ke internet',
     'You have selected' => 'Anda telah memilih',
+    'Bulk Actions Confirm' => 'Adakah anda pasti?',
+    'cancel' => 'Batal',
+    'loading' => 'Memuatkan',
+    'max' => 'Maks',
+    'min' => 'Min',
+    'save' => 'Simpan',
+    'Select All On Page' => 'Pilih Semua di Halaman',
 ];

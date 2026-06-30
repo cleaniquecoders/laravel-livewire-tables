@@ -33,4 +33,9 @@ return [
     'You are currently selecting all' => '您目前已選擇全部資料',
     'You are not connected to the internet' => '目前為離線模式',
     'You have selected' => '您已選擇',
+    'cancel' => '取消',
+    'loading' => '載入中',
+    'max' => '最大',
+    'min' => '最小',
+    'save' => '儲存',
 ];

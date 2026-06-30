@@ -35,4 +35,7 @@ return [
     'You are currently selecting all' => 'Po zgjedhni të gjitha aktualisht',
     'You are not connected to the internet' => 'Nuk jeni të lidhur me internetin',
     'You have selected' => 'Keni zgjedhur',
+    'cancel' => 'Anulo',
+    'loading' => 'Duke u ngarkuar',
+    'save' => 'Ruaj',
 ];

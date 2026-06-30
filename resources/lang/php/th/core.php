@@ -33,4 +33,9 @@ return [
     'You are currently selecting all' => 'ขณะนี้คุณได้เลือกทุกรายการ',
     'You are not connected to the internet' => 'ขณะนี้คุณไม่ได้เชื่อมต่อกับอินเทอร์เน็ต',
     'You have selected' => 'คุณเลือก',
+    'cancel' => 'ยกเลิก',
+    'loading' => 'กำลังโหลด',
+    'max' => 'สูงสุด',
+    'min' => 'ต่ำสุด',
+    'save' => 'บันทึก',
 ];

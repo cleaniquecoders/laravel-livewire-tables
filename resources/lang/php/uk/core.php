@@ -34,4 +34,9 @@ return [
     'You are currently selecting all' => 'Наразі ви вибираєте всі',
     'You are not connected to the internet' => 'Ви не підключені до Інтернету',
     'You have selected' => 'Ви вибрали',
+    'cancel' => 'Скасувати',
+    'loading' => 'Завантаження',
+    'max' => 'Макс',
+    'min' => 'Мін',
+    'save' => 'Зберегти',
 ];

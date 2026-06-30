@@ -35,4 +35,7 @@ return [
     'You are currently selecting all' => 'Du velger for øyeblikket alle',
     'You are not connected to the internet' => 'Du er ikke tilkoblet internett',
     'You have selected' => 'Du har valgt',
+    'cancel' => 'Avbryt',
+    'loading' => 'Laster',
+    'save' => 'Lagre',
 ];

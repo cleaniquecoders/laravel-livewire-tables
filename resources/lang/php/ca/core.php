@@ -31,4 +31,11 @@ return [
     'You are currently selecting all' => 'Actualment està seleccionant tot',
     'You are not connected to the internet' => 'No està conectat a Internet',
     'You have selected' => 'Ha seleccionat',
+    'Bulk Actions Confirm' => 'Esteu segur?',
+    'cancel' => 'Cancel·la',
+    'loading' => 'Carregant',
+    'max' => 'Màx',
+    'min' => 'Mín',
+    'save' => 'Desa',
+    'Select All On Page' => 'Selecciona-ho tot a la pàgina',
 ];
