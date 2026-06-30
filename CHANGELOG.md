@@ -2,6 +2,31 @@
 
 All notable changes to `laravel-livewire-tables` will be documented in this file
 
+## [Unreleased] - v4.0 (cleaniquecoders fork)
+### Breaking
+- **Dropped Livewire 3**; now requires **Livewire 4**.
+- Requires **PHP 8.2+** and **Laravel 12 or 13** (dropped Laravel 10/11).
+
+### Added
+- Migrated the test suite to **Pest 4** (+ architecture tests); existing PHPUnit tests run via interop.
+- **Orchestra Testbench workbench** dev harness (`composer build` / `composer serve`).
+- `aria-sort` on sortable column headers (accessibility).
+- New CI matrix: PHP 8.3/8.4/8.5 × Laravel 12/13.
+
+### Fixed
+- `make:datatable` no longer depends on removed Livewire 3 internals (`ComponentParser`).
+- `wire:model` bindings updated to `.live.blur` for Livewire 4 modifier semantics.
+- `setDefaultPerPage()` set in `configure()` is now honored (#2050).
+- "Applied Sorting" header no longer renders with zero visible sort pills (#2268).
+- Cursor pagination skips the `COUNT(*)` query when totals are disabled (#2186).
+- Backfilled missing translation keys across all 23 locales.
+
+### Internal
+- Removed duplicate `mergeConfigFrom` in the service provider.
+- Refreshed the PHPStan baseline and applied Pint under the upgraded toolchain.
+
+> See `docs/v4/MIGRATION.md`, `docs/v4/IMPLEMENTATION-PLAN.md`, and the **v4.x — Post-4.0 Follow-ups** milestone for deferred work (theme strategy, trait consolidation, Vite, BelongsToMany, reorder isolation).
+
 ## [v3.7.3] - 2025-05-03
 ### Bug Fixes
 - Interim fix for Livewire Component Columns to mitigate core Livewire bug by @lrljoe in https://github.com/rappasoft/laravel-livewire-tables/pull/2258

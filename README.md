@@ -11,6 +11,10 @@
 
 A dynamic Laravel Livewire component for data tables.
 
+> **This is the `cleaniquecoders/laravel-livewire-tables` fork (v4.0).** It targets **Laravel 12/13 + Livewire 4** and **drops Livewire 3** — created because upstream declined Livewire 4 support ([rappasoft#2315](https://github.com/rappasoft/laravel-livewire-tables/issues/2315), `wontfix`). See [docs/v4/MIGRATION.md](docs/v4/MIGRATION.md) to upgrade. All credit for the original package goes to [@rappasoft](https://github.com/rappasoft) and its contributors.
+>
+> **Requirements:** PHP 8.2+ · Laravel 12 or 13 · Livewire 4.
+
 ![Dark Mode](https://imgur.com/QoEdC7n.png)
 
 ![Full Table](https://i.imgur.com/2kfibjR.png)
@@ -22,10 +26,10 @@ A dynamic Laravel Livewire component for data tables.
 You can install the package via composer:
 
 ``` bash
-composer require rappasoft/laravel-livewire-tables
+composer require cleaniquecoders/laravel-livewire-tables:^4.0
 ```
 
-You must also have [Alpine.js](https://alpinejs.dev) version 3 or greater installed and available to the component.
+Livewire 4 bundles Alpine.js, so no separate Alpine install is required.
 
 ## Documentation and Usage Instructions
 
