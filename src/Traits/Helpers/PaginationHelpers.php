@@ -135,11 +135,21 @@ trait PaginationHelpers
     public function setupPagination(): void
     {
         if ($this->paginationIsDisabled()) {
+            // Ensure perPage is initialized for serialization even when disabled.
+            if (! isset($this->perPage)) {
+                $this->setPerPage($this->getDefaultPerPage());
+            }
+
             return;
         }
 
-        if (in_array(session($this->getPerPagePaginationSessionKey(), $this->getPerPage()), $this->getPerPageAccepted(), true)) {
-            $this->setPerPage(session($this->getPerPagePaginationSessionKey(), $this->getPerPage()));
+        // getPerPage() resolves a session/query-string value or the configured
+        // default. Because mountWithPagination() no longer pins perPage before
+        // configure() runs, this now correctly honors setDefaultPerPage() (#2050).
+        $candidate = (int) session($this->getPerPagePaginationSessionKey(), $this->getPerPage());
+
+        if (in_array($candidate, $this->getPerPageAccepted(), true)) {
+            $this->setPerPage($candidate);
         } else {
             $this->setPerPage($this->getDefaultPerPage());
         }
