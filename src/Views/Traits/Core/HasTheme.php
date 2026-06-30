@@ -31,6 +31,16 @@ trait HasTheme
         return ! $this->isBootstrap4() && ! $this->isBootstrap5();
     }
 
+    /**
+     * The "flux" theme is Tailwind-based (isTailwind() stays true so the table
+     * body keeps rendering), with Flux UI components layered over the controls.
+     */
+    #[Computed]
+    public function isFlux(): bool
+    {
+        return $this->getTheme() === 'flux';
+    }
+
     #[Computed]
     public function isBootstrap(): bool
     {

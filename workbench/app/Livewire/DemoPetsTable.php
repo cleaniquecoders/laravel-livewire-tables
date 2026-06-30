@@ -30,6 +30,7 @@ class DemoPetsTable extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id')
+            ->setTheme('flux')
             ->setSearchEnabled()
             ->setColumnSelectEnabled()
             ->setPerPageAccepted([10, 25, 50]);

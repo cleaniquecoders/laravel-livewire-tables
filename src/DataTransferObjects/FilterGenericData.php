@@ -4,7 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\DataTransferObjects;
 
 class FilterGenericData
 {
-    public function __construct(public string $tableName, public string $filterLayout, public bool $isTailwind = false, public bool $isBootstrap4 = false, public bool $isBootstrap5 = false) {}
+    public function __construct(public string $tableName, public string $filterLayout, public bool $isTailwind = false, public bool $isBootstrap4 = false, public bool $isBootstrap5 = false, public bool $isFlux = false) {}
 
     /**
      * Convert To Array
@@ -20,6 +20,7 @@ class FilterGenericData
             'isBootstrap' => ($this->isBootstrap4 || $this->isBootstrap5),
             'isBootstrap4' => $this->isBootstrap4,
             'isBootstrap5' => $this->isBootstrap5,
+            'isFlux' => $this->isFlux,
             'localisationPath' => (config('livewire-tables.use_json_translations', false)) ? 'livewire-tables::' : 'livewire-tables::core.',
         ];
     }

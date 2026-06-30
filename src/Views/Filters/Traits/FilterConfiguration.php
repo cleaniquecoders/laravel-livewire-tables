@@ -13,6 +13,7 @@ trait FilterConfiguration
             'isBootstrap' => ($genericDisplayData['isBootstrap4'] || $genericDisplayData['isBootstrap5']),
             'isBootstrap4' => $genericDisplayData['isBootstrap4'],
             'isBootstrap5' => $genericDisplayData['isBootstrap5'],
+            'isFlux' => $genericDisplayData['isFlux'] ?? false,
             'localisationPath' => $genericDisplayData['localisationPath'] ?? ((config('livewire-tables.use_json_translations', false)) ? 'livewire-tables::' : 'livewire-tables::core.'),
 
         ];

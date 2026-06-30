@@ -1,6 +1,15 @@
 @aware(['isTailwind', 'isBootstrap'])
 
-<div 
+@if ($this->isFlux())
+    <flux:input
+        wire:model{{ $this->getSearchOptions() }}="search"
+        :placeholder="$this->getSearchPlaceholder()"
+        icon="magnifying-glass"
+        type="search"
+        class="w-full md:w-72"
+    />
+@else
+<div
     @class([
         'mb-3 mb-md-0 input-group' => $isBootstrap,
         'rounded-md shadow-sm' => $isTailwind,
@@ -18,3 +27,4 @@
             <x-livewire-tables::tools.toolbar.items.search.remove />
         @endif
 </div>
+@endif

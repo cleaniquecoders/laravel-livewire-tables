@@ -8,7 +8,7 @@ trait FilterGenericDataConfiguration
 {
     public function generateFilterGenericData(): array
     {
-        return (new FilterGenericData($this->getTableName(), $this->getFilterLayout(), $this->isTailwind(), $this->isBootstrap4(), $this->isBootstrap5()))->toArray();
+        return (new FilterGenericData($this->getTableName(), $this->getFilterLayout(), $this->isTailwind(), $this->isBootstrap4(), $this->isBootstrap5(), $this->isFlux()))->toArray();
     }
 
     public function setFilterGenericData(array $filterGenericData = []): void

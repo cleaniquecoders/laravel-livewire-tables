@@ -1,6 +1,13 @@
 <div>
     <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$tableName :$isTailwind :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
 
+    @if ($isFlux ?? false)
+        <flux:checkbox.group wire:model.live="filterComponents.{{ $filter->getKey() }}" class="space-y-1.5">
+            @foreach($filter->getOptions() as $key => $value)
+                <flux:checkbox value="{{ $key }}" label="{{ $value }}" />
+            @endforeach
+        </flux:checkbox.group>
+    @else
     @if ($isTailwind)
     <div class="rounded-md shadow-sm">
     @endif
@@ -54,5 +61,6 @@
         @endforeach
     @if ($isTailwind)
     </div>
+    @endif
     @endif
 </div>
