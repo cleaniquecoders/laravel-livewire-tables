@@ -2,4 +2,4 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome')->name('workbench.home');
+Route::view('/', 'workbench::welcome')->name('workbench.home');

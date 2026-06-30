@@ -20,6 +20,7 @@ workbench:
   discovers:
     web: true
     commands: true
+    views: true
   build:
     - asset-publish
     - create-sqlite-db

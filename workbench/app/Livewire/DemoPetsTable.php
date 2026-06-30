@@ -63,8 +63,7 @@ class DemoPetsTable extends DataTableComponent
 
             BooleanColumn::make('Vaccinated', 'is_vaccinated'),
 
-            ColorColumn::make('Favorite Color')
-                ->color(fn ($row) => $row->favorite_color),
+            ColorColumn::make('Favorite Color', 'favorite_color'),
 
             DateColumn::make('Last Visit', 'last_visit')
                 ->sortable(),
