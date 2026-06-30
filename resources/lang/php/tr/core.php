@@ -31,4 +31,11 @@ return [
     'You are currently selecting all' => 'Hepsini seçtiniz.',
     'You are not connected to the internet' => 'İnternet bağlantınız kesildi',
     'You have selected' => 'Siz seçildiniz',
+    'Bulk Actions Confirm' => 'Emin misiniz?',
+    'cancel' => 'İptal',
+    'loading' => 'Yükleniyor',
+    'max' => 'Maks',
+    'min' => 'Min',
+    'save' => 'Kaydet',
+    'Select All On Page' => 'Sayfadakilerin Tümünü Seç',
 ];

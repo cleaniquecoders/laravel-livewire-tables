@@ -31,4 +31,11 @@ return [
     'You are currently selecting all' => 'أنت الآن تختار الكل',
     'You are not connected to the internet' => 'أنت غير متصل بالإنترنت',
     'You have selected' => 'قمت بتحديدها',
+    'Bulk Actions Confirm' => 'هل أنت متأكد؟',
+    'cancel' => 'إلغاء',
+    'loading' => 'جارٍ التحميل',
+    'max' => 'الحد الأقصى',
+    'min' => 'الحد الأدنى',
+    'save' => 'حفظ',
+    'Select All On Page' => 'تحديد الكل في الصفحة',
 ];

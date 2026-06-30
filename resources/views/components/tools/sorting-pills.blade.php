@@ -2,7 +2,7 @@
 
 @if ($isTailwind)
     <div>
-        @if ($this->sortingPillsAreEnabled() && $this->hasSorts())
+        @if ($this->sortingPillsAreEnabled() && $this->hasRenderableSortPills())
             <div class="mb-4 px-4 md:p-0" x-cloak x-show="!currentlyReorderingStatus">
                 <small class="text-gray-700 dark:text-white">{{ __($localisationPath.'Applied Sorting') }}:</small>
 
@@ -66,7 +66,7 @@
     </div>
 @elseif ($isBootstrap4)
     <div>
-        @if ($this->sortingPillsAreEnabled() && $this->hasSorts())
+        @if ($this->sortingPillsAreEnabled() && $this->hasRenderableSortPills())
             <div class="mb-3" x-cloak x-show="!currentlyReorderingStatus">
                 <small>{{ __($localisationPath.'Applied Sorting') }}:</small>
 
@@ -124,7 +124,7 @@
     </div>
 @elseif ($isBootstrap5)
     <div>
-        @if ($this->sortingPillsAreEnabled() && $this->hasSorts())
+        @if ($this->sortingPillsAreEnabled() && $this->hasRenderableSortPills())
             <div class="mb-3" x-cloak x-show="!currentlyReorderingStatus">
                 <small>{{ __($localisationPath.'Applied Sorting') }}:</small>
 

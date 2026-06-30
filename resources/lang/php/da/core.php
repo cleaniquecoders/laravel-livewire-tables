@@ -31,4 +31,11 @@ return [
     'You are currently selecting all' => 'Du vælger i øjeblikket alle',
     'You are not connected to the internet' => 'Du er ikke forbundet til internettet',
     'You have selected' => 'Du har valgt',
+    'Bulk Actions Confirm' => 'Er du sikker?',
+    'cancel' => 'Annuller',
+    'loading' => 'Indlæser',
+    'max' => 'Maks',
+    'min' => 'Min',
+    'save' => 'Gem',
+    'Select All On Page' => 'Vælg alle på siden',
 ];

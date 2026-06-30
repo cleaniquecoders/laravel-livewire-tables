@@ -12,6 +12,9 @@
         <testsuite name="Laravel Livewire Tables Unit Test Suite">
             <directory>tests/Unit</directory>
         </testsuite>
+        <testsuite name="Laravel Livewire Tables Feature Test Suite">
+            <directory>tests/Feature</directory>
+        </testsuite>
         <testsuite name="Laravel Livewire Tables Visuals Test Suite">
             <directory>tests/Visuals</directory>
         </testsuite>

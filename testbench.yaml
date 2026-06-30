@@ -1,0 +1,30 @@
+# Orchestra Testbench workbench configuration.
+# Run the demo app:  vendor/bin/testbench serve
+# (Activates after the v4 upgrade + `composer install`.)
+providers:
+  - Livewire\LivewireServiceProvider
+  - BladeUI\Icons\BladeIconsServiceProvider
+  - BladeUI\Heroicons\BladeHeroiconsServiceProvider
+  - Rappasoft\LaravelLivewireTables\LaravelLivewireTablesServiceProvider
+  - Workbench\App\Providers\WorkbenchServiceProvider
+
+migrations:
+  - workbench/database/migrations
+
+seeders:
+  - Workbench\Database\Seeders\DatabaseSeeder
+
+workbench:
+  start: '/'
+  install: true
+  discovers:
+    web: true
+    commands: true
+  build:
+    - asset-publish
+    - create-sqlite-db
+    - 'migrate:fresh --seeder=Workbench\Database\Seeders\DatabaseSeeder'
+
+env:
+  - 'APP_NAME="Livewire Tables Workbench"'
+  - 'DB_CONNECTION=sqlite'

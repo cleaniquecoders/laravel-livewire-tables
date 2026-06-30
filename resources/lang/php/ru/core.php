@@ -31,4 +31,11 @@ return [
     'You are currently selecting all' => 'Вы выбираете все',
     'You are not connected to the internet' => 'Вы не подключены к Интернету',
     'You have selected' => 'Вы выбрали',
+    'Bulk Actions Confirm' => 'Вы уверены?',
+    'cancel' => 'Отмена',
+    'loading' => 'Загрузка',
+    'max' => 'Макс',
+    'min' => 'Мин',
+    'save' => 'Сохранить',
+    'Select All On Page' => 'Выбрать все на странице',
 ];

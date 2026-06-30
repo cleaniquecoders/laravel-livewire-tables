@@ -35,4 +35,7 @@ return [
     'You are currently selecting all' => 'Du markerar för närvarande alla',
     'You are not connected to the internet' => 'Du är inte uppkopplad till internet',
     'You have selected' => 'Du har markerat',
+    'cancel' => 'Avbryt',
+    'loading' => 'Laddar',
+    'save' => 'Spara',
 ];

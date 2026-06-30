@@ -33,4 +33,9 @@ return [
     'You are currently selecting all' => 'Huidig heeft u alles geselecteerd',
     'You are not connected to the internet' => 'U bent niet verbonden met het internet',
     'You have selected' => 'U selecteerde',
+    'cancel' => 'Annuleren',
+    'loading' => 'Laden',
+    'max' => 'Max',
+    'min' => 'Min',
+    'save' => 'Opslaan',
 ];

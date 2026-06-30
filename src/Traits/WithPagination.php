@@ -57,11 +57,21 @@ trait WithPagination
 
     public function mountWithPagination(): void
     {
-        $sessionPerPage = session()->get($this->getPerPagePaginationSessionKey(), $this->getPerPage());
-        if (! in_array((int) $sessionPerPage, $this->getPerPageAccepted(), false)) {
-            $sessionPerPage = $this->getDefaultPerPage();
+        // Restore a previously persisted per-page value, if one exists and is
+        // valid. Do NOT fall back to the framework default here: configure()
+        // (and any setDefaultPerPage() within it) has not run yet during the
+        // mount phase, so the configured default is resolved later in
+        // setupPagination() (#2050). A value hydrated from the query string is
+        // left untouched.
+        $sessionKey = $this->getPerPagePaginationSessionKey();
+
+        if (session()->has($sessionKey)) {
+            $sessionPerPage = (int) session()->get($sessionKey);
+
+            if (in_array($sessionPerPage, $this->getPerPageAccepted(), false)) {
+                $this->setPerPage($sessionPerPage);
+            }
         }
-        $this->setPerPage($sessionPerPage);
     }
 
     // TODO: Test

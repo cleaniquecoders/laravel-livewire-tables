@@ -163,9 +163,42 @@ trait SortingHelpers
         return $this->defaultSortingLabelDesc;
     }
 
+    /**
+     * The subset of active sorts that will actually render as a pill: the
+     * column resolves, is not hidden, and (when column select is enabled) is
+     * currently selected. Mirrors the @continue guards in sorting-pills.blade.
+     *
+     * @return array<string, string>
+     */
+    public function getRenderableSortPills(): array
+    {
+        $renderable = [];
+
+        foreach ($this->getSorts() as $columnSelectName => $direction) {
+            $column = $this->getColumnBySelectName($columnSelectName) ?? $this->getColumnBySlug($columnSelectName);
+
+            if (is_null($column) || $column->isHidden()) {
+                continue;
+            }
+
+            if ($this->columnSelectIsEnabled() && ! $this->columnSelectIsEnabledForColumn($column)) {
+                continue;
+            }
+
+            $renderable[$columnSelectName] = $direction;
+        }
+
+        return $renderable;
+    }
+
+    public function hasRenderableSortPills(): bool
+    {
+        return count($this->getRenderableSortPills()) > 0;
+    }
+
     #[Computed]
     public function showSortPillsSection(): bool
     {
-        return $this->sortingIsEnabled() && $this->sortingPillsAreEnabled() && $this->hasSorts();
+        return $this->sortingIsEnabled() && $this->sortingPillsAreEnabled() && $this->hasRenderableSortPills();
     }
 }

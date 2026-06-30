@@ -152,6 +152,9 @@ class TestCase extends Orchestra
     {
         config()->set('app.key', Encrypter::generateKey(config('app.cipher')));
         config()->set('app.env', 'testing');
+        // Keep app.debug deterministic so debug-only output (e.g. the asset
+        // HTML comment headers) does not make assertions order-dependent.
+        config()->set('app.debug', false);
         config()->set('cache.default', 'array');
         config()->set('view.cache', false);
         config()->set('view.compiled', realpath(storage_path('framework/views')).'/'.rand(0, 100));

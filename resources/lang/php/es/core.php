@@ -33,4 +33,9 @@ return [
     'You are currently selecting all' => 'Actualmente está seleccionando todo',
     'You are not connected to the internet' => 'No está conectado a Internet',
     'You have selected' => 'Ha seleccionado',
+    'cancel' => 'Cancelar',
+    'loading' => 'Cargando',
+    'max' => 'Máx',
+    'min' => 'Mín',
+    'save' => 'Guardar',
 ];
