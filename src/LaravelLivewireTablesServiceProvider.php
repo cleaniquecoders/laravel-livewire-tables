@@ -22,9 +22,7 @@ class LaravelLivewireTablesServiceProvider extends ServiceProvider
             ]);
         }
 
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/livewire-tables.php', 'livewire-tables'
-        );
+        // Config is merged in register(); no need to merge again here.
 
         // Load Default Translations
         if (config('livewire-tables.use_json_translations', false)) {

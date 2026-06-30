@@ -8,9 +8,17 @@
     $customLabelAttributes = $allThAttributes['labelAttributes'];
     $customIconAttributes = $this->getThSortIconAttributes($column);
     $direction = $column->hasField() ? $this->getSort($column->getColumnSelectName()) : $this->getSort($column->getSlug()) ?? null;
+    $isSortableHeader = $this->sortingIsEnabled() && ($column->isSortable() || $column->getSortCallback());
+    $ariaSort = $isSortableHeader
+        ? match ($direction) {
+            'asc' => 'ascending',
+            'desc' => 'descending',
+            default => 'none',
+        }
+        : null;
 @endphp
 
-<th {{
+<th @if($ariaSort) aria-sort="{{ $ariaSort }}" @endif {{
     $attributes->merge($customThAttributes)
         ->class([
             'text-gray-500 dark:bg-gray-800 dark:text-gray-400' => $isTailwind && (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
