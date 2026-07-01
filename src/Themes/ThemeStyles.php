@@ -74,6 +74,8 @@ class ThemeStyles
             'collapsed.p.c' => 'sm:block lg:hidden',
             'collapsed.p.d' => '',
             'td.reorder.svg' => 'inline w-4 h-4',
+            'toolbar.reorder.margin' => '',
+            'toolbar.reorder.button' => 'inline-flex justify-center items-center w-full md:w-auto px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -134,6 +136,8 @@ class ThemeStyles
             'collapsed.p.c' => 'd-lg-none',
             'collapsed.p.d' => 'd-sm-none',
             'td.reorder.svg' => 'd-inline',
+            'toolbar.reorder.margin' => 'mr-0 mr-md-2 mb-3 mb-md-0',
+            'toolbar.reorder.button' => 'btn btn-default d-block d-md-inline',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -191,6 +195,8 @@ class ThemeStyles
             'collapsed.p.c' => 'd-lg-none',
             'collapsed.p.d' => 'd-sm-none',
             'td.reorder.svg' => 'd-inline',
+            'toolbar.reorder.margin' => 'me-0 me-md-2 mb-3 mb-md-0',
+            'toolbar.reorder.button' => 'btn btn-default d-block d-md-inline',
         ],
     ];
 
