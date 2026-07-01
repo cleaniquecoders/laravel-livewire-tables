@@ -1,6 +1,6 @@
 # Introduction
 
-The previous iteration utilised third-party Sortable plugins, which are not required for Version 3.x, and are not supported in Livewire 3.x at the time of writing.
+Earlier iterations of the package relied on third-party Sortable plugins. These are no longer required — reordering uses the bundled assets and Livewire.
 
 ## An update about reordering
 

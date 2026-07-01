@@ -1,6 +1,6 @@
 # Lifecycle Hooks
 
-With the migration to Livewire 3, there we are implementing several Lifecycle Hooks to assist with re-using methods across multiple Table Components.
+The package implements several Lifecycle Hooks to assist with re-using methods across multiple Table Components.
 
 You may use these either in your Table Component, or in a trait
 

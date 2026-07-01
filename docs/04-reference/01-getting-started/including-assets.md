@@ -5,7 +5,7 @@
 This package now makes use of several external files, one for AlpineJS methods, and one for Custom Styling.  In addition, Flatpickr is separately bundled with the package, and used for the DateRange Filter.  These can be independently enabled/disabled.
 
 ### Injection (Default)
-The package will automatically inject the relevant two files into your layout as part of the render process.  This is the default behaviour, and mimics that of Livewire 3.0
+The package will automatically inject the relevant two files into your layout as part of the render process.  This is the default behaviour, and mimics that of Livewire itself.
 
 #### Configuration
 This is enabled by default, but to re-enable, enable the following options in the livewire-tables configuration file, to enable automatic injection:

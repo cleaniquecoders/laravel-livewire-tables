@@ -11,7 +11,7 @@ Without a Confirmation Message
         ->action(fn($row) => 'delete("'.$row->id.'")'),
 ```
 
-You may also pass a string to "confirmMessage", which will utilise LiveWire 3's "wire:confirm" approach to display a confirmation modal.
+You may also pass a string to "confirmMessage", which will utilise Livewire's "wire:confirm" approach to display a confirmation modal.
 
 ```php
     WireLinkColumn::make("Delete Item")

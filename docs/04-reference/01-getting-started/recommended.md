@@ -3,8 +3,12 @@
 While the package is very customisable, and supports a number of different approaches.  The below is the recommended approach, that gives the best performance for the tables:
 
 ## Installation
+
+This fork is not published to Packagist. Add it as a VCS repository and require the `4.0` branch —
+see [Installation](installation.md) for the full `composer.json` `repositories` entry:
+
 ```
-composer require rappasoft/laravel-livewire-tables
+composer require rappasoft/laravel-livewire-tables:dev-4.0
 ```
 
 ## Publish the Tables Config
@@ -60,19 +64,26 @@ Ensure that your layouts do not reference any of the following blade directives,
 ```
 
 ## Tailwind Specific
-If using Tailwind, you should update your tailwind.config.js file, adding the following to the "content" section under module.exports.  This ensures that the Livewire Tables specific core classes are included.
+
+The package's Blade views must be scanned by Tailwind so its core classes are included in your build.
+
+**Tailwind 4** (CSS-based config) — add `@source` directives to your CSS entrypoint (e.g. `resources/css/app.css`):
+
+```css
+@source '../../vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php';
+@source '../../app/Livewire/**/*.php';
+```
+
+**Tailwind 3** (`tailwind.config.js`) — add the same paths to the `content` array:
 
 ```js
     './vendor/rappasoft/laravel-livewire-tables/resources/views/*.blade.php',
     './vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php',
-```
-
-It is also recommended to add the paths to any Livewire Tables components, for example:
-```js
     './app/Livewire/*.php',
     './app/Livewire/**/*.php',
 ```
-So that any classes used in setTdAttributes or similar are included!
+
+Including your Livewire component paths ensures classes used in `setTdAttributes` (and similar) are picked up.
 
 ## Run your build process
 ```

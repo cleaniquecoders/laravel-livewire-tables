@@ -1,6 +1,6 @@
 # Loaders
 
-With the introduction of Livewire 3, there are several new methods available for use:
+Several methods are available for use with loading state:
 
 ## Loading Placeholder
 ```php
