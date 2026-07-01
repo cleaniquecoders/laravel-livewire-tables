@@ -23,6 +23,7 @@ class ThemeStyles
             'table.element' => 'min-w-full divide-y divide-gray-200 dark:divide-none',
             'table.thead' => 'bg-gray-50 dark:bg-gray-800',
             'table.tbody' => 'bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-none',
+            'table.tr.plain' => 'bg-white dark:bg-gray-700 dark:text-white',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -32,12 +33,14 @@ class ThemeStyles
             'table.element' => 'laravel-livewire-table table',
             'table.thead' => '',
             'table.tbody' => '',
+            'table.tr.plain' => '',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
             'table.element' => 'laravel-livewire-table table',
             'table.thead' => '',
             'table.tbody' => '',
+            'table.tr.plain' => '',
         ],
     ];
 
