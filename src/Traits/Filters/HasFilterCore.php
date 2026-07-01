@@ -19,7 +19,7 @@ trait HasFilterCore
         $this->restoreFilterValues();
 
         foreach ($this->getFilters() as $filter) {
-            if (method_exists($filter, 'isAnExternalLivewireFilter')) {
+            if ($filter->isAnExternalLivewireFilter()) {
                 $this->tableHasExternalFilters = true;
             }
             if (! isset($this->appliedFilters[$filter->getKey()])) {

@@ -21,8 +21,8 @@ trait HandlesPillsData
                     filterPillValue: $filter->getFilterPillValue($value),
 
                     hasCustomPillBlade: $filter->hasCustomPillBlade(),
-                    isAnExternalLivewireFilter: (method_exists($filter, 'isAnExternalLivewireFilter') && $filter->isAnExternalLivewireFilter()),
-                    separator: method_exists($filter, 'getPillsSeparator') ? $filter->getPillsSeparator() : ', ',
+                    isAnExternalLivewireFilter: $filter->isAnExternalLivewireFilter(),
+                    separator: $filter->getPillsSeparator(),
                     renderPillsAsHtml: $filter->getPillsAreHtml() ?? false,
                     renderPillsTitleAsHtml: $filter->getFilterPillTitleAsHtml() ?? false,
                     customResetButtonAttributes: $filter->getPillResetButtonAttributes(),

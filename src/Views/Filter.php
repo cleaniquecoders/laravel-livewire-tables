@@ -30,4 +30,23 @@ abstract class Filter
     {
         return new static($name, $key);
     }
+
+    /**
+     * Default for every filter. External (Livewire-component) filters override
+     * this via IsLivewireComponentFilter, so callers no longer need to probe
+     * with method_exists().
+     */
+    public function isAnExternalLivewireFilter(): bool
+    {
+        return false;
+    }
+
+    /**
+     * Default pill-value separator. Array filters override this via
+     * IsArrayFilter; keeping a base default removes the method_exists() probe.
+     */
+    public function getPillsSeparator(): string
+    {
+        return ', ';
+    }
 }
