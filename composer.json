@@ -45,7 +45,10 @@
     "autoload": {
         "psr-4": {
             "Rappasoft\\LaravelLivewireTables\\": "src"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
