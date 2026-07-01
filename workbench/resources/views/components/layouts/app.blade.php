@@ -44,7 +44,24 @@
                 <flux:navlist.item icon="sparkles" href="/features" :current="$current === 'features'" wire:navigate>Features</flux:navlist.item>
                 <flux:navlist.item icon="chevron-double-right" href="/pagination" :current="$current === 'pagination'" wire:navigate>Pagination</flux:navlist.item>
                 <flux:navlist.item icon="inbox" href="/empty" :current="$current === 'empty'" wire:navigate>Empty state</flux:navlist.item>
-                <flux:navlist.item icon="swatch" href="/themes" :current="$current === 'themes'" wire:navigate>Themes</flux:navlist.item>
+            </flux:navlist.group>
+
+            {{-- Each theme page loads only its own CSS/JS, so Tailwind/Bootstrap
+                 open in a new tab (full page load) rather than wire:navigate —
+                 handy for comparing themes side by side. --}}
+            <flux:navlist.group heading="Themes" expandable :expanded="$current === 'themes'" class="mt-4">
+                <flux:navlist.item href="/themes/flux" :current="$current === 'themes'" wire:navigate>
+                    <x-slot:icon><x-workbench::icons.flux /></x-slot:icon>
+                    Flux
+                </flux:navlist.item>
+                <flux:navlist.item href="/themes/tailwind" target="_blank">
+                    <x-slot:icon><x-workbench::icons.tailwind /></x-slot:icon>
+                    Tailwind
+                </flux:navlist.item>
+                <flux:navlist.item href="/themes/bootstrap" target="_blank">
+                    <x-slot:icon><x-workbench::icons.bootstrap /></x-slot:icon>
+                    Bootstrap
+                </flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>
 

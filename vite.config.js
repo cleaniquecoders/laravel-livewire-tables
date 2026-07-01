@@ -10,6 +10,8 @@ export default defineConfig({
         laravel({
             input: [
                 'workbench/resources/css/app.css',
+                // Tailwind-only bundle (no Flux) for the isolated Tailwind theme demo.
+                'workbench/resources/css/app-tailwind.css',
                 'workbench/resources/js/app.js',
             ],
             publicDirectory: 'workbench/public',

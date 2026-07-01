@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+
+/*
+| Tailwind-only bundle for the isolated Tailwind theme demo — deliberately does
+| NOT import Flux, so that page loads only Tailwind's CSS. Dark mode is driven
+| by a `.dark` class on <html> toggled by the layout's own button.
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source '../../../src/**/*.php';
+@source '../../../resources/views/**/*.blade.php';
+@source '../views/**/*.blade.php';

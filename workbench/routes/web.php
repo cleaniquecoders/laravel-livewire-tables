@@ -13,4 +13,10 @@ Route::view('/filters', 'workbench::pages.filters')->name('workbench.filters');
 Route::view('/features', 'workbench::pages.features')->name('workbench.features');
 Route::view('/pagination', 'workbench::pages.pagination')->name('workbench.pagination');
 Route::view('/empty', 'workbench::pages.empty')->name('workbench.empty');
-Route::view('/themes', 'workbench::pages.themes')->name('workbench.themes');
+
+// Themes get separate pages so each loads only its own CSS/JS (Bootstrap's
+// global styles would otherwise collide with Tailwind/Flux on a shared page).
+Route::redirect('/themes', '/themes/flux');
+Route::view('/themes/flux', 'workbench::pages.themes.flux')->name('workbench.themes.flux');
+Route::view('/themes/tailwind', 'workbench::pages.themes.tailwind')->name('workbench.themes.tailwind');
+Route::view('/themes/bootstrap', 'workbench::pages.themes.bootstrap')->name('workbench.themes.bootstrap');
