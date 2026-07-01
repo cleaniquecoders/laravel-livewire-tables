@@ -251,9 +251,16 @@ trait WithData
         foreach ($column->getRelations() as $relationPart) {
             $model = $lastQuery->getRelation($relationPart);
 
-            if ($model instanceof HasOne || $model instanceof BelongsTo || $model instanceof MorphOne) {
-                $table = $this->getTableAlias($table, $relationPart);
+            if (! ($model instanceof BelongsTo || $model instanceof HasOne || $model instanceof MorphOne)) {
+                throw new DataTableConfigurationException(
+                    'Column "'.$column->getTitle().'" uses the "'.$relationPart.'" relation ('.class_basename($model).'), '.
+                    'which cannot be resolved as a scalar relation column. Only BelongsTo, HasOne, and MorphOne are supported. '.
+                    'For to-many relations such as BelongsToMany or HasMany, use a label column (e.g. '.
+                    '->label(fn ($row) => $row->'.$relationPart.'->pluck(\'name\')->join(\', \'))) or an aggregate column instead.'
+                );
             }
+
+            $table = $this->getTableAlias($table, $relationPart);
 
             $lastQuery = $model->getQuery();
         }

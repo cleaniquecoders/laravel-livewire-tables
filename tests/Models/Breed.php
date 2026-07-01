@@ -3,6 +3,7 @@
 namespace Rappasoft\LaravelLivewireTables\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Breed extends Model
 {
@@ -28,4 +29,9 @@ class Breed extends Model
         'name',
         'species_id',
     ];
+
+    public function species(): BelongsTo
+    {
+        return $this->belongsTo(Species::class);
+    }
 }
