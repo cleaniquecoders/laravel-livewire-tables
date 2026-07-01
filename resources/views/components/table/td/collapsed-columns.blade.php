@@ -41,7 +41,7 @@
                         ->class([
                             'h-6 w-6' => $isTailwind && ($this->getCollapsingColumnButtonCollapseAttributes['default-styling'] ?? true),
                             'text-yellow-600' => $isTailwind && ($this->getCollapsingColumnButtonCollapseAttributes['default-colors'] ?? true),
-                            'laravel-livewire-tables-btn-lg text-warning' => $isBootstrap && ($this->getCollapsingColumnButtonExpandAttributes['default-colors'] ?? true),
+                            'laravel-livewire-tables-btn-lg text-warning' => $isBootstrap && ($this->getCollapsingColumnButtonCollapseAttributes['default-colors'] ?? true),
                         ])
                         ->except(['default','default-styling','default-colors']) 
                     }}

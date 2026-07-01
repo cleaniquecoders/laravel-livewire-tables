@@ -45,6 +45,7 @@
                 <flux:navlist.item icon="chevron-double-right" href="/pagination" :current="$current === 'pagination'" wire:navigate>Pagination</flux:navlist.item>
                 <flux:navlist.item icon="inbox" href="/empty" :current="$current === 'empty'" wire:navigate>Empty state</flux:navlist.item>
                 <flux:navlist.item icon="rectangle-stack" href="/multi-table" :current="$current === 'multi-table'" wire:navigate>Multi-table</flux:navlist.item>
+                <flux:navlist.item icon="device-phone-mobile" href="/responsive" :current="$current === 'responsive'" wire:navigate>Responsive</flux:navlist.item>
             </flux:navlist.group>
 
             {{-- Each theme page loads only its own CSS/JS, so Tailwind/Bootstrap

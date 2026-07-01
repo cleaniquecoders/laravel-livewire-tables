@@ -18,6 +18,7 @@ use Workbench\App\Livewire\FluxThemeTable;
 use Workbench\App\Livewire\MultiTableReorderable;
 use Workbench\App\Livewire\MultiTableStatic;
 use Workbench\App\Livewire\NoPaginationTable;
+use Workbench\App\Livewire\ResponsiveTable;
 use Workbench\App\Livewire\SimplePaginationTable;
 use Workbench\App\Livewire\TailwindThemeTable;
 
@@ -46,6 +47,7 @@ class WorkbenchServiceProvider extends ServiceProvider
         Livewire::component('bootstrap-theme4-table', BootstrapTheme4Table::class);
         Livewire::component('multi-table-reorderable', MultiTableReorderable::class);
         Livewire::component('multi-table-static', MultiTableStatic::class);
+        Livewire::component('responsive-table', ResponsiveTable::class);
 
         // LivewireComponentFilter validates its backing component against
         // livewire.class_namespace + a studly dot-path, so point that at the
