@@ -7,10 +7,7 @@
         xmlns="http://www.w3.org/2000/svg"
         fill="none" stroke="currentColor"
         viewBox="0 0 24 24"
-        @class([
-            'inline w-4 h-4' => $isTailwind,
-            'd-inline' => ($isBootstrap4 || $isBootstrap5),
-        ])
+        @class([$this->themeClasses('td.reorder.svg')])
         @style([
             'width:1em; height:1em;' => ($isBootstrap4 || $isBootstrap5),
         ])

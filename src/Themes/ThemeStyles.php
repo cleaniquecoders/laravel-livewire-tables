@@ -73,6 +73,7 @@ class ThemeStyles
             'collapsed.p.b' => 'sm:block md:hidden',
             'collapsed.p.c' => 'sm:block lg:hidden',
             'collapsed.p.d' => '',
+            'td.reorder.svg' => 'inline w-4 h-4',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -132,6 +133,7 @@ class ThemeStyles
             'collapsed.p.b' => 'd-md-none',
             'collapsed.p.c' => 'd-lg-none',
             'collapsed.p.d' => 'd-sm-none',
+            'td.reorder.svg' => 'd-inline',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -188,6 +190,7 @@ class ThemeStyles
             'collapsed.p.b' => 'd-md-none',
             'collapsed.p.c' => 'd-lg-none',
             'collapsed.p.d' => 'd-sm-none',
+            'td.reorder.svg' => 'd-inline',
         ],
     ];
 
