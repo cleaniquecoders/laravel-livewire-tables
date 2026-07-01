@@ -48,6 +48,10 @@ class ThemeStyles
             'filter.input.bs' => '',
             'filter.select.wrapper' => 'rounded-md shadow-sm',
             'filter.select.styling' => 'block w-full transition duration-150 ease-in-out rounded-md shadow-sm focus:ring focus:ring-opacity-50',
+            'filter.numberrange.outer' => 'mt-4 h-22 pt-8 pb-4 grid gap-10',
+            'filter.numberrange.slider' => 'range-slider flat',
+            'filter.daterange.wrapper' => 'w-full rounded-md shadow-sm text-left ',
+            'filter.daterange.input' => 'w-full inline-block align-middle transition duration-150 ease-in-out border-gray-300 rounded-md shadow-sm transition duration-150 ease-in-out focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -82,6 +86,10 @@ class ThemeStyles
             'filter.input.bs' => 'form-control',
             'filter.select.wrapper' => 'inline',
             'filter.select.styling' => 'form-control',
+            'filter.numberrange.outer' => 'mt-4 h-22 w-100 pb-4 pt-2 grid gap-10',
+            'filter.numberrange.slider' => 'range-slider flat w-100',
+            'filter.daterange.wrapper' => 'd-inline-block w-100 mb-3 mb-md-0 input-group',
+            'filter.daterange.input' => 'd-inline-block w-100 form-control',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -113,6 +121,10 @@ class ThemeStyles
             'filter.input.bs' => 'form-control',
             'filter.select.wrapper' => 'inline',
             'filter.select.styling' => 'form-select',
+            'filter.numberrange.outer' => 'mt-4 h-22 w-100 pb-4 pt-2 grid gap-10',
+            'filter.numberrange.slider' => 'range-slider flat w-100',
+            'filter.daterange.wrapper' => 'd-inline-block w-100 mb-3 mb-md-0 input-group',
+            'filter.daterange.input' => 'd-inline-block w-100 form-control',
         ],
     ];
 
