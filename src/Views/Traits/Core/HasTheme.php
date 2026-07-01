@@ -3,9 +3,19 @@
 namespace Rappasoft\LaravelLivewireTables\Views\Traits\Core;
 
 use Livewire\Attributes\{Computed, Locked};
+use Rappasoft\LaravelLivewireTables\Themes\ThemeStyles;
 
 trait HasTheme
 {
+    /**
+     * Theme-strategy seam (#23): return the class string for a key under the
+     * active theme, instead of branching on @if($isTailwind) inside blades.
+     */
+    public function themeClasses(string $key): string
+    {
+        return ThemeStyles::for($this->getTheme(), $key);
+    }
+
     #[Locked]
     public ?string $theme;
 
