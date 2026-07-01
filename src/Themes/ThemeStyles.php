@@ -52,6 +52,9 @@ class ThemeStyles
             'filter.numberrange.slider' => 'range-slider flat',
             'filter.daterange.wrapper' => 'w-full rounded-md shadow-sm text-left ',
             'filter.daterange.input' => 'w-full inline-block align-middle transition duration-150 ease-in-out border-gray-300 rounded-md shadow-sm transition duration-150 ease-in-out focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600',
+            'toolbar.perpage.margin' => '',
+            'toolbar.perpage.styling' => 'block w-full rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 focus:ring focus:ring-opacity-50',
+            'toolbar.perpage.colors' => 'border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-700 dark:text-white dark:border-gray-600',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -90,6 +93,9 @@ class ThemeStyles
             'filter.numberrange.slider' => 'range-slider flat w-100',
             'filter.daterange.wrapper' => 'd-inline-block w-100 mb-3 mb-md-0 input-group',
             'filter.daterange.input' => 'd-inline-block w-100 form-control',
+            'toolbar.perpage.margin' => 'ml-0 ml-md-2',
+            'toolbar.perpage.styling' => 'form-control',
+            'toolbar.perpage.colors' => '',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -125,6 +131,9 @@ class ThemeStyles
             'filter.numberrange.slider' => 'range-slider flat w-100',
             'filter.daterange.wrapper' => 'd-inline-block w-100 mb-3 mb-md-0 input-group',
             'filter.daterange.input' => 'd-inline-block w-100 form-control',
+            'toolbar.perpage.margin' => 'ms-0 ms-md-2',
+            'toolbar.perpage.styling' => 'form-select',
+            'toolbar.perpage.colors' => '',
         ],
     ];
 
