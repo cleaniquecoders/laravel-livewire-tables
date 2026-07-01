@@ -4,7 +4,17 @@ namespace Workbench\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use Workbench\App\Livewire\BootstrapThemeTable;
+use Workbench\App\Livewire\ColumnTypesTable;
+use Workbench\App\Livewire\CursorPaginationTable;
 use Workbench\App\Livewire\DemoPetsTable;
+use Workbench\App\Livewire\EmptyStateTable;
+use Workbench\App\Livewire\FeaturesTable;
+use Workbench\App\Livewire\FilterTypesTable;
+use Workbench\App\Livewire\FluxThemeTable;
+use Workbench\App\Livewire\NoPaginationTable;
+use Workbench\App\Livewire\SimplePaginationTable;
+use Workbench\App\Livewire\TailwindThemeTable;
 
 class WorkbenchServiceProvider extends ServiceProvider
 {
@@ -14,10 +24,19 @@ class WorkbenchServiceProvider extends ServiceProvider
         // not collide with Testbench's built-in "welcome" view.
         $this->loadViewsFrom(dirname(__DIR__, 2).'/resources/views', 'workbench');
 
-        // Demo Livewire table components for the workbench showcase.
+        // Demo Livewire table components for the workbench showcase — one per
+        // scenario (column types, filter types, features, pagination, empty
+        // state, and a per-theme comparison).
         Livewire::component('demo-pets-table', DemoPetsTable::class);
-
-        // Additional demo tables (one per column/filter/feature group) are
-        // registered here as milestone M2 is built out.
+        Livewire::component('column-types-table', ColumnTypesTable::class);
+        Livewire::component('filter-types-table', FilterTypesTable::class);
+        Livewire::component('features-table', FeaturesTable::class);
+        Livewire::component('simple-pagination-table', SimplePaginationTable::class);
+        Livewire::component('cursor-pagination-table', CursorPaginationTable::class);
+        Livewire::component('no-pagination-table', NoPaginationTable::class);
+        Livewire::component('empty-state-table', EmptyStateTable::class);
+        Livewire::component('flux-theme-table', FluxThemeTable::class);
+        Livewire::component('tailwind-theme-table', TailwindThemeTable::class);
+        Livewire::component('bootstrap-theme-table', BootstrapThemeTable::class);
     }
 }

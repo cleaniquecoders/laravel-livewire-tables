@@ -2,12 +2,21 @@
 
 namespace Workbench\App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Workbench\Database\Factories\PetFactory;
 
 class Pet extends Model
 {
+    use HasFactory;
+
     protected $guarded = [];
+
+    protected static function newFactory(): PetFactory
+    {
+        return PetFactory::new();
+    }
 
     protected $casts = [
         'last_visit' => 'date',
