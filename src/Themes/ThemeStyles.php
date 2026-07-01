@@ -34,6 +34,10 @@ class ThemeStyles
             'th.reorder.styling' => 'table-cell px-6 py-3 text-left text-xs font-medium whitespace-nowrap uppercase tracking-wider',
             'th.reorder.colors' => 'text-gray-500 dark:bg-gray-800 dark:text-gray-400',
             'th.reorder.bs' => '',
+            'th.bulkactions.wrapper' => 'inline-flex rounded-md shadow-sm',
+            'th.bulkactions.checkbox.colors' => 'border-gray-300 text-indigo-600 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-900 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 dark:focus:bg-gray-600',
+            'th.bulkactions.checkbox.styling' => 'rounded shadow-sm transition duration-150 ease-in-out focus:ring focus:ring-opacity-50 ',
+            'th.bulkactions.checkbox.bs' => '',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -54,6 +58,10 @@ class ThemeStyles
             'th.reorder.styling' => '',
             'th.reorder.colors' => '',
             'th.reorder.bs' => 'laravel-livewire-tables-reorderingMinimised',
+            'th.bulkactions.wrapper' => 'form-check',
+            'th.bulkactions.checkbox.colors' => '',
+            'th.bulkactions.checkbox.styling' => '',
+            'th.bulkactions.checkbox.bs' => 'form-check-input',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -71,6 +79,10 @@ class ThemeStyles
             'th.reorder.styling' => '',
             'th.reorder.colors' => '',
             'th.reorder.bs' => 'laravel-livewire-tables-reorderingMinimised',
+            'th.bulkactions.wrapper' => 'form-check',
+            'th.bulkactions.checkbox.colors' => '',
+            'th.bulkactions.checkbox.styling' => '',
+            'th.bulkactions.checkbox.bs' => 'form-check-input',
         ],
     ];
 
