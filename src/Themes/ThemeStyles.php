@@ -46,6 +46,8 @@ class ThemeStyles
             'filter.input.styling' => 'block w-full rounded-md shadow-sm transition duration-150 ease-in-out focus:ring focus:ring-opacity-50',
             'filter.input.colors' => 'border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-800 dark:text-white dark:border-gray-600',
             'filter.input.bs' => '',
+            'filter.select.wrapper' => 'rounded-md shadow-sm',
+            'filter.select.styling' => 'block w-full transition duration-150 ease-in-out rounded-md shadow-sm focus:ring focus:ring-opacity-50',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -78,6 +80,8 @@ class ThemeStyles
             'filter.input.styling' => '',
             'filter.input.colors' => '',
             'filter.input.bs' => 'form-control',
+            'filter.select.wrapper' => 'inline',
+            'filter.select.styling' => 'form-control',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -107,6 +111,8 @@ class ThemeStyles
             'filter.input.styling' => '',
             'filter.input.colors' => '',
             'filter.input.bs' => 'form-control',
+            'filter.select.wrapper' => 'inline',
+            'filter.select.styling' => 'form-select',
         ],
     ];
 
