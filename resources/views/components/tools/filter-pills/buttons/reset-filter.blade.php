@@ -6,8 +6,10 @@
     $filterButtonAttributes = $filterPillData->getCalculatedCustomResetButtonAttributes($filterKey,$this->getFilterPillsResetFilterButtonAttributes);
 
 @endphp
-@if ($isTailwind)
-    <button 
+@if ($this->isFlux())
+    <flux:badge.close x-on:click.prevent="resetSpecificFilter('{{ $filterKey }}')" :aria-label="__($localisationPath.'Remove filter option')" />
+@elseif ($isTailwind)
+    <button
         {{
             $attributes->merge($filterButtonAttributes)
             ->class([

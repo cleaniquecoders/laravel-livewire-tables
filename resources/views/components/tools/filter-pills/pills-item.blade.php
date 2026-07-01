@@ -6,7 +6,21 @@
     'filterPillsItemAttributes' => $filterPillData->getFilterPillsItemAttributes(),
     ])
 
-<div x-data="filterPillsHandler(@js($filterPillData->getPillSetupData($filterKey,$shouldWatch)))" x-bind="trigger" 
+@if ($this->isFlux())
+    <div
+        x-data="filterPillsHandler(@js($filterPillData->getPillSetupData($filterKey,$shouldWatch)))"
+        x-bind="trigger"
+        wire:key="{{ $tableName }}-filter-pill-{{ $filterKey }}"
+        class="inline-flex"
+    >
+        <flux:badge color="zinc" size="sm" variant="pill">
+            <span x-text="localFilterTitle + ':&nbsp;'"></span>
+            <span {{ $filterPillData->getFilterPillDisplayData() }}></span>
+            <x-livewire-tables::tools.filter-pills.buttons.reset-filter :$filterKey :$filterPillData/>
+        </flux:badge>
+    </div>
+@else
+<div x-data="filterPillsHandler(@js($filterPillData->getPillSetupData($filterKey,$shouldWatch)))" x-bind="trigger"
         wire:key="{{ $tableName }}-filter-pill-{{ $filterKey }}" {{
         $attributes->merge($filterPillsItemAttributes)
         ->class([
@@ -26,3 +40,4 @@
     <x-livewire-tables::tools.filter-pills.buttons.reset-filter :$filterKey :$filterPillData/>
 
 </div>
+@endif
