@@ -2,14 +2,8 @@
 
 namespace Rappasoft\LaravelLivewireTables\Traits;
 
-use Rappasoft\LaravelLivewireTables\Traits\Configuration\RefreshConfiguration;
-use Rappasoft\LaravelLivewireTables\Traits\Helpers\RefreshHelpers;
-
 trait WithRefresh
 {
-    use RefreshConfiguration,
-        RefreshHelpers;
-
     /**
      * Whether to refresh the table at a certain interval or not
      * false is off
@@ -19,4 +13,69 @@ trait WithRefresh
      * @var bool|string
      */
     protected $refresh = false;
+
+    // --- merged from RefreshConfiguration (#28) ---
+
+    public function setRefreshTime(int $time): self
+    {
+        $this->refresh = (string) $time;
+
+        return $this;
+    }
+
+    public function setRefreshKeepAlive(): self
+    {
+        $this->refresh = 'keep-alive';
+
+        return $this;
+    }
+
+    public function setRefreshVisible(): self
+    {
+        $this->refresh = 'visible';
+
+        return $this;
+    }
+
+    public function setRefreshMethod(string $method): self
+    {
+        $this->refresh = $method;
+
+        return $this;
+    }
+
+    // --- merged from RefreshHelpers (#28) ---
+
+    public function hasRefresh(): bool
+    {
+        return $this->refresh !== false;
+    }
+
+    /**
+     * @return bool|string
+     */
+    public function getRefreshStatus()
+    {
+        return $this->refresh;
+    }
+
+    public function getRefreshOptions(): ?string
+    {
+        if ($this->hasRefresh()) {
+            if (is_numeric($this->getRefreshStatus())) {
+                return '.'.$this->getRefreshStatus().'ms';
+            }
+
+            switch ($this->getRefreshStatus()) {
+                case 'keep-alive':
+                    return '.keep-alive';
+                case 'visible':
+                    return '.visible';
+                default:
+                    return '='.$this->getRefreshStatus();
+            }
+        }
+
+        return null;
+    }
 }
