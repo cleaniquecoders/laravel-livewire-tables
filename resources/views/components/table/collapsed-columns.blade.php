@@ -4,7 +4,7 @@
 @if ($this->collapsingColumnsAreEnabled && $this->hasCollapsedColumns)
     @php($customAttributes = $this->getTrAttributes($row, $rowIndex))
     <tr x-data
-        @toggle-row-content.window="($event.detail.tableName === '{{ $tableName }}' && $event.detail.row === {{ $rowIndex }}) ? $el.classList.toggle('{{ $isBootstrap ? 'd-none' : 'hidden' }}') : null"
+        @toggle-row-content.window="($event.detail.tableName === '{{ $tableName }}' && $event.detail.row === {{ $rowIndex }}) ? $el.classList.toggle('{{ $this->themeClasses('collapsed.hiddenclass') }}') : null"
         {{
             $attributes->merge([
                     'wire:loading.class.delay' => 'opacity-50 dark:bg-gray-900 dark:opacity-60',
@@ -12,31 +12,22 @@
                 ])
                 ->merge($customAttributes)
                 ->class([
-                    'hidden bg-white dark:bg-gray-700 dark:text-white rappasoft-striped-row' => ($isTailwind && ($customAttributes['default'] ?? true) && $rowIndex % 2 === 0),
-                    'hidden bg-gray-50 dark:bg-gray-800 dark:text-white rappasoft-striped-row' => ($isTailwind && ($customAttributes['default'] ?? true) && $rowIndex % 2 !== 0),
-                    'd-none bg-light rappasoft-striped-row' => ($isBootstrap && $rowIndex % 2 === 0 && ($customAttributes['default'] ?? true)),
-                    'd-none bg-white rappasoft-striped-row' => ($isBootstrap && $rowIndex % 2 !== 0 && ($customAttributes['default'] ?? true)),
+                    $this->themeClasses('collapsed.tr.even') => (($customAttributes['default'] ?? true) && $rowIndex % 2 === 0),
+                    $this->themeClasses('collapsed.tr.odd') => (($customAttributes['default'] ?? true) && $rowIndex % 2 !== 0),
                 ])
                 ->except(['default','default-styling','default-colors'])
         }}
     >
-        <td colspan="{{ $this->getColspanCount }}" @class([
-                'text-left pt-4 pb-2 px-4' => $isTailwind,
-                'text-start pt-3 p-2' => $isBootstrap,
-        ])>
+        <td colspan="{{ $this->getColspanCount }}" @class([$this->themeClasses('collapsed.td')])>
             <div>
                 @foreach($this->getCollapsedColumnsForContent as $colIndex => $column)
 
                     <p wire:key="{{ $tableName }}-row-{{ $row->{$primaryKey} }}-collapsed-contents-{{ $colIndex }}" @class([
-                            'block mb-2' => $isTailwind,
-                            'sm:block' => $isTailwind && $column->shouldCollapseAlways(),
-                            'sm:block md:hidden' => $isTailwind && !$column->shouldCollapseAlways() && !$column->shouldCollapseOnTablet() && $column->shouldCollapseOnMobile(),
-                            'sm:block lg:hidden' => $isTailwind && !$column->shouldCollapseAlways() && ($column->shouldCollapseOnTablet() || $column->shouldCollapseOnMobile()),
-
-                            'd-block mb-2' => $isBootstrap,
-                            'd-sm-none' => $isBootstrap && !$column->shouldCollapseAlways() && !$column->shouldCollapseOnTablet() && !$column->shouldCollapseOnMobile(),
-                            'd-md-none' => $isBootstrap && !$column->shouldCollapseAlways() && !$column->shouldCollapseOnTablet() && $column->shouldCollapseOnMobile(),
-                            'd-lg-none' => $isBootstrap && !$column->shouldCollapseAlways() && ($column->shouldCollapseOnTablet() || $column->shouldCollapseOnMobile()),
+                            $this->themeClasses('collapsed.p.base') => true,
+                            $this->themeClasses('collapsed.p.a') => $column->shouldCollapseAlways(),
+                            $this->themeClasses('collapsed.p.b') => !$column->shouldCollapseAlways() && !$column->shouldCollapseOnTablet() && $column->shouldCollapseOnMobile(),
+                            $this->themeClasses('collapsed.p.c') => !$column->shouldCollapseAlways() && ($column->shouldCollapseOnTablet() || $column->shouldCollapseOnMobile()),
+                            $this->themeClasses('collapsed.p.d') => !$column->shouldCollapseAlways() && !$column->shouldCollapseOnTablet() && !$column->shouldCollapseOnMobile(),
                     ])>
                         <strong>{{ $column->getTitle() }}</strong>: 
                         @if($column->isHtml())
