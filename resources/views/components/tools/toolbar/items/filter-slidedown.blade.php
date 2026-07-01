@@ -12,7 +12,7 @@
                 'x-transition:leave-end' => 'transform opacity-0',
             ] : [])
             ->class([
-                'container' => $isBootstrap && ($this->getFilterSlidedownWrapperAttributes['default'] ?? true),
+                $this->themeClasses('fs.container') => ($this->getFilterSlidedownWrapperAttributes['default'] ?? true),
             ])
             ->except(['default','default-colors','default-styling'])
         }} 
@@ -26,8 +26,7 @@
                 'row' => $filterRowIndex,
             ])
             ->class([
-                'row col-12' => $isBootstrap && ($defaultAttributes['default-styling'] ?? true),
-                'grid grid-cols-12 gap-6 px-4 py-2 mb-2' => $isTailwind && ($defaultAttributes['default-styling'] ?? true),
+                $this->themeClasses('fs.row') => ($defaultAttributes['default-styling'] ?? true),
             ])
             ->except(['default','default-colors','default-styling'])
         }} 

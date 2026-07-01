@@ -10,8 +10,7 @@
 <tr wire:key="{{ $tableName }}-loader" wire:loading.class.remove="hidden d-none" {{
     $attributes->merge($loaderRow)
         ->class([
-            'hidden w-full text-center place-items-center align-middle' => $isTailwind && ($loaderRow['default'] ?? true),
-            'd-none w-100 text-center align-items-center' => $isBootstrap && ($loaderRow['default'] ?? true),
+            $this->themeClasses('loading.row') => ($loaderRow['default'] ?? true),
         ])
         ->except(['default','default-styling','default-colors'])
 }}>

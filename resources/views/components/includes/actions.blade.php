@@ -3,10 +3,7 @@
 <div {{ $attributes
             ->merge($this->actionWrapperAttributes)
             ->class([
-                'flex flex-cols py-2 space-x-2' => $isTailwind && ($actionWrapperAttributes['default-styling'] ?? true),
-                '' => $isTailwind && ($actionWrapperAttributes['default-colors'] ?? true),
-                'd-flex flex-cols py-2 space-x-2' => $isBootstrap && ($this->actionWrapperAttributes['default-styling'] ?? true),
-                '' => $isBootstrap && ($actionWrapperAttributes['default-colors'] ?? true),
+                $this->themeClasses('actions.wrapper') => ($actionWrapperAttributes['default-styling'] ?? true),
                 'justify-start' => $this->getActionsPosition === 'left',
                 'justify-center' => $this->getActionsPosition === 'center',
                 'justify-end' => $this->getActionsPosition === 'right',
