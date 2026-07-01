@@ -16,12 +16,15 @@ v4.0 adds a **Flux theme** that renders the table and every control with native
 A runnable local demo of every column, filter, feature, and theme lives in the workbench — see
 [Development · Workbench](docs/02-development/02-workbench.md).
 
-## Installation
+## Quick Start
 
-This fork keeps the `rappasoft/laravel-livewire-tables` package name and is **not published to
-Packagist**, so install it by pointing Composer at this repository with a VCS repository entry.
+> [!IMPORTANT]
+> This fork is **not published to Packagist**. A plain `composer require rappasoft/laravel-livewire-tables`
+> would install the upstream **v3** from Packagist instead. To use this **v4** fork you must add it as a
+> Composer **VCS repository** first (step 1). The package name and the `Rappasoft\LaravelLivewireTables\`
+> namespace are unchanged, so your existing code needs no edits.
 
-Add the repository to your application's `composer.json`:
+**1. Point Composer at this fork.** Add to your application's `composer.json`:
 
 ```json
 {
@@ -34,15 +37,31 @@ Add the repository to your application's `composer.json`:
 }
 ```
 
-Then require the `4.0` branch (the release is not tagged yet):
+**2. Require the `4.0` branch** (the release is not tagged yet, so use the dev branch):
 
 ```bash
 composer require rappasoft/laravel-livewire-tables:dev-4.0
 ```
 
-The `Rappasoft\LaravelLivewireTables\` namespace is unchanged, so no code changes are needed. Livewire 4
-bundles Alpine.js, so no separate Alpine install is required. See the
-[installation guide](docs/04-reference/01-getting-started/installation.md) for the full details.
+Livewire 4 bundles Alpine.js, so no separate Alpine install is needed.
+
+**3. Generate a table** for one of your models:
+
+```bash
+php artisan make:datatable UsersTable User
+```
+
+**4. Render it** in any Blade view:
+
+```blade
+<livewire:users-table />
+```
+
+You now have a sortable, searchable, paginated table. To use the Flux theme, call `->setTheme('flux')`
+in the component's `configure()` method (requires the free `livewire/flux` package).
+
+For the full details see the [installation guide](docs/04-reference/01-getting-started/installation.md)
+and [creating components](docs/04-reference/02-usage/creating-components.md).
 
 ## Documentation and Usage Instructions
 
