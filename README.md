@@ -1,10 +1,10 @@
 ![Package Logo](https://banners.beyondco.de/Laravel%20Livewire%20Tables.png?theme=light&packageName=rappasoft%2Flaravel-livewire-tables&pattern=hideout&style=style_1&description=A+dynamic+table+component+for+Laravel+Livewire&md=1&fontSize=100px&images=table)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rappasoft/laravel-livewire-tables.svg?style=flat-square)](https://packagist.org/packages/rappasoft/laravel-livewire-tables)
-[![Styling](https://github.com/rappasoft/laravel-livewire-tables/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/rappasoft/laravel-livewire-tables/actions/workflows/php-cs-fixer.yml)
-[![Tests](https://github.com/rappasoft/laravel-livewire-tables/actions/workflows/run-tests.yml/badge.svg)](https://github.com/rappasoft/laravel-livewire-tables/actions/workflows/run-tests.yml)
+[![License](https://img.shields.io/github/license/cleaniquecoders/laravel-livewire-tables?style=flat-square)](LICENSE.md)
+[![Styling](https://github.com/cleaniquecoders/laravel-livewire-tables/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/cleaniquecoders/laravel-livewire-tables/actions/workflows/php-cs-fixer.yml)
+[![Tests](https://github.com/cleaniquecoders/laravel-livewire-tables/actions/workflows/run-tests.yml/badge.svg)](https://github.com/cleaniquecoders/laravel-livewire-tables/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/rappasoft/laravel-livewire-tables.svg?style=flat-square)](https://packagist.org/packages/rappasoft/laravel-livewire-tables)
-[![codecov](https://codecov.io/gh/rappasoft/laravel-livewire-tables/graph/badge.svg?token=1B9VKO9KWG)](https://codecov.io/gh/rappasoft/laravel-livewire-tables)
 ![PHP Stan Level 6](https://img.shields.io/badge/PHPStan-level%206-brightgreen.svg?style=flat)
 
 ### Enjoying this package? [Buy me a beer 🍺](https://www.buymeacoffee.com/rappasoft)
@@ -15,9 +15,15 @@ A dynamic Laravel Livewire component for data tables.
 >
 > **Requirements:** PHP 8.2+ · Laravel 12 or 13 · Livewire 4.
 
-![Dark Mode](https://imgur.com/QoEdC7n.png)
+v4.0 adds a **Flux theme** that renders the table and every control with native
+[Flux UI](https://fluxui.dev) components, in light and dark mode:
 
-![Full Table](https://i.imgur.com/2kfibjR.png)
+![Flux theme — Overview table in light mode](docs/assets/screenshots/flux-overview-light.png)
+
+![Flux theme — the same table in dark mode](docs/assets/screenshots/flux-overview-dark.png)
+
+A runnable local demo of every column, filter, feature, and theme lives in the workbench — see
+[Development · Workbench](docs/02-development/02-workbench.md).
 
 ### [Bootstrap 4 Demo](https://tables.laravel-boilerplate.com/bootstrap-4) | [Bootstrap 5 Demo](https://tables.laravel-boilerplate.com/bootstrap-5) | [Tailwind Demo](https://tables.laravel-boilerplate.com/tailwind) | [Demo Repository](https://github.com/rappasoft/laravel-livewire-tables-demo)
 
@@ -33,7 +39,11 @@ Livewire 4 bundles Alpine.js, so no separate Alpine install is required.
 
 ## Documentation and Usage Instructions
 
-See the [documentation](https://rappasoft.com/docs/laravel-livewire-tables) for detailed installation and usage instructions.
+Start with the [project documentation](docs/README.md) in this repository — it covers the v4 fork, the
+Flux theme, the workbench demo, testing, and the upgrade guide. The original end-user reference is also
+mirrored at [rappasoft.com/docs/laravel-livewire-tables](https://rappasoft.com/docs/laravel-livewire-tables).
+
+To upgrade from v3, see the [migration guide](docs/v4/MIGRATION.md).
 
 ## Basic Example
 
