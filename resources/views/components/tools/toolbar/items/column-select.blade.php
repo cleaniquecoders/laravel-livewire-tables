@@ -46,6 +46,19 @@
                     <div class="p-2" role="menu" aria-orientation="vertical"
                             aria-labelledby="column-select-menu"
                     >
+                        @if ($this->isFlux())
+                            <flux:checkbox
+                                @checked($this->getSelectableSelectedColumns()->count() === $this->getSelectableColumns()->count())
+                                wire:click="{{ $this->getSelectableSelectedColumns()->count() === $this->getSelectableColumns()->count() ? 'deselectAllColumns' : 'selectAllColumns' }}"
+                                label="{{ __($localisationPath.'All Columns') }}"
+                                class="mb-2"
+                            />
+                            <flux:checkbox.group wire:model.live="selectedColumns" class="space-y-1.5">
+                                @foreach ($this->getColumnsForColumnSelect() as $columnSlug => $columnTitle)
+                                    <flux:checkbox value="{{ $columnSlug }}" label="{{ $columnTitle }}" />
+                                @endforeach
+                            </flux:checkbox.group>
+                        @else
                         <div wire:key="{{ $tableName }}-columnSelect-selectAll-{{ rand(0,1000) }}">
                             <label
                                 wire:loading.attr="disabled"
@@ -94,6 +107,7 @@
                                 </label>
                             </div>
                         @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

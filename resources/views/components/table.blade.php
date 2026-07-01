@@ -14,7 +14,8 @@
         wire:key="{{ $tableName }}-twrap"
         {{ $attributes->merge($customAttributes['wrapper'])
             ->class([
-                'shadow overflow-y-auto border-b border-gray-200 dark:border-gray-700 sm:rounded-lg' => $customAttributes['wrapper']['default'] ?? true
+                'shadow overflow-y-auto border-b border-gray-200 dark:border-gray-700 sm:rounded-lg' => ! $this->isFlux() && ($customAttributes['wrapper']['default'] ?? true),
+                'lwt-flux overflow-y-auto' => $this->isFlux() && ($customAttributes['wrapper']['default'] ?? true),
             ])
             ->except(['default','default-styling','default-colors']) }}
     >
