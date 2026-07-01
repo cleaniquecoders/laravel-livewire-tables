@@ -1,10 +1,7 @@
-<div @class([
-                'items-center content-center place-content-center place-items-center' => $isTailwind,
-            ])
->
+@php($lwtTheme = ($isTailwind ?? true) ? 'tailwind' : 'bootstrap-5')
+<div @class([lwtThemeClasses($lwtTheme,'column.color.wrapper') => $isTailwind])>
     <div {{ $attributeBag->class([
-            'h-6 w-6 rounded-md self-center' => $isTailwind && ($attributeBag['default'] ?? (empty($attributeBag['class']) || (!empty($attributeBag['class']) && ($attributeBag['default'] ?? false)))),
-            
+            lwtThemeClasses($lwtTheme,'column.color.swatch') => $isTailwind && ($attributeBag['default'] ?? (empty($attributeBag['class']) || (!empty($attributeBag['class']) && ($attributeBag['default'] ?? false)))),
         ]) }}
         @style([
             "background-color: {$color}" => $color,

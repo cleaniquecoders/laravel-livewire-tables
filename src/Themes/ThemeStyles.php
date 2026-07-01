@@ -145,6 +145,8 @@ class ThemeStyles
             'cs.dropdown' => '',
             'cs.menu' => '',
             'cs.formcheck' => '',
+            'column.color.wrapper' => 'items-center content-center place-content-center place-items-center',
+            'column.color.swatch' => 'h-6 w-6 rounded-md self-center',
             'toolbar.filterbtn.button' => 'inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200/50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600',
             'toolbar.filterbtn.badge' => 'ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-indigo-100 text-indigo-800 capitalize dark:bg-indigo-200 dark:text-indigo-900',
         ],
