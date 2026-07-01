@@ -38,7 +38,8 @@ The full end-user reference for every column, filter, and feature lives under
 
 ## v4 planning documents
 
-- [Migration guide (v3 → v4)](v4/MIGRATION.md)
-- [Implementation plan](v4/IMPLEMENTATION-PLAN.md)
-- [Improvement proposal](v4/IMPROVEMENT-PROPOSAL.md)
-- [Flux theme plan](v4/FLUX-THEME-PLAN.md)
+The v4.0 planning artefacts now live inside the numbered sections:
+
+- [Migration guide (v3 → v4)](05-support/02-upgrading.md)
+- [Implementation plan](00-product/03-implementation-plan.md)
+- [Improvement proposal](00-product/04-improvement-proposal.md)

@@ -42,7 +42,7 @@ Run these only after a maintainer approves the release.
    ```
 
 2. Update `CHANGELOG.md`: rename the `[Unreleased] - v4.0 (cleaniquecoders fork)` heading to `[v4.0.0]` and add the
-   release date. Keep the deferred-work note that points at `docs/v4/`.
+   release date. Keep the deferred-work note that points at the [roadmap](../00-product/02-roadmap.md).
 
 3. Commit the changelog and docs updates on the release branch and merge to `master`.
 

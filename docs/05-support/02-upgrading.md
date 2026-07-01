@@ -1,8 +1,7 @@
 # Upgrading from v3 to v4
 
-v4.0 of this fork targets **Laravel 12 and 13** with **Livewire 4**, and **drops Livewire 3** entirely. This page is a
-faithful summary of the canonical migration notes. For the full version, read
-[docs/v4/MIGRATION.md](../v4/MIGRATION.md).
+v4.0 of this fork targets **Laravel 12 and 13** with **Livewire 4**, and **drops Livewire 3** entirely. This is the
+canonical guide for upgrading from `rappasoft/laravel-livewire-tables` v3.x (or an earlier fork build).
 
 The fork exists because upstream declined Livewire 4 support
 ([rappasoft#2315](https://github.com/rappasoft/laravel-livewire-tables/issues/2315), marked `wontfix`) and had not
@@ -72,8 +71,13 @@ unchanged. Run your test suite after upgrading.
   `setShouldRetrieveTotalItemCountDisabled()`.
 - Sortable headers now expose `aria-sort` for screen readers.
 
-## Canonical reference
+## For package developers
 
-This page is a summary. The authoritative migration guide — including the full requirements table, package-developer
-notes (Pest 4, the Testbench workbench), and known post-4.0 follow-ups — lives at
-[docs/v4/MIGRATION.md](../v4/MIGRATION.md).
+- Tests run on **Pest 4** (`composer test`); existing PHPUnit-style tests still run via Pest's interop.
+- A **Testbench workbench** ships for local QA — see [Workbench](../02-development/02-workbench.md).
+
+## Known follow-ups (post-4.0)
+
+Tracked in the post-4.0 follow-ups milestone: the theme-strategy refactor and Tailwind 4, trait consolidation, the
+Vite asset pipeline, BelongsToMany relation columns, multi-table reorder isolation, and exhaustive per-component
+workbench demos. See the [roadmap](../00-product/02-roadmap.md) for the full picture.

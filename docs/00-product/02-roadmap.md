@@ -1,8 +1,8 @@
 # Roadmap
 
 The v4.0 roadmap for the `cleaniquecoders/laravel-livewire-tables` fork, organised as GitHub milestones M1–M8. This
-page summarises the milestones and phases from `docs/v4/IMPLEMENTATION-PLAN.md`. The release milestone (M8) is currently
-**HELD** — no `v4.0.0` tag or Packagist publish yet.
+page summarises the milestones and phases from the [implementation plan](03-implementation-plan.md). The release
+milestone (M8) is currently **HELD** — no `v4.0.0` tag or Packagist publish yet.
 
 ## Milestones
 

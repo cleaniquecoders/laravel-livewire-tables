@@ -1,6 +1,6 @@
 # v4.0 Improvement & Enhancement Proposal
 
-> Companion to `IMPLEMENTATION-PLAN.md`. Findings from a full codebase analysis (~282 PHP files in `src/`, ~8,300 LOC of traits, 59 themed blade files). Each item maps to a GitHub issue/milestone.
+> Companion to the [implementation plan](03-implementation-plan.md). Findings from a full codebase analysis (~282 PHP files in `src/`, ~8,300 LOC of traits, 59 themed blade files). Each item maps to a GitHub issue/milestone.
 
 ## 1. Architecture & Refactoring (M6)
 

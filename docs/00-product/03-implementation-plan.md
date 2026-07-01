@@ -1,6 +1,7 @@
 # v4.0 Implementation Plan — Laravel 13 + Livewire 4
 
-> Status: **proposal for review** (no implementation started). Tracked as GitHub milestones **M1–M8** and 43 issues in `cleaniquecoders/laravel-livewire-tables`.
+> This is the original v4.0 implementation plan, tracked as GitHub milestones **M1–M8**. For the summarised
+> milestone table and current status, see the [roadmap](02-roadmap.md).
 
 ## Goal
 

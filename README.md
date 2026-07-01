@@ -2,7 +2,7 @@
 
 A dynamic Laravel Livewire component for data tables.
 
-> **This is the `cleaniquecoders/laravel-livewire-tables` fork (v4.0).** It targets **Laravel 12/13 + Livewire 4** and **drops Livewire 3** — created because upstream declined Livewire 4 support ([rappasoft#2315](https://github.com/rappasoft/laravel-livewire-tables/issues/2315), `wontfix`). See [docs/v4/MIGRATION.md](docs/v4/MIGRATION.md) to upgrade. All credit for the original package goes to [@rappasoft](https://github.com/rappasoft) and its contributors.
+> **This is the `cleaniquecoders/laravel-livewire-tables` fork (v4.0).** It targets **Laravel 12/13 + Livewire 4** and **drops Livewire 3** — created because upstream declined Livewire 4 support ([rappasoft#2315](https://github.com/rappasoft/laravel-livewire-tables/issues/2315), `wontfix`). See [docs/05-support/02-upgrading.md](docs/05-support/02-upgrading.md) to upgrade. All credit for the original package goes to [@rappasoft](https://github.com/rappasoft) and its contributors.
 >
 > **Requirements:** PHP 8.2+ · Laravel 12 or 13 · Livewire 4.
 
@@ -32,7 +32,7 @@ Start with the [project documentation](docs/README.md) in this repository — it
 Flux theme, the workbench demo, testing, and the upgrade guide. The original end-user reference is also
 mirrored at [rappasoft.com/docs/laravel-livewire-tables](https://rappasoft.com/docs/laravel-livewire-tables).
 
-To upgrade from v3, see the [migration guide](docs/v4/MIGRATION.md).
+To upgrade from v3, see the [migration guide](docs/05-support/02-upgrading.md).
 
 ## Basic Example
 
