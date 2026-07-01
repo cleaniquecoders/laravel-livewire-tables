@@ -63,6 +63,7 @@ class ThemeStyles
             'td.collapsed.icon.styling' => 'h-6 w-6',
             'td.collapsed.expandicon.colors' => 'text-green-600',
             'td.collapsed.collapseicon.colors' => 'text-yellow-600',
+            'th.collapsed.base' => 'table-cell dark:bg-gray-800 laravel-livewire-tables-reorderingMinimised',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -112,6 +113,7 @@ class ThemeStyles
             'td.collapsed.icon.styling' => '',
             'td.collapsed.expandicon.colors' => 'laravel-livewire-tables-btn-lg text-success',
             'td.collapsed.collapseicon.colors' => 'laravel-livewire-tables-btn-lg text-warning',
+            'th.collapsed.base' => 'd-table-cell laravel-livewire-tables-reorderingMinimised',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -158,6 +160,7 @@ class ThemeStyles
             'td.collapsed.icon.styling' => '',
             'td.collapsed.expandicon.colors' => 'laravel-livewire-tables-btn-lg text-success',
             'td.collapsed.collapseicon.colors' => 'laravel-livewire-tables-btn-lg text-warning',
+            'th.collapsed.base' => 'd-table-cell laravel-livewire-tables-reorderingMinimised',
         ],
     ];
 
