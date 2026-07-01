@@ -20,15 +20,11 @@
         {{
             $attributes->merge($customAttributes)
                 ->class([
-                    'px-6 py-4 whitespace-nowrap text-sm font-medium dark:text-white' => $isTailwind && ($customAttributes['default'] ?? true),
-                    'hidden' =>  $isTailwind && $column && $column->shouldCollapseAlways(),
-                    'hidden md:table-cell' => $isTailwind && $column && $column->shouldCollapseOnMobile(),
-                    'hidden lg:table-cell' => $isTailwind && $column && $column->shouldCollapseOnTablet(),
-                    '' => $isBootstrap && ($customAttributes['default'] ?? true),
-                    'd-none' => $isBootstrap && $column && $column->shouldCollapseAlways(),
-                    'd-none d-md-table-cell' => $isBootstrap && $column && $column->shouldCollapseOnMobile(),
-                    'd-none d-lg-table-cell' => $isBootstrap && $column && $column->shouldCollapseOnTablet(),
-                    'laravel-livewire-tables-cursor' => $isBootstrap && $rowUrl,
+                    $this->themeClasses('td.base') => ($customAttributes['default'] ?? true),
+                    $this->themeClasses('td.collapse.always') => $column && $column->shouldCollapseAlways(),
+                    $this->themeClasses('td.collapse.mobile') => $column && $column->shouldCollapseOnMobile(),
+                    $this->themeClasses('td.collapse.tablet') => $column && $column->shouldCollapseOnTablet(),
+                    $this->themeClasses('td.cursor') => $rowUrl,
                 ])
                 ->except(['default','default-styling','default-colors'])
         }}
