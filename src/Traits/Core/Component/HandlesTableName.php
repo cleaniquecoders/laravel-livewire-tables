@@ -9,9 +9,11 @@ trait HandlesTableName
     #[Locked]
     public string $tableName = 'table';
 
-    public function setTableName(string $name): string
+    public function setTableName(string $name): self
     {
-        return $this->tableName = $name;
+        $this->tableName = $name;
+
+        return $this;
     }
 
     #[Computed]

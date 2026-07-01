@@ -15,6 +15,8 @@ use Workbench\App\Livewire\Filters\ExternalBreedFilter;
 use Workbench\App\Livewire\Filters\ExternalTextFilter;
 use Workbench\App\Livewire\FilterTypesTable;
 use Workbench\App\Livewire\FluxThemeTable;
+use Workbench\App\Livewire\MultiTableReorderable;
+use Workbench\App\Livewire\MultiTableStatic;
 use Workbench\App\Livewire\NoPaginationTable;
 use Workbench\App\Livewire\SimplePaginationTable;
 use Workbench\App\Livewire\TailwindThemeTable;
@@ -42,6 +44,8 @@ class WorkbenchServiceProvider extends ServiceProvider
         Livewire::component('tailwind-theme-table', TailwindThemeTable::class);
         Livewire::component('bootstrap-theme-table', BootstrapThemeTable::class);
         Livewire::component('bootstrap-theme4-table', BootstrapTheme4Table::class);
+        Livewire::component('multi-table-reorderable', MultiTableReorderable::class);
+        Livewire::component('multi-table-static', MultiTableStatic::class);
 
         // LivewireComponentFilter validates its backing component against
         // livewire.class_namespace + a studly dot-path, so point that at the
