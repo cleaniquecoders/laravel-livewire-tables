@@ -5,16 +5,10 @@
     'wire:loading.class' => $this->displayFilterPillsWhileLoading ? '' : 'invisible',
     'x-cloak',
 ])
-->class([
-    'mb-4 px-4 md:p-0' => $isTailwind,
-    'mb-3' => $isBootstrap,
-])
+->class([$this->themeClasses('filterpills.wrapper') => true])
 
 }}>
-    <small @class([
-        'text-gray-700 dark:text-white' => $isTailwind,
-        '' =>  $isBootstrap,
-    ])>
+    <small @class([$this->themeClasses('filterpills.small')])>
         {{ __($localisationPath.'Applied Filters') }}:
     </small>
     @tableloop($this->getPillDataForFilter() as $filterKey => $filterPillData)
