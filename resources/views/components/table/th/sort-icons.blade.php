@@ -1,10 +1,6 @@
 @aware(['isTailwind', 'isBootstrap'])
 @props(['direction' => 'none', 'customIconAttributes'])
-<span @class([
-        'relative flex items-center' => $isTailwind,
-        'relative d-flex align-items-center' => $isBootstrap
-    ])
->
+<span @class([$this->themeClasses('th.sorticons.wrapper')])>
 
     @if($isTailwind)
         @switch($direction)
