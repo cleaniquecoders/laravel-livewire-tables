@@ -39,6 +39,9 @@ class ThemeStyles
             'th.bulkactions.checkbox.styling' => 'rounded shadow-sm transition duration-150 ease-in-out focus:ring focus:ring-opacity-50 ',
             'th.bulkactions.checkbox.bs' => '',
             'td.bulkactions.wrapper' => 'inline-flex rounded-md shadow-sm',
+            'tr.bulkactions.row' => 'bg-indigo-50 dark:bg-gray-900 dark:text-white',
+            'tr.bulkactions.btn.styling' => 'ml-1 underline text-sm leading-5 font-medium focus:outline-none focus:underline transition duration-150 ease-in-out',
+            'tr.bulkactions.btn.colors' => 'text-blue-600 text-gray-700 focus:text-gray-800 dark:text-white dark:hover:text-gray-400',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -64,6 +67,9 @@ class ThemeStyles
             'th.bulkactions.checkbox.styling' => '',
             'th.bulkactions.checkbox.bs' => 'form-check-input',
             'td.bulkactions.wrapper' => '',
+            'tr.bulkactions.row' => '',
+            'tr.bulkactions.btn.styling' => 'btn btn-primary btn-sm',
+            'tr.bulkactions.btn.colors' => '',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -86,6 +92,9 @@ class ThemeStyles
             'th.bulkactions.checkbox.styling' => '',
             'th.bulkactions.checkbox.bs' => 'form-check-input',
             'td.bulkactions.wrapper' => 'form-check',
+            'tr.bulkactions.row' => '',
+            'tr.bulkactions.btn.styling' => 'btn btn-primary btn-sm',
+            'tr.bulkactions.btn.colors' => '',
         ],
     ];
 
