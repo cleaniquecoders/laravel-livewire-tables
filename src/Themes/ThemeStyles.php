@@ -38,6 +38,7 @@ class ThemeStyles
             'th.bulkactions.checkbox.colors' => 'border-gray-300 text-indigo-600 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-900 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 dark:focus:bg-gray-600',
             'th.bulkactions.checkbox.styling' => 'rounded shadow-sm transition duration-150 ease-in-out focus:ring focus:ring-opacity-50 ',
             'th.bulkactions.checkbox.bs' => '',
+            'td.bulkactions.wrapper' => 'inline-flex rounded-md shadow-sm',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -62,6 +63,7 @@ class ThemeStyles
             'th.bulkactions.checkbox.colors' => '',
             'th.bulkactions.checkbox.styling' => '',
             'th.bulkactions.checkbox.bs' => 'form-check-input',
+            'td.bulkactions.wrapper' => '',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -83,6 +85,7 @@ class ThemeStyles
             'th.bulkactions.checkbox.colors' => '',
             'th.bulkactions.checkbox.styling' => '',
             'th.bulkactions.checkbox.bs' => 'form-check-input',
+            'td.bulkactions.wrapper' => 'form-check',
         ],
     ];
 
