@@ -28,15 +28,11 @@
 <th scope="col" @if($ariaSort) aria-sort="{{ $ariaSort }}" @endif {{
     $attributes->merge($customThAttributes)
         ->class([
-            'text-gray-500 dark:bg-gray-800 dark:text-gray-400' => $isTailwind && (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
-            'px-6 py-3 text-left text-xs font-medium whitespace-nowrap uppercase tracking-wider' => $isTailwind && (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
-            'hidden' => $isTailwind && $column->shouldCollapseAlways(),
-            'hidden md:table-cell' => $isTailwind && $column->shouldCollapseOnMobile(),
-            'hidden lg:table-cell' => $isTailwind && $column->shouldCollapseOnTablet(),
-            '' => $isBootstrap && ($customThAttributes['default'] ?? true),
-            'd-none' => $isBootstrap && $column->shouldCollapseAlways(),
-            'd-none d-md-table-cell' => $isBootstrap && $column->shouldCollapseOnMobile(),
-            'd-none d-lg-table-cell' => $isBootstrap && $column->shouldCollapseOnTablet(),
+            $this->themeClasses('th.colors') => $isTailwind && (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
+            $this->themeClasses('th.styling') => $isTailwind && (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
+            $this->themeClasses('td.collapse.always') => $column->shouldCollapseAlways(),
+            $this->themeClasses('td.collapse.mobile') => $column->shouldCollapseOnMobile(),
+            $this->themeClasses('td.collapse.tablet') => $column->shouldCollapseOnTablet(),
         ])
         ->except(['default', 'default-colors', 'default-styling'])
 }}>
