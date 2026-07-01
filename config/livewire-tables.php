@@ -41,6 +41,13 @@ return [
     'script_base_path' => '/rappasoft/laravel-livewire-tables',
 
     /**
+     * Public path (relative to public/) that `php artisan vendor:publish
+     * --tag=livewire-tables-public` copies the bundled JS/CSS into. Override this
+     * to publish the assets somewhere other than the default vendor path.
+     */
+    'publish_path' => 'vendor/rappasoft/livewire-tables',
+
+    /**
      * Filter Default Configuration Options
      *
      * */

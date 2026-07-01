@@ -72,9 +72,11 @@ class LaravelLivewireTablesServiceProvider extends ServiceProvider
                 __DIR__.'/../resources/views' => resource_path('views/vendor/livewire-tables'),
             ], 'livewire-tables-views');
 
+            $publishPath = trim((string) config('livewire-tables.publish_path', 'vendor/rappasoft/livewire-tables'), '/');
+
             $this->publishes([
-                __DIR__.'/../resources/js' => public_path('vendor/rappasoft/livewire-tables/js'),
-                __DIR__.'/../resources/css' => public_path('vendor/rappasoft/livewire-tables/css'),
+                __DIR__.'/../resources/js' => public_path($publishPath.'/js'),
+                __DIR__.'/../resources/css' => public_path($publishPath.'/css'),
             ], 'livewire-tables-public');
 
             $this->commands([
