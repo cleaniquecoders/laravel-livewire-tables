@@ -2,16 +2,11 @@
 
 namespace Rappasoft\LaravelLivewireTables\Traits;
 
-use Rappasoft\LaravelLivewireTables\Traits\Configuration\ReorderingConfiguration;
-use Rappasoft\LaravelLivewireTables\Traits\Helpers\ReorderingHelpers;
-use Rappasoft\LaravelLivewireTables\Traits\Styling\HasReorderStyling;
+use Livewire\Attributes\Computed;
+use Rappasoft\LaravelLivewireTables\Views\Column;
 
 trait WithReordering
 {
-    use ReorderingConfiguration,
-        ReorderingHelpers,
-        HasReorderStyling;
-
     // Entangled in JS
     public bool $reorderStatus = false;
 
@@ -174,5 +169,216 @@ trait WithReordering
     public function renderingWithReordering(): void
     {
         $this->setupReordering();
+    }
+
+    // --- merged from ReorderingConfiguration (#28) ---
+
+    public function setReorderStatus(bool $status): self
+    {
+        $this->reorderStatus = $status;
+
+        return $this;
+    }
+
+    public function setReorderEnabled(): self
+    {
+        $this->setReorderStatus(true);
+
+        return $this;
+    }
+
+    public function setReorderDisabled(): self
+    {
+        $this->setReorderStatus(false);
+
+        return $this;
+    }
+
+    public function setCurrentlyReorderingStatus(bool $status): self
+    {
+        $this->currentlyReorderingStatus = $status;
+
+        return $this;
+    }
+
+    public function setCurrentlyReorderingEnabled(): self
+    {
+        $this->setCurrentlyReorderingStatus(true);
+
+        return $this;
+    }
+
+    public function setCurrentlyReorderingDisabled(): self
+    {
+        $this->setCurrentlyReorderingStatus(false);
+
+        return $this;
+    }
+
+    public function setHideReorderColumnUnlessReorderingStatus(bool $status): self
+    {
+        $this->hideReorderColumnUnlessReorderingStatus = $status;
+
+        return $this;
+    }
+
+    public function setHideReorderColumnUnlessReorderingEnabled(): self
+    {
+        $this->setHideReorderColumnUnlessReorderingStatus(true);
+
+        return $this;
+    }
+
+    public function setHideReorderColumnUnlessReorderingDisabled(): self
+    {
+        $this->setHideReorderColumnUnlessReorderingStatus(false);
+
+        return $this;
+    }
+
+    public function setReorderMethod(string $method): self
+    {
+        $this->reorderMethod = $method;
+
+        return $this;
+    }
+
+    public function setDefaultReorderSort(string $field, string $direction = 'asc'): self
+    {
+        $this->defaultReorderColumn = $field;
+        $this->defaultReorderDirection = $direction;
+
+        return $this;
+    }
+
+    // --- merged from ReorderingHelpers (#28) ---
+
+    public function getReorderMethod(): string
+    {
+        return $this->reorderMethod;
+    }
+
+    public function getReorderStatus(): bool
+    {
+        return $this->reorderStatus;
+    }
+
+    #[Computed]
+    public function showReorderButton(): bool
+    {
+        return $this->getReorderStatus() === true;
+    }
+
+    #[Computed]
+    public function reorderIsEnabled(): bool
+    {
+        return $this->getReorderStatus() === true;
+    }
+
+    public function reorderIsDisabled(): bool
+    {
+        return $this->getReorderStatus() === false;
+    }
+
+    #[Computed]
+    public function getCurrentlyReorderingStatus(): bool
+    {
+        return $this->currentlyReorderingStatus;
+    }
+
+    public function currentlyReorderingIsEnabled(): bool
+    {
+        return $this->getCurrentlyReorderingStatus() === true;
+    }
+
+    public function currentlyReorderingIsDisabled(): bool
+    {
+        return $this->getCurrentlyReorderingStatus() === false;
+    }
+
+    public function getHideReorderColumnUnlessReorderingStatus(): bool
+    {
+        return $this->hideReorderColumnUnlessReorderingStatus;
+    }
+
+    public function hideReorderColumnUnlessReorderingIsEnabled(): bool
+    {
+        return $this->getHideReorderColumnUnlessReorderingStatus() === true;
+    }
+
+    public function hideReorderColumnUnlessReorderingIsDisabled(): bool
+    {
+        return $this->getHideReorderColumnUnlessReorderingStatus() === false;
+    }
+
+    public function getDefaultReorderColumn(): ?string
+    {
+        return $this->defaultReorderColumn;
+    }
+
+    public function getDefaultReorderDirection(): string
+    {
+        return $this->defaultReorderDirection;
+    }
+
+    public function setReorderingSession(): void
+    {
+        session([$this->getReorderingSessionKey() => true]);
+    }
+
+    public function forgetReorderingSession(): void
+    {
+        session()->forget($this->getReorderingSessionKey());
+    }
+
+    public function hasReorderingSession(): bool
+    {
+        return session()->has($this->getReorderingSessionKey());
+    }
+
+    public function getReorderingSessionKey(): string
+    {
+        return $this->getTableName().'-reordering';
+    }
+
+    public function getReorderingBackupSessionKey(): string
+    {
+        return $this->getTableName().'-reordering-backup';
+    }
+
+    public function getReorderColumn(): Column
+    {
+        return Column::make('reorder')->label(fn () => null);
+    }
+
+    // --- merged from HasReorderStyling (#28) ---
+
+    protected array $reorderThAttributes = ['default' => true];
+
+    /**
+     * Used to get attributes for the <th> for Bulk Actions
+     *
+     * @return array<mixed>
+     */
+    #[Computed]
+    public function getReorderThAttributes(): array
+    {
+        return $this->reorderThAttributes ?? ['default' => true];
+    }
+
+    #[Computed]
+    public function hasReorderThAttributes(): bool
+    {
+        return $this->getReorderThAttributes() != ['default' => true];
+    }
+
+    /**
+     * Used to set attributes for the <th> for Reorder Column
+     */
+    public function setReorderThAttributes(array $reorderThAttributes): self
+    {
+        $this->reorderThAttributes = [...$this->reorderThAttributes, ...$reorderThAttributes];
+
+        return $this;
     }
 }
