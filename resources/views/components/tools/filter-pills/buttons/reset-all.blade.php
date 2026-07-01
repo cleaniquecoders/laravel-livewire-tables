@@ -27,8 +27,7 @@
         {{
             $attributes->merge($this->getFilterPillsResetAllButtonAttributes)
             ->class([
-                'badge badge-pill badge-light' => $isBootstrap4 && ($this->getFilterPillsResetAllButtonAttributes['default-styling'] ?? true),
-                'badge rounded-pill bg-light text-dark text-decoration-none' => $isBootstrap5 && ($this->getFilterPillsResetAllButtonAttribute['default-styling'] ?? true),
+                $this->themeClasses('resetall.bs') => $isBootstrap && ($this->getFilterPillsResetAllButtonAttributes['default-styling'] ?? true),
             ])
             ->except(['default-styling', 'default-colors'])
         }}

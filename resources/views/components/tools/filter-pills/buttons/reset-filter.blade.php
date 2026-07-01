@@ -29,15 +29,12 @@
         {{
             $attributes->merge($filterButtonAttributes)
             ->class([
-                'text-white ml-2' => $isBootstrap && $filterButtonAttributes['default-styling']
+                $this->themeClasses('rf.bs') => $isBootstrap && $filterButtonAttributes['default-styling']
             ])
             ->except(['default', 'default-colors', 'default-styling', 'default-text'])
         }}
     >
-        <span @class([
-            'sr-only' => $isBootstrap4,
-            'visually-hidden' => $isBootstrap5,
-            ])>{{ __($localisationPath.'Remove filter option') }}
+        <span @class([$this->themeClasses('rf.sronly')])>{{ __($localisationPath.'Remove filter option') }}
             </span>
         <x-heroicon-m-x-mark class="laravel-livewire-tables-btn-tiny"  />
     </a>
