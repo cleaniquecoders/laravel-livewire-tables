@@ -64,6 +64,30 @@ them only in the final PR.
 **Done when:** no `@if($isTailwind)` remains in blades, and adding a theme = adding one driver class.
 This unblocks **#24** (the `ring-opacity-*` → color-alpha focus-ring fix lands in the drivers).
 
+### Progress (foundation + 6 slices landed)
+
+`ThemeStyles` + `themeClasses()` seam are in place. **Migrated (byte-identical, Visuals-guarded):**
+`components/table.blade.php`, `table/tr/plain.blade.php`, `components/tools.blade.php`,
+`components/tools/toolbar.blade.php`, `table/th/plain.blade.php`, `table/th/reorder.blade.php`.
+
+**Empirical finding that unblocks the gating-split blades:** an empty-string class entry renders
+byte-identically — `->class(['' => true, 'foo' => true])` produces `class="foo"`. So a blade where
+Bootstrap has no styling class (only Tailwind does) migrates cleanly by giving Bootstrap `''` for that
+key; the gate stays in the blade, one key per original `@class` entry so the per-entry gates
+(`default` vs `default-styling` vs `default-colors`) are preserved exactly.
+
+**Two blade shapes remain:**
+1. *Gating-split, migratable* (mechanical, one key per entry, watch for exact trailing spaces): the
+   `th/td/tr` bulk-actions + collapsed-columns + sort-icons wrapper, the filter inputs
+   (`tools/filters/*`), and the toolbar items (`bulk-actions`, `column-select`, `filter-button`,
+   `pagination-dropdown`).
+2. *Structurally different per theme — leave branched or handle specially:* `includes/offline.blade`,
+   `filter-pills/buttons/reset-filter` (flux `badge.close` vs `button` vs `a`), `filter-popover`
+   (`@if(isBootstrap)` different container), `pagination.blade` (different pagination markup),
+   `td/plain` (Tailwind adds `x-cloak` + `hideUntilReorder` that Bootstrap must not get).
+
+Land `ring-opacity-*` (#24) fixes into the driver keys as each affected blade is migrated.
+
 ---
 
 ## #28 — Collapse trait sprawl & remove order-dependent `HasAllTraits`
