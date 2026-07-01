@@ -17,8 +17,11 @@
                 $attributes->merge($this->getBulkActionsButtonAttributes)
                 ->class([
                     'btn dropdown-toggle d-block d-md-inline' => $isBootstrap && ($this->getBulkActionsButtonAttributes['default-styling'] ?? true),
-                    'border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $isTailwind && ($this->getBulkActionsButtonAttributes['default-colors'] ?? true),
-                    'inline-flex justify-center w-full rounded-md border shadow-sm px-4 py-2 text-sm font-medium focus:ring focus:ring-opacity-50' => $isTailwind && ($this->getBulkActionsButtonAttributes['default-styling'] ?? true),
+                    'border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $isTailwind && ! $this->isFlux() && ($this->getBulkActionsButtonAttributes['default-colors'] ?? true),
+                    'border-zinc-200 bg-white text-zinc-700 hover:bg-zinc-50 focus:border-zinc-400 focus:ring-zinc-200 dark:bg-zinc-700 dark:text-white dark:border-zinc-600 dark:hover:bg-zinc-600' => $isTailwind && $this->isFlux() && ($this->getBulkActionsButtonAttributes['default-colors'] ?? true),
+                    'inline-flex justify-center w-full border shadow-sm px-4 py-2 text-sm font-medium focus:ring focus:ring-opacity-50' => $isTailwind && ($this->getBulkActionsButtonAttributes['default-styling'] ?? true),
+                    'rounded-md' => $isTailwind && ! $this->isFlux() && ($this->getBulkActionsButtonAttributes['default-styling'] ?? true),
+                    'rounded-lg' => $isTailwind && $this->isFlux() && ($this->getBulkActionsButtonAttributes['default-styling'] ?? true),
 
                 ])
                 ->except(['default','default-styling','default-colors']) 
@@ -52,14 +55,22 @@
                 x-transition:leave="transition ease-in duration-75"
                 x-transition:leave-start="transform opacity-100 scale-100"
                 x-transition:leave-end="transform opacity-0 scale-95"
-                class="origin-top-right absolute right-0 mt-2 w-full md:w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none z-50"
+                @class([
+                    'origin-top-right absolute right-0 mt-2 w-full md:w-48 shadow-lg bg-white ring-1 divide-y focus:outline-none z-50',
+                    'rounded-md ring-black ring-opacity-5 divide-gray-100' => ! $this->isFlux(),
+                    'rounded-lg ring-zinc-950/10 divide-zinc-950/5 dark:ring-white/10 dark:divide-white/10' => $this->isFlux(),
+                ])
             >
                 <div
                     {{ 
                         $attributes->merge($this->getBulkActionsMenuAttributes)
                         ->class([
-                            'bg-white dark:bg-gray-700 dark:text-white' => $isTailwind && ($this->getBulkActionsMenuAttributes['default-colors'] ?? true),
-                            'rounded-md shadow-xs' => $isTailwind && ($this->getBulkActionsMenuAttributes['default-styling'] ?? true),
+                            'bg-white dark:text-white' => $isTailwind && ($this->getBulkActionsMenuAttributes['default-colors'] ?? true),
+                            'dark:bg-gray-700' => $isTailwind && ! $this->isFlux() && ($this->getBulkActionsMenuAttributes['default-colors'] ?? true),
+                            'dark:bg-zinc-700' => $isTailwind && $this->isFlux() && ($this->getBulkActionsMenuAttributes['default-colors'] ?? true),
+                            'shadow-xs' => $isTailwind && ($this->getBulkActionsMenuAttributes['default-styling'] ?? true),
+                            'rounded-md' => $isTailwind && ! $this->isFlux() && ($this->getBulkActionsMenuAttributes['default-styling'] ?? true),
+                            'rounded-lg' => $isTailwind && $this->isFlux() && ($this->getBulkActionsMenuAttributes['default-styling'] ?? true),
                         ])
                         ->except(['default','default-styling','default-colors']) 
                     }}
@@ -77,7 +88,8 @@
                                 {{ 
                                     $attributes->merge($this->getBulkActionsMenuItemAttributes)
                                     ->class([
-                                        'text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 dark:text-white dark:hover:bg-gray-600' => $isTailwind && ($this->getBulkActionsMenuItemAttributes['default-colors'] ?? true),
+                                        'text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 dark:text-white dark:hover:bg-gray-600' => $isTailwind && ! $this->isFlux() && ($this->getBulkActionsMenuItemAttributes['default-colors'] ?? true),
+                                        'text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 focus:bg-zinc-100 focus:text-zinc-900 dark:text-white dark:hover:bg-zinc-700' => $isTailwind && $this->isFlux() && ($this->getBulkActionsMenuItemAttributes['default-colors'] ?? true),
                                         'block w-full px-4 py-2 text-sm leading-5 focus:outline-none flex items-center space-x-2' => $isTailwind && ($this->getBulkActionsMenuItemAttributes['default-styling'] ?? true),
                                     ])
                                     ->except(['default','default-styling','default-colors']) 
