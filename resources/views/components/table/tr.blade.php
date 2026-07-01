@@ -5,6 +5,9 @@
     $customAttributes = $this->getTrAttributes($row, $rowIndex);
 @endphp
 
+@if ($this->useFluxTable())
+    <flux:table.row>{{ $slot }}</flux:table.row>
+@else
 <tr
     rowpk='{{ $row->{$primaryKey} }}'
     x-on:dragstart.self="currentlyReorderingStatus && dragStart(event)"
@@ -35,3 +38,4 @@
 >
     {{ $slot }}
 </tr>
+@endif

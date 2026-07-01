@@ -5,6 +5,9 @@
     $customAttributes = $this->getTdAttributes($column, $row, $colIndex, $rowIndex)
 @endphp
 
+@if ($this->useFluxTable())
+    <flux:table.cell>{{ $slot }}</flux:table.cell>
+@else
 <td wire:key="{{ $tableName . '-table-td-'.$row->{$primaryKey}.'-'.$column->getSlug() }}"
     @if ($column->isClickable())
         @if($this->getTableRowUrlTarget($row) === 'navigate') wire:navigate href="{{ $this->getTableRowUrl($row) }}"
@@ -29,3 +32,4 @@
     >
         {{ $slot }}
 </td>
+@endif

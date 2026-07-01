@@ -18,6 +18,13 @@
         : null;
 @endphp
 
+@if ($this->useFluxTable())
+    @if ($isSortableHeader)
+        <flux:table.column sortable :sorted="! is_null($direction)" :direction="$direction ?? 'asc'" wire:click="sortBy('{{ $column->getColumnSortKey() }}')">{{ $column->getTitle() }}</flux:table.column>
+    @else
+        <flux:table.column>{{ $column->getTitle() }}</flux:table.column>
+    @endif
+@else
 <th @if($ariaSort) aria-sort="{{ $ariaSort }}" @endif {{
     $attributes->merge($customThAttributes)
         ->class([
@@ -67,3 +74,4 @@
         @endunless
     @endif
 </th>
+@endif

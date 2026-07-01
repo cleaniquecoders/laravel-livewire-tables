@@ -9,7 +9,16 @@
     ];
 @endphp
 
-@if ($isTailwind)
+@if ($this->useFluxTable())
+    <flux:table>
+        <flux:table.columns>
+            {{ $thead }}
+        </flux:table.columns>
+        <flux:table.rows>
+            {{ $slot }}
+        </flux:table.rows>
+    </flux:table>
+@elseif ($isTailwind)
     <div
         wire:key="{{ $tableName }}-twrap"
         {{ $attributes->merge($customAttributes['wrapper'])
