@@ -29,6 +29,8 @@ class ThemeStyles
             'toolbar.left' => 'w-full mb-4 md:mb-0 md:w-2/4 md:flex space-y-4 md:space-y-0 md:space-x-2',
             'toolbar.right' => 'md:flex md:items-center space-y-4 md:space-y-0 md:space-x-2',
             'toolbar.area' => 'flex rounded-md shadow-sm',
+            'th.plain.styling' => 'table-cell px-3 py-2 md:px-6 md:py-3 text-center md:text-left laravel-livewire-tables-reorderingMinimised',
+            'th.plain.colors' => 'bg-gray-50 dark:bg-gray-800',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -44,6 +46,8 @@ class ThemeStyles
             'toolbar.left' => 'd-md-flex',
             'toolbar.right' => 'd-md-flex',
             'toolbar.area' => 'mb-3 mb-md-0 input-group',
+            'th.plain.styling' => '',
+            'th.plain.colors' => 'laravel-livewire-tables-reorderingMinimised',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -56,6 +60,8 @@ class ThemeStyles
             'toolbar.left' => 'd-md-flex',
             'toolbar.right' => 'd-md-flex',
             'toolbar.area' => 'mb-3 mb-md-0 input-group',
+            'th.plain.styling' => '',
+            'th.plain.colors' => 'laravel-livewire-tables-reorderingMinimised',
         ],
     ];
 
