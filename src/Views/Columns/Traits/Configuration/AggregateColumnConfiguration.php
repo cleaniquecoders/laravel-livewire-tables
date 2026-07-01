@@ -29,6 +29,14 @@ trait AggregateColumnConfiguration
         return $this;
     }
 
+    /**
+     * Fluent alias for setAggregateMethod(), e.g. AggregateColumn::make('Total')->using('sum').
+     */
+    public function using(string $aggregateMethod): self
+    {
+        return $this->setAggregateMethod($aggregateMethod);
+    }
+
     public function setForeignColumn(string $foreignColumn): self
     {
         $this->foreignColumn = $foreignColumn;

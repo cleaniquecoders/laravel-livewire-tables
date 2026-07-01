@@ -2,17 +2,11 @@
 
 namespace Rappasoft\LaravelLivewireTables\Views\Columns;
 
-use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\IsAggregateColumn;
-
+/**
+ * Thin alias for AggregateColumn::make(...)->using('sum').
+ * The IsAggregateColumn trait and constructor are inherited from AggregateColumn.
+ */
 class SumColumn extends AggregateColumn
 {
-    use IsAggregateColumn;
-
     public string $aggregateMethod = 'sum';
-
-    public function __construct(string $title, ?string $from = null)
-    {
-        parent::__construct($title, $from);
-        $this->label(fn () => null);
-    }
 }
