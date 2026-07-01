@@ -1,3 +1,4 @@
+@php($lwtTheme = ($isTailwind ?? true) ? 'tailwind' : 'bootstrap-5')
 @if($isToggleable && $toggleMethod !== '')
     <button wire:click="{{ $toggleMethod }}('{{ $rowPrimaryKey }}')"
     @if($hasConfirmMessage) wire:confirm="{{ $confirmMessage }}" @endif
@@ -7,20 +8,10 @@
         @if ($type === 'icons')
             @if ($successValue === true)
                 <x-heroicon-o-check-circle
-                    @class(
-                        [
-                            'inline-block h-5 w-5 text-green-500' => $isTailwind,
-                            'd-inline-block text-success laravel-livewire-tables-btn-small' => $isBootstrap
-                        ]
-                    )
+                    @class([lwtThemeClasses($lwtTheme,'column.boolean.success')])
                 />
             @else
-                <x-heroicon-o-check-circle @class(
-                        [
-                            'inline-block h-5 w-5 text-red-500' => $isTailwind,
-                            'd-inline-block text-danger laravel-livewire-tables-btn-small' => $isBootstrap
-                        ]
-                    )
+                <x-heroicon-o-check-circle @class([lwtThemeClasses($lwtTheme,'column.boolean.danger')])
                 />
             @endif
         @elseif ($type === 'yes-no')
@@ -33,20 +24,10 @@
     @else
         @if ($type === 'icons')
             @if ($successValue === false)
-                <x-heroicon-o-x-circle @class(
-                        [
-                            'inline-block h-5 w-5 text-green-500' => $isTailwind,
-                            'd-inline-block text-success laravel-livewire-tables-btn-small' => $isBootstrap
-                        ]
-                    )
+                <x-heroicon-o-x-circle @class([lwtThemeClasses($lwtTheme,'column.boolean.success')])
                 />
             @else
-                <x-heroicon-o-x-circle @class(
-                        [
-                            'inline-block h-5 w-5 text-red-500' => $isTailwind,
-                            'd-inline-block text-danger laravel-livewire-tables-btn-small' => $isBootstrap
-                        ]
-                    )
+                <x-heroicon-o-x-circle @class([lwtThemeClasses($lwtTheme,'column.boolean.danger')])
                 />
             @endif
         @elseif ($type === 'yes-no')
