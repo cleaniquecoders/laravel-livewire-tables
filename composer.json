@@ -61,7 +61,11 @@
         "test-parallel": "vendor/bin/pest --parallel",
         "format": "vendor/bin/pint",
         "build": "@php vendor/bin/testbench workbench:build --ansi",
-        "serve": "@php vendor/bin/testbench serve --ansi"
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx --yes concurrently --kill-others --names 'app,vite' -c 'blue,magenta' \"php vendor/bin/testbench serve --port=8000 --ansi\" \"npm run dev\""
+        ],
+        "serve-only": "@php vendor/bin/testbench serve --ansi"
     },
     "config": {
         "sort-packages": true,
