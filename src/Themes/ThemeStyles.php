@@ -76,9 +76,14 @@ class ThemeStyles
             'td.reorder.svg' => 'inline w-4 h-4',
             'toolbar.reorder.margin' => '',
             'toolbar.reorder.button' => 'inline-flex justify-center items-center w-full md:w-auto px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600',
+            'toolbar.filterbtn.wrapper' => 'relative block md:inline-block text-left',
+            'toolbar.filterbtn.button' => 'inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600',
+            'toolbar.filterbtn.badge' => 'ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-indigo-100 text-indigo-800 capitalize dark:bg-indigo-200 dark:text-indigo-900',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
+            'toolbar.filterbtn.button' => 'inline-flex justify-center w-full rounded-lg border border-zinc-200 shadow-sm px-4 py-2 bg-white text-sm font-medium text-zinc-700 hover:bg-zinc-50 focus:border-zinc-400 focus:ring focus:ring-zinc-200 focus:ring-opacity-50 dark:bg-zinc-700 dark:text-white dark:border-zinc-600 dark:hover:bg-zinc-600',
+            'toolbar.filterbtn.badge' => 'ml-1 inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium leading-4 bg-zinc-100 text-zinc-700 capitalize dark:bg-zinc-600 dark:text-zinc-100',
         ],
         'bootstrap-4' => [
             'table.wrapper' => 'table-responsive',
@@ -138,6 +143,9 @@ class ThemeStyles
             'td.reorder.svg' => 'd-inline',
             'toolbar.reorder.margin' => 'mr-0 mr-md-2 mb-3 mb-md-0',
             'toolbar.reorder.button' => 'btn btn-default d-block d-md-inline',
+            'toolbar.filterbtn.wrapper' => 'btn-group d-block d-md-inline',
+            'toolbar.filterbtn.button' => 'btn dropdown-toggle d-block w-100 d-md-inline',
+            'toolbar.filterbtn.badge' => 'badge badge-info',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -197,6 +205,9 @@ class ThemeStyles
             'td.reorder.svg' => 'd-inline',
             'toolbar.reorder.margin' => 'me-0 me-md-2 mb-3 mb-md-0',
             'toolbar.reorder.button' => 'btn btn-default d-block d-md-inline',
+            'toolbar.filterbtn.wrapper' => 'btn-group d-block d-md-inline',
+            'toolbar.filterbtn.button' => 'btn dropdown-toggle d-block w-100 d-md-inline',
+            'toolbar.filterbtn.badge' => 'badge badge-info',
         ],
     ];
 
