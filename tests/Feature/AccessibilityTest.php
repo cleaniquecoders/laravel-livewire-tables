@@ -21,3 +21,9 @@ it('exposes aria-sort on a sorted header', function () {
         ->call('sortBy', 'name')
         ->assertSeeHtml('aria-sort="ascending"');
 });
+
+it('announces the results summary to screen readers via aria-live', function () {
+    livewire(PetsTable::class)
+        ->assertSeeHtml('aria-live="polite"')
+        ->assertSeeHtml('role="status"');
+});

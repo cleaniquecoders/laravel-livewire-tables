@@ -10,7 +10,7 @@
     @if ($this->paginationVisibilityIsEnabled())
         @if ($isTailwind)
             <div class="mt-4 px-4 md:p-0 sm:flex justify-between items-center space-y-4 sm:space-y-0">
-                <div>
+                <div aria-live="polite" role="status">
                     @if ($this->paginationIsEnabled && $this->isPaginationMethod('standard') && $currentRows->lastPage() > 1 && $this->showPaginationDetails)
                         <p class="paged-pagination-results text-sm text-gray-700 leading-5 dark:text-white">
                                 <span>{{ __($localisationPath.'Showing') }}</span>
@@ -51,7 +51,7 @@
                         {{ $currentRows->links('livewire-tables::specific.bootstrap-4.pagination') }}
                     </div>
 
-                    <div @class([
+                    <div aria-live="polite" role="status" @class([
                         "col-12 col-md-6 text-center text-muted",
                         "text-md-right" => $isBootstrap4,
                         "text-md-end" => $isBootstrap5,
@@ -73,7 +73,7 @@
                         {{ $currentRows->links('livewire-tables::specific.bootstrap-4.simple-pagination') }}
                     </div>
 
-                    <div @class([
+                    <div aria-live="polite" role="status" @class([
                         "col-12 col-md-6 text-center text-muted",
                         "text-md-right" => $isBootstrap4,
                         "text-md-end" => $isBootstrap5,
@@ -94,7 +94,7 @@
                 </div>
             @else
                 <div class="row mt-3">
-                    <div class="col-12 text-muted">
+                    <div class="col-12 text-muted" aria-live="polite" role="status">
                         @if($this->showPaginationDetails)
                             {{ __($localisationPath.'Showing') }}
                             <strong>{{ $currentRows->count() }}</strong>
