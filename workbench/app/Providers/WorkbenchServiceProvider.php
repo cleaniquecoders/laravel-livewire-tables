@@ -10,6 +10,8 @@ use Workbench\App\Livewire\CursorPaginationTable;
 use Workbench\App\Livewire\DemoPetsTable;
 use Workbench\App\Livewire\EmptyStateTable;
 use Workbench\App\Livewire\FeaturesTable;
+use Workbench\App\Livewire\Filters\ExternalBreedFilter;
+use Workbench\App\Livewire\Filters\ExternalTextFilter;
 use Workbench\App\Livewire\FilterTypesTable;
 use Workbench\App\Livewire\FluxThemeTable;
 use Workbench\App\Livewire\NoPaginationTable;
@@ -38,5 +40,16 @@ class WorkbenchServiceProvider extends ServiceProvider
         Livewire::component('flux-theme-table', FluxThemeTable::class);
         Livewire::component('tailwind-theme-table', TailwindThemeTable::class);
         Livewire::component('bootstrap-theme-table', BootstrapThemeTable::class);
+
+        // LivewireComponentFilter validates its backing component against
+        // livewire.class_namespace + a studly dot-path, so point that at the
+        // workbench namespace...
+        config(['livewire.class_namespace' => 'Workbench\\App\\Livewire']);
+
+        // ...and register the backing components under the same dot-path names
+        // the filters reference via setLivewireComponent(), so the runtime
+        // <livewire:dynamic-component :is="..."> lookup resolves them.
+        Livewire::component('filters.external-text-filter', ExternalTextFilter::class);
+        Livewire::component('filters.external-breed-filter', ExternalBreedFilter::class);
     }
 }
