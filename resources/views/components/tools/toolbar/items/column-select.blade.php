@@ -127,19 +127,15 @@
 @elseif ($isBootstrap)
     <div
         @class([
-            'd-none d-sm mb-3 mb-md-0 pl-0 pl-md-2' => $this->getColumnSelectIsHiddenOnMobile() && $isBootstrap4,
-            'd-none d-md-block mb-3 mb-md-0 pl-0 pl-md-2' => $this->getColumnSelectIsHiddenOnTablet() && $isBootstrap4,
-            'd-none d-sm-block mb-3 mb-md-0 md-0 ms-md-2' => $this->getColumnSelectIsHiddenOnMobile() && $isBootstrap5,
-            'd-none d-md-block mb-3 mb-md-0 md-0 ms-md-2' => $this->getColumnSelectIsHiddenOnTablet() && $isBootstrap5,
+            $this->themeClasses('cs.wrapper.mobile') => $this->getColumnSelectIsHiddenOnMobile(),
+            $this->themeClasses('cs.wrapper.tablet') => $this->getColumnSelectIsHiddenOnTablet(),
         ])
     >
         <div
             x-data="{ open: false, childElementOpen: false }"
             x-on:keydown.escape.stop="if (!childElementOpen) { open = false }"
             x-on:mousedown.away="if (!childElementOpen) { open = false }"
-            @class([
-                'dropdown d-block d-md-inline' => $isBootstrap,
-            ])
+            @class([$this->themeClasses('cs.dropdown')])
             wire:key="{{ $tableName }}-column-select-button"
         >
             <button
@@ -159,10 +155,7 @@
 
             <div
                 x-bind:class="{ 'show': open }"
-                @class([
-                    'dropdown-menu dropdown-menu-right w-100 mt-0 mt-md-3' => $isBootstrap4,
-                    'dropdown-menu dropdown-menu-end w-100' => $isBootstrap5,
-                ])
+                @class([$this->themeClasses('cs.menu')])
                 aria-labelledby="columnSelect-{{ $tableName }}"
             >
                 @if($isBootstrap4)
@@ -203,9 +196,7 @@
                 @foreach ($this->getColumnsForColumnSelect() as $columnSlug => $columnTitle)
                     <div
                         wire:key="{{ $tableName }}-columnSelect-{{ $loop->index }}"
-                        @class([
-                            'form-check ms-2' => $isBootstrap5,
-                        ])
+                        @class([$this->themeClasses('cs.formcheck')])
                     >
                         @if ($isBootstrap4)
                             <label
