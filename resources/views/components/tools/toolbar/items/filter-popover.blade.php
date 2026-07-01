@@ -37,8 +37,10 @@
             ])
             ->class([
                 'w-full md:w-56' => $this->getFilterPopoverAttributes['default-width'] ?? true,
-                'origin-top-left absolute left-0 mt-2 rounded-md shadow-lg ring-1 ring-opacity-5 divide-y focus:outline-none z-50' => $this->getFilterPopoverAttributes['default-styling'] ?? true,
-                'bg-white divide-gray-100 ring-black dark:bg-gray-700 dark:text-white dark:divide-gray-600' => $this->getFilterPopoverAttributes['default-colors'] ?? true,
+                'origin-top-left absolute left-0 mt-2 rounded-md shadow-lg ring-1 ring-opacity-5 divide-y focus:outline-none z-50' => ! $this->isFlux() && ($this->getFilterPopoverAttributes['default-styling'] ?? true),
+                'origin-top-left absolute left-0 mt-2 rounded-lg shadow-lg ring-1 divide-y focus:outline-none z-50' => $this->isFlux() && ($this->getFilterPopoverAttributes['default-styling'] ?? true),
+                'bg-white divide-gray-100 ring-black dark:bg-gray-700 dark:text-white dark:divide-gray-600' => ! $this->isFlux() && ($this->getFilterPopoverAttributes['default-colors'] ?? true),
+                'bg-white divide-zinc-950/5 ring-zinc-950/10 dark:bg-zinc-700 dark:text-white dark:divide-white/10 dark:ring-white/10' => $this->isFlux() && ($this->getFilterPopoverAttributes['default-colors'] ?? true),
             ])
             ->except(['x-cloak', 'x-show', 'default','default-width', 'default-styling','default-colors']) 
         }}>

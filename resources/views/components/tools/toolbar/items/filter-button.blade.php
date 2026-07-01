@@ -24,7 +24,8 @@
                 type="button"
                 @class([
                     'btn dropdown-toggle d-block w-100 d-md-inline' => $isBootstrap,
-                    'inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $isTailwind,
+                    'inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $isTailwind && ! $this->isFlux(),
+                    'inline-flex justify-center w-full rounded-lg border border-zinc-200 shadow-sm px-4 py-2 bg-white text-sm font-medium text-zinc-700 hover:bg-zinc-50 focus:border-zinc-400 focus:ring focus:ring-zinc-200 focus:ring-opacity-50 dark:bg-zinc-700 dark:text-white dark:border-zinc-600 dark:hover:bg-zinc-600' => $isTailwind && $this->isFlux(),
                 ])
                 @if ($this->isFilterLayoutPopover()) x-on:click="filterPopoverOpen = !filterPopoverOpen"
                     aria-haspopup="true"
@@ -38,7 +39,8 @@
                 @if ($count = $this->getFilterBadgeCount())
                     <span @class([
                             'badge badge-info' => $isBootstrap,
-                            'ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-indigo-100 text-indigo-800 capitalize dark:bg-indigo-200 dark:text-indigo-900' => $isTailwind,
+                            'ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-indigo-100 text-indigo-800 capitalize dark:bg-indigo-200 dark:text-indigo-900' => $isTailwind && ! $this->isFlux(),
+                            'ml-1 inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium leading-4 bg-zinc-100 text-zinc-700 capitalize dark:bg-zinc-600 dark:text-zinc-100' => $isTailwind && $this->isFlux(),
                         ])>
                         {{ $count }}
                     </span>

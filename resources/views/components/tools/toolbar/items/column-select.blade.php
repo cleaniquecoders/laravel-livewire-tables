@@ -16,8 +16,11 @@
                         {{
                             $attributes->merge($this->getColumnSelectButtonAttributes())
                             ->class([
-                                'inline-flex justify-center px-4 py-2 w-full text-sm font-medium rounded-md border shadow-sm focus:ring focus:ring-opacity-50' => $this->getColumnSelectButtonAttributes()['default-styling'],
-                                'text-gray-700 bg-white border-gray-300 hover:bg-gray-50 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $this->getColumnSelectButtonAttributes()['default-colors'],
+                                'inline-flex justify-center px-4 py-2 w-full text-sm font-medium border shadow-sm focus:ring focus:ring-opacity-50' => $this->getColumnSelectButtonAttributes()['default-styling'],
+                                'rounded-md' => ! $this->isFlux() && $this->getColumnSelectButtonAttributes()['default-styling'],
+                                'rounded-lg' => $this->isFlux() && $this->getColumnSelectButtonAttributes()['default-styling'],
+                                'text-gray-700 bg-white border-gray-300 hover:bg-gray-50 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => ! $this->isFlux() && $this->getColumnSelectButtonAttributes()['default-colors'],
+                                'text-zinc-700 bg-white border-zinc-200 hover:bg-zinc-50 focus:border-zinc-400 focus:ring-zinc-200 dark:bg-zinc-700 dark:text-white dark:border-zinc-600 dark:hover:bg-zinc-600' => $this->isFlux() && $this->getColumnSelectButtonAttributes()['default-colors'],
                             ])
                             ->except(['default-styling', 'default-colors'])
                         }}
@@ -40,9 +43,17 @@
                 x-transition:leave="transition ease-in duration-75"
                 x-transition:leave-start="transform opacity-100 scale-100"
                 x-transition:leave-end="transform opacity-0 scale-95"
-                class="absolute right-0 z-50 mt-2 w-full rounded-md divide-y divide-gray-100 ring-1 ring-black ring-opacity-5 shadow-lg origin-top-right md:w-48 focus:outline-none"
+                @class([
+                    'absolute right-0 z-50 mt-2 w-full divide-y ring-1 shadow-lg origin-top-right md:w-48 focus:outline-none',
+                    'rounded-md divide-gray-100 ring-black ring-opacity-5' => ! $this->isFlux(),
+                    'rounded-lg divide-zinc-950/5 ring-zinc-950/10 dark:divide-white/10 dark:ring-white/10' => $this->isFlux(),
+                ])
             >
-                <div class="bg-white rounded-md shadow-xs dark:bg-gray-700 dark:text-white">
+                <div @class([
+                    'bg-white shadow-xs dark:text-white',
+                    'rounded-md dark:bg-gray-700' => ! $this->isFlux(),
+                    'rounded-lg dark:bg-zinc-700' => $this->isFlux(),
+                ])>
                     <div class="p-2" role="menu" aria-orientation="vertical"
                             aria-labelledby="column-select-menu"
                     >
