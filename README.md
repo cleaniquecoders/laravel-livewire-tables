@@ -18,13 +18,31 @@ A runnable local demo of every column, filter, feature, and theme lives in the w
 
 ## Installation
 
-You can install the package via composer:
+This fork keeps the `rappasoft/laravel-livewire-tables` package name and is **not published to
+Packagist**, so install it by pointing Composer at this repository with a VCS repository entry.
 
-``` bash
-composer require cleaniquecoders/laravel-livewire-tables:^4.0
+Add the repository to your application's `composer.json`:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/cleaniquecoders/laravel-livewire-tables"
+        }
+    ]
+}
 ```
 
-Livewire 4 bundles Alpine.js, so no separate Alpine install is required.
+Then require the `4.0` branch (the release is not tagged yet):
+
+```bash
+composer require rappasoft/laravel-livewire-tables:dev-4.0
+```
+
+The `Rappasoft\LaravelLivewireTables\` namespace is unchanged, so no code changes are needed. Livewire 4
+bundles Alpine.js, so no separate Alpine install is required. See the
+[installation guide](docs/04-reference/01-getting-started/installation.md) for the full details.
 
 ## Documentation and Usage Instructions
 

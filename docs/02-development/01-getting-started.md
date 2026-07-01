@@ -10,13 +10,23 @@ milestone M6), so the namespace remains `Rappasoft\LaravelLivewireTables\`.
 
 ## Installation
 
-Install the fork via Composer, pinning the v4 constraint:
+The fork keeps the `rappasoft/laravel-livewire-tables` package name and is not published to Packagist,
+so add it as a VCS repository in your application's `composer.json` and require the `4.0` branch:
 
-```bash
-composer require cleaniquecoders/laravel-livewire-tables:^4.0
+```json
+{
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/cleaniquecoders/laravel-livewire-tables" }
+    ]
+}
 ```
 
-Livewire 4 bundles Alpine.js, so there is **no separate Alpine install** required.
+```bash
+composer require rappasoft/laravel-livewire-tables:dev-4.0
+```
+
+Livewire 4 bundles Alpine.js, so there is **no separate Alpine install** required. See the
+[installation guide](../04-reference/01-getting-started/installation.md) for the full details.
 
 ## Requirements
 

@@ -19,14 +19,24 @@ shipped Laravel 13. v4.0 delivers both.
 
 ### 1. Bump the dependency
 
-Make sure your app is on Livewire 4 first, then require the new major:
+Make sure your app is on Livewire 4 first. This fork is not published to Packagist, so add it as a VCS
+repository in your `composer.json`, then require the `4.0` branch:
+
+```json
+{
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/cleaniquecoders/laravel-livewire-tables" }
+    ]
+}
+```
 
 ```bash
 composer require livewire/livewire:^4.0
-composer require cleaniquecoders/laravel-livewire-tables:^4.0
+composer require rappasoft/laravel-livewire-tables:dev-4.0
 ```
 
 Livewire 3 is no longer supported. Livewire 4 bundles Alpine.js, so no separate Alpine install is needed.
+See the [installation guide](../04-reference/01-getting-started/installation.md) for details.
 
 ### 2. The component namespace is unchanged
 

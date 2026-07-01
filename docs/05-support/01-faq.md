@@ -22,10 +22,11 @@ Laravel **12 and 13**. The full requirement set is:
 | Livewire | `^4` |
 | Orchestra Testbench (dev) | `^10` or `^11` |
 
-Install (or upgrade) with:
+The fork is not on Packagist — add it as a VCS repository and require the `4.0` branch (see the
+[installation guide](../04-reference/01-getting-started/installation.md)):
 
 ```bash
-composer require cleaniquecoders/laravel-livewire-tables:^4.0
+composer require rappasoft/laravel-livewire-tables:dev-4.0
 ```
 
 Note the release is currently **held** — no `v4.0.0` tag has been published yet pending a maintainer decision — even
