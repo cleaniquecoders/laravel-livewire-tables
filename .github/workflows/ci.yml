@@ -80,3 +80,21 @@ jobs:
 
       - name: Check code style
         run: vendor/bin/pint --test
+
+  assets:
+    name: Build assets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Node dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Build package assets (esbuild)
+        run: npm run build:assets

@@ -8,6 +8,21 @@ workbench-only Vite pipeline used during package development.
 Assets ship in two forms in the repository: raw source files and pre-minified builds, both committed under
 `resources/`. There is no separate install step for the shipped assets.
 
+## Building the shipped assets
+
+The minified `*.min.js` / `*.min.css` files are produced from their sources by [esbuild](https://esbuild.github.io)
+(the minifier Vite is built on), via `build-assets.mjs`:
+
+```bash
+npm run build:assets
+```
+
+Because the core scripts are standalone Alpine registrations and the CSS is plain (not ES modules), esbuild
+**minifies** them without bundling, which preserves their runtime behaviour. This replaces the old hand-rolled
+`minifyJs` shell script. CI runs `npm run build:assets` on every push to verify the build succeeds. The committed
+`*.min` files are kept as the shipped assets — regenerate and commit them (and QA in a browser) when the sources
+change.
+
 ## Runtime auto-injection
 
 By default the package injects its assets automatically, so you do not add `<script>` or `<link>` tags by hand.
