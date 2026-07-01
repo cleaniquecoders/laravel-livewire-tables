@@ -2,7 +2,13 @@
 
 @php($attributes = $attributes->merge(['wire:key' => 'empty-message-'.$this->getId()]))
 
-@if ($isTailwind)
+@if ($this->useFluxTable())
+    <flux:table.row>
+        <flux:table.cell :colspan="$this->getColspanCount()" align="center">
+            <flux:text class="py-8 text-base">{{ $this->getEmptyMessage() }}</flux:text>
+        </flux:table.cell>
+    </flux:table.row>
+@elseif ($isTailwind)
     <tr {{ $attributes }}>
         <td colspan="{{ $this->getColspanCount() }}">
             <div class="flex justify-center items-center space-x-2 dark:bg-gray-800">

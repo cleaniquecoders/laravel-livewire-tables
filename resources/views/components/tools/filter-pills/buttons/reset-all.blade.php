@@ -1,5 +1,7 @@
 @aware(['isTailwind','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
-@if ($isTailwind)
+@if ($this->isFlux())
+    <flux:button size="xs" variant="subtle" x-on:click.prevent="resetAllFilters">{{ __($localisationPath.'Clear') }}</flux:button>
+@elseif ($isTailwind)
     <button
         x-on:click.prevent="resetAllFilters"
         @class([

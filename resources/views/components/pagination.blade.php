@@ -41,7 +41,7 @@
                 </div>
 
                 @if ($this->paginationIsEnabled)
-                    {{ $currentRows->links('livewire-tables::specific.tailwind.'.(!$this->isPaginationMethod('standard') ? 'simple-' : '').'pagination') }}
+                    {{ $currentRows->links('livewire-tables::specific.'.($this->isFlux() ? 'flux' : 'tailwind').'.'.(!$this->isPaginationMethod('standard') ? 'simple-' : '').'pagination') }}
                 @endif
             </div>
         @else

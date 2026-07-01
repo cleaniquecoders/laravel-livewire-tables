@@ -1,6 +1,31 @@
 @aware([ 'tableName','isTailwind','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
 
-@if ($isTailwind)
+@if ($this->isFlux())
+    <div>
+        @if ($this->sortingPillsAreEnabled() && $this->hasRenderableSortPills())
+            <div class="mb-4 flex flex-wrap items-center gap-2 px-4 md:px-0" x-cloak x-show="!currentlyReorderingStatus">
+                <flux:text size="sm">{{ __($localisationPath.'Applied Sorting') }}:</flux:text>
+
+                @foreach($this->getSorts() as $columnSelectName => $direction)
+                    @php($column = $this->getColumnBySelectName($columnSelectName) ?? $this->getColumnBySlug($columnSelectName))
+
+                    @continue(is_null($column))
+                    @continue($column->isHidden())
+                    @continue($this->columnSelectIsEnabled && ! $this->columnSelectIsEnabledForColumn($column))
+
+                    <span wire:key="{{ $tableName }}-sorting-pill-{{ $columnSelectName }}" class="inline-flex">
+                        <flux:badge color="zinc" size="sm" variant="pill">
+                            {{ $column->getSortingPillTitle() }}: {{ $column->getSortingPillDirectionLabel($direction, $this->getDefaultSortingLabelAsc, $this->getDefaultSortingLabelDesc) }}
+                            <flux:badge.close wire:click="clearSort('{{ $columnSelectName }}')" :aria-label="__($localisationPath.'Remove sort option')" />
+                        </flux:badge>
+                    </span>
+                @endforeach
+
+                <flux:button size="xs" variant="subtle" wire:click.prevent="clearSorts">{{ __($localisationPath.'Clear') }}</flux:button>
+            </div>
+        @endif
+    </div>
+@elseif ($isTailwind)
     <div>
         @if ($this->sortingPillsAreEnabled() && $this->hasRenderableSortPills())
             <div class="mb-4 px-4 md:p-0" x-cloak x-show="!currentlyReorderingStatus">
