@@ -4,16 +4,14 @@ namespace Rappasoft\LaravelLivewireTables\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-use Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration;
+use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
 use Rappasoft\LaravelLivewireTables\Traits\Core\QueryStrings\HasQueryStringForSort;
-use Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers;
 use Rappasoft\LaravelLivewireTables\Traits\Styling\HasSortingPillsStyling;
 
 trait WithSorting
 {
-    use SortingConfiguration,
-        SortingHelpers,
-        HasQueryStringForSort,
+    use HasQueryStringForSort,
         HasSortingPillsStyling;
 
     public array $sorts = [];
@@ -112,5 +110,299 @@ trait WithSorting
         }
 
         return $this->getBuilder();
+    }
+
+    // --- merged from SortingConfiguration (#28) ---
+
+    protected function setupDefaultSorting(): void
+    {
+        if ($this->sortingIsEnabled() && $this->hasDefaultSort() && ! $this->hasSorts()) {
+            $this->setSort($this->getDefaultSortColumn(), $this->getDefaultSortDirection());
+        }
+    }
+
+    public function setSortingStatus(bool $status): self
+    {
+        $this->sortingStatus = $status;
+
+        return $this;
+    }
+
+    public function setSortingEnabled(): self
+    {
+        $this->setSortingStatus(true);
+
+        return $this;
+    }
+
+    public function setSortingDisabled(): self
+    {
+        $this->setSortingStatus(false);
+        $this->sorts = [];
+
+        return $this;
+    }
+
+    public function setSingleSortingStatus(bool $status): self
+    {
+        $this->singleColumnSortingStatus = $status;
+
+        return $this;
+    }
+
+    public function setSingleSortingEnabled(): self
+    {
+        $this->setSingleSortingStatus(true);
+
+        return $this;
+    }
+
+    public function setSingleSortingDisabled(): self
+    {
+        $this->setSingleSortingStatus(false);
+
+        return $this;
+    }
+
+    public function setDefaultSort(string $field, string $direction = 'asc'): self
+    {
+        $this->defaultSortColumn = $field;
+        $this->defaultSortDirection = $direction;
+
+        return $this;
+    }
+
+    public function removeDefaultSort(): self
+    {
+        $this->defaultSortColumn = null;
+        $this->defaultSortDirection = 'asc';
+
+        return $this;
+    }
+
+    public function setSortingPillsStatus(bool $status): self
+    {
+        $this->sortingPillsStatus = $status;
+
+        return $this;
+    }
+
+    public function setSortingPillsEnabled(): self
+    {
+        $this->setSortingPillsStatus(true);
+
+        return $this;
+    }
+
+    public function setSortingPillsDisabled(): self
+    {
+        $this->setSortingPillsStatus(false);
+
+        return $this;
+    }
+
+    public function setDefaultSortingLabels(string $asc, string $desc): self
+    {
+        $this->defaultSortingLabelAsc = $asc;
+        $this->defaultSortingLabelDesc = $desc;
+
+        return $this;
+    }
+
+    // --- merged from SortingHelpers (#28) ---
+
+    public function getSortingStatus(): bool
+    {
+        return $this->sortingStatus;
+    }
+
+    public function getSingleSortingStatus(): bool
+    {
+        return $this->singleColumnSortingStatus;
+    }
+
+    public function getSorts(): array
+    {
+        foreach ($this->sorts as $column => $direction) {
+            if (is_array($direction)) {
+                foreach ($direction as $colAppend => $actualDirection) {
+                    $this->sorts[$column.'.'.$colAppend] = $actualDirection;
+                    unset($this->sorts[$column]);
+                }
+            }
+
+        }
+
+        return $this->sorts;
+    }
+
+    /**
+     * @param  array<mixed>  $sorts
+     * @return array<mixed>
+     */
+    public function setSorts(array $sorts = []): array
+    {
+
+        return $this->sorts = collect($sorts)
+            ->reject(fn ($dir, $column) => ! in_array($column, $this->getSortableColumns()->toArray(), true))
+            ->toArray();
+    }
+
+    public function getSort(string $field): ?string
+    {
+        return $this->sorts[$field] ?? null;
+    }
+
+    #[On('setSort')]
+    #[On('set-sort')]
+    public function setSort(string $field, string $direction): string
+    {
+        return $this->sorts[$field] = $direction;
+    }
+
+    public function hasSorts(): bool
+    {
+        return count($this->getSorts()) > 0;
+    }
+
+    public function hasSort(string $field): bool
+    {
+        return $this->getSort($field) !== null;
+    }
+
+    /**
+     * Clear the sorts array
+     */
+    #[On('clearSorts')]
+    #[On('clearsorts')]
+    public function clearSorts(): void
+    {
+        $this->sorts = [];
+    }
+
+    public function clearSort(string $field): void
+    {
+        unset($this->sorts[$field]);
+    }
+
+    public function setSortAsc(string $field): string
+    {
+        return $this->setSort($field, 'asc');
+    }
+
+    public function setSortDesc(string $field): string
+    {
+        return $this->setSort($field, 'desc');
+    }
+
+    public function isSortAsc(string $field): bool
+    {
+        return $this->getSort($field) === 'asc';
+    }
+
+    public function isSortDesc(string $field): bool
+    {
+        return $this->getSort($field) === 'desc';
+    }
+
+    public function sortingIsEnabled(): bool
+    {
+        return $this->getSortingStatus() === true;
+    }
+
+    public function sortingIsDisabled(): bool
+    {
+        return $this->getSortingStatus() === false;
+    }
+
+    public function singleSortingIsEnabled(): bool
+    {
+        return $this->getSingleSortingStatus() === true;
+    }
+
+    public function singleSortingIsDisabled(): bool
+    {
+        return $this->getSingleSortingStatus() === false;
+    }
+
+    public function hasDefaultSort(): bool
+    {
+        return $this->getDefaultSortColumn() !== null;
+    }
+
+    public function getDefaultSortColumn(): ?string
+    {
+        return $this->defaultSortColumn;
+    }
+
+    public function getDefaultSortDirection(): string
+    {
+        return $this->defaultSortDirection;
+    }
+
+    public function getSortingPillsStatus(): bool
+    {
+        return $this->sortingPillsStatus;
+    }
+
+    public function sortingPillsAreEnabled(): bool
+    {
+        return $this->getSortingPillsStatus() === true;
+    }
+
+    public function sortingPillsAreDisabled(): bool
+    {
+        return $this->getSortingPillsStatus() === false;
+    }
+
+    #[Computed]
+    public function getDefaultSortingLabelAsc(): string
+    {
+        return $this->defaultSortingLabelAsc;
+    }
+
+    #[Computed]
+    public function getDefaultSortingLabelDesc(): string
+    {
+        return $this->defaultSortingLabelDesc;
+    }
+
+    /**
+     * The subset of active sorts that will actually render as a pill: the
+     * column resolves, is not hidden, and (when column select is enabled) is
+     * currently selected. Mirrors the @continue guards in sorting-pills.blade.
+     *
+     * @return array<string, string>
+     */
+    public function getRenderableSortPills(): array
+    {
+        $renderable = [];
+
+        foreach ($this->getSorts() as $columnSelectName => $direction) {
+            $column = $this->getColumnBySelectName($columnSelectName) ?? $this->getColumnBySlug($columnSelectName);
+
+            if (is_null($column) || $column->isHidden()) {
+                continue;
+            }
+
+            if ($this->columnSelectIsEnabled() && ! $this->columnSelectIsEnabledForColumn($column)) {
+                continue;
+            }
+
+            $renderable[$columnSelectName] = $direction;
+        }
+
+        return $renderable;
+    }
+
+    public function hasRenderableSortPills(): bool
+    {
+        return count($this->getRenderableSortPills()) > 0;
+    }
+
+    #[Computed]
+    public function showSortPillsSection(): bool
+    {
+        return $this->sortingIsEnabled() && $this->sortingPillsAreEnabled() && $this->hasRenderableSortPills();
     }
 }
