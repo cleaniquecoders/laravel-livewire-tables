@@ -1,6 +1,19 @@
 <div>
     <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$tableName :$isTailwind :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
 
+    @if ($isFlux ?? false)
+        <flux:select multiple wire:model.live="filterComponents.{{ $filter->getKey() }}" class="w-full">
+            @foreach($filter->getOptions() as $key => $value)
+                @if (is_iterable($value))
+                    @foreach ($value as $optionKey => $optionValue)
+                        <flux:select.option :value="$optionKey">{{ $optionValue }}</flux:select.option>
+                    @endforeach
+                @else
+                    <flux:select.option :value="$key">{{ $value }}</flux:select.option>
+                @endif
+            @endforeach
+        </flux:select>
+    @else
     @if ($isTailwind)
     <div class="rounded-md shadow-sm">
     @endif
@@ -34,5 +47,6 @@
         </select>
     @if ($isTailwind)
     </div>
+    @endif
     @endif
 </div>
