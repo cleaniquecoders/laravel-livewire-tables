@@ -24,6 +24,7 @@ class ThemeStyles
             'table.thead' => 'bg-gray-50 dark:bg-gray-800',
             'table.tbody' => 'bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-none',
             'table.tr.plain' => 'bg-white dark:bg-gray-700 dark:text-white',
+            'tools.wrapper' => 'flex-col',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -34,6 +35,7 @@ class ThemeStyles
             'table.thead' => '',
             'table.tbody' => '',
             'table.tr.plain' => '',
+            'tools.wrapper' => 'd-flex flex-column',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -41,6 +43,7 @@ class ThemeStyles
             'table.thead' => '',
             'table.tbody' => '',
             'table.tr.plain' => '',
+            'tools.wrapper' => 'd-flex flex-column',
         ],
     ];
 

@@ -1,10 +1,10 @@
 @aware(['isTailwind','isBootstrap'])
 
+{{-- #23: theme-specific wrapper class comes from themeClasses(). --}}
 <div {{
     $attributes->merge($this->getToolsAttributes)
         ->class([
-            'flex-col' => $isTailwind && ($this->getToolsAttributes['default-styling'] ?? true),
-            'd-flex flex-column' => $isBootstrap && ($this->getToolsAttributes['default-styling'] ?? true)
+            $this->themeClasses('tools.wrapper') => $this->getToolsAttributes['default-styling'] ?? true,
         ])
         ->except(['default','default-styling','default-colors'])
     }}
