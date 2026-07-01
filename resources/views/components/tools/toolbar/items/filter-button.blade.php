@@ -3,9 +3,9 @@
 
 <div 
                 @class([
-                    'ml-0 ml-md-2 mb-3 mb-md-0' => $isBootstrap4,
-                    'ms-0 ms-md-2 mb-3 mb-md-0' => $isBootstrap5 && $this->searchIsEnabled(),
-                    'mb-3 mb-md-0' => $isBootstrap5 && !$this->searchIsEnabled(),
+                    $this->themeClasses('fb.margin.bs4') => $isBootstrap4,
+                    $this->themeClasses('fb.margin.bs5.search') => $isBootstrap5 && $this->searchIsEnabled(),
+                    $this->themeClasses('fb.margin.bs5.nosearch') => $isBootstrap5 && !$this->searchIsEnabled(),
                 ])
 >
     <div
@@ -38,9 +38,7 @@
                 @if($isTailwind)
                     <x-heroicon-o-funnel class="-mr-1 ml-2 h-5 w-5" />
                 @else
-                <span @class([
-                    'caret' => $isBootstrap,
-                ])></span>
+                <span @class([$this->themeClasses('toolbar.filterbtn.caret')])></span>
                 @endif
 
             </button>
