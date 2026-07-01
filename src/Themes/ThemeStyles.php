@@ -31,6 +31,9 @@ class ThemeStyles
             'toolbar.area' => 'flex rounded-md shadow-sm',
             'th.plain.styling' => 'table-cell px-3 py-2 md:px-6 md:py-3 text-center md:text-left laravel-livewire-tables-reorderingMinimised',
             'th.plain.colors' => 'bg-gray-50 dark:bg-gray-800',
+            'th.reorder.styling' => 'table-cell px-6 py-3 text-left text-xs font-medium whitespace-nowrap uppercase tracking-wider',
+            'th.reorder.colors' => 'text-gray-500 dark:bg-gray-800 dark:text-gray-400',
+            'th.reorder.bs' => '',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -48,6 +51,9 @@ class ThemeStyles
             'toolbar.area' => 'mb-3 mb-md-0 input-group',
             'th.plain.styling' => '',
             'th.plain.colors' => 'laravel-livewire-tables-reorderingMinimised',
+            'th.reorder.styling' => '',
+            'th.reorder.colors' => '',
+            'th.reorder.bs' => 'laravel-livewire-tables-reorderingMinimised',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -62,6 +68,9 @@ class ThemeStyles
             'toolbar.area' => 'mb-3 mb-md-0 input-group',
             'th.plain.styling' => '',
             'th.plain.colors' => 'laravel-livewire-tables-reorderingMinimised',
+            'th.reorder.styling' => '',
+            'th.reorder.colors' => '',
+            'th.reorder.bs' => 'laravel-livewire-tables-reorderingMinimised',
         ],
     ];
 

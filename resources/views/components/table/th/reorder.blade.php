@@ -6,9 +6,9 @@
     {{ 
         $attributes->merge($customThAttributes)
             ->class([
-                'table-cell px-6 py-3 text-left text-xs font-medium whitespace-nowrap uppercase tracking-wider' => $this->isTailwind && (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
-                'text-gray-500 dark:bg-gray-800 dark:text-gray-400' => $this->isTailwind && (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
-                'laravel-livewire-tables-reorderingMinimised' => $this->isBootstrap && ($customThAttributes['default'] ?? true),
+                $this->themeClasses('th.reorder.styling') => ($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true),
+                $this->themeClasses('th.reorder.colors') => ($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true),
+                $this->themeClasses('th.reorder.bs') => $customThAttributes['default'] ?? true,
             ])
             ->except(['default','default-styling','default-colors'])
     }}
