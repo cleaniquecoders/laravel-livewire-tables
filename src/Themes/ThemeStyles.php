@@ -25,6 +25,10 @@ class ThemeStyles
             'table.tbody' => 'bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-none',
             'table.tr.plain' => 'bg-white dark:bg-gray-700 dark:text-white',
             'tools.wrapper' => 'flex-col',
+            'toolbar.wrapper' => 'md:flex md:justify-between mb-4 px-4 md:p-0',
+            'toolbar.left' => 'w-full mb-4 md:mb-0 md:w-2/4 md:flex space-y-4 md:space-y-0 md:space-x-2',
+            'toolbar.right' => 'md:flex md:items-center space-y-4 md:space-y-0 md:space-x-2',
+            'toolbar.area' => 'flex rounded-md shadow-sm',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -36,6 +40,10 @@ class ThemeStyles
             'table.tbody' => '',
             'table.tr.plain' => '',
             'tools.wrapper' => 'd-flex flex-column',
+            'toolbar.wrapper' => 'd-md-flex justify-content-between mb-3',
+            'toolbar.left' => 'd-md-flex',
+            'toolbar.right' => 'd-md-flex',
+            'toolbar.area' => 'mb-3 mb-md-0 input-group',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -44,6 +52,10 @@ class ThemeStyles
             'table.tbody' => '',
             'table.tr.plain' => '',
             'tools.wrapper' => 'd-flex flex-column',
+            'toolbar.wrapper' => 'd-md-flex justify-content-between mb-3',
+            'toolbar.left' => 'd-md-flex',
+            'toolbar.right' => 'd-md-flex',
+            'toolbar.area' => 'mb-3 mb-md-0 input-group',
         ],
     ];
 
