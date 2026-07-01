@@ -20,6 +20,9 @@
     >
         @if (! $hidden)
             <button
+                type="button"
+                aria-label="{{ __('Toggle row details') }}"
+                x-bind:aria-expanded="open"
                 x-cloak x-show="!currentlyReorderingStatus"
                 x-on:click.prevent="$dispatch('toggle-row-content', {'tableName': '{{ $tableName }}', 'row': {{ $rowIndex }}}); open = !open"
                 @class([
