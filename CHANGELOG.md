@@ -2,30 +2,51 @@
 
 All notable changes to `laravel-livewire-tables` will be documented in this file
 
-## [Unreleased] - v4.0 (cleaniquecoders fork)
+## [v4.0.0] - 2026-07-01 (cleaniquecoders fork)
+
+First release of the cleaniquecoders fork: **Laravel 13 + Livewire 4**, a new **Flux UI theme**, and a
+large round of bug fixes, refactors, docs, and tooling. The `Rappasoft\` namespace and
+`rappasoft/laravel-livewire-tables` package name are kept for drop-in compatibility — distributed via a
+Composer VCS repository, **not Packagist** (see the README / installation docs).
+
 ### Breaking
 - **Dropped Livewire 3**; now requires **Livewire 4**.
 - Requires **PHP 8.2+** and **Laravel 12 or 13** (dropped Laravel 10/11).
+- `wire:model` modifier bindings use `.live.blur` for Livewire 4 modifier semantics.
 
 ### Added
+- **Flux UI theme** (`->setTheme('flux')`) — native `flux:table` body + Flux-styled controls, dark mode, polished empty state.
 - Migrated the test suite to **Pest 4** (+ architecture tests); existing PHPUnit tests run via interop.
-- **Orchestra Testbench workbench** dev harness (`composer build` / `composer serve`).
-- `aria-sort` on sortable column headers (accessibility).
-- New CI matrix: PHP 8.3/8.4/8.5 × Laravel 12/13.
+- **Orchestra Testbench workbench** dev harness with per-theme demo pages (`composer serve` / `composer build`).
+- **esbuild asset pipeline** (`npm run build:assets`) replacing the hand-rolled `minifyJs` script; built + verified in CI.
+- Accessibility: `scope="col"` + `aria-sort` on headers, `aria-label`/`aria-expanded` on the collapse toggle, and `aria-live` result-count announcements.
+- Configurable asset publish path (`publish_path`).
+- New CI matrix: PHP 8.3/8.4/8.5 × Laravel 12/13, plus PHPStan, Pint, and asset-build jobs.
 
 ### Fixed
 - `make:datatable` no longer depends on removed Livewire 3 internals (`ComponentParser`).
-- `wire:model` bindings updated to `.live.blur` for Livewire 4 modifier semantics.
-- `setDefaultPerPage()` set in `configure()` is now honored (#2050).
-- "Applied Sorting" header no longer renders with zero visible sort pills (#2268).
-- Cursor pagination skips the `COUNT(*)` query when totals are disabled (#2186).
-- Backfilled missing translation keys across all 23 locales.
+- Relation & aggregate columns resolve correctly under LW4, with a clear error for scalar-on-to-many (#12).
+- `setTableName()` is chainable; multiple tables on one page no longer collide (#16).
+- Octane / `optimize` / init runtime errors resolved and regression-guarded (#17).
+- Bootstrap 4/5 BooleanFilter + bulk-action dropdown rendering (`w-auto`) (#14).
+- Collapsible columns on mobile + correct +/- icon direction (#18).
+- Nullable table row URL — a `null` URL skips the link for that row (#27 / upstream #2110).
+- `WireLinkColumn` works inside `ButtonGroupColumn` (#27 / upstream #2297).
+- `setDefaultPerPage()` in `configure()` honored (#2050); "Applied Sorting" header hidden with zero pills (#2268); cursor pagination skips `COUNT(*)` when totals disabled (#2186); backfilled missing keys across all 23 locales; date-filter colours double-space typo.
 
-### Internal
-- Removed duplicate `mergeConfigFrom` in the service provider.
-- Refreshed the PHPStan baseline and applied Pint under the upgraded toolchain.
+### Changed / Internal
+- Aggregate columns deduplicated behind a parameterised `->using()` API (#29).
+- Date-filter family rationalised via a shared trait (#30).
+- Filter `method_exists` probing removed via base-`Filter` defaults (#34).
+- **Theme-strategy refactor started** — a `ThemeStyles` driver + `themeClasses()` seam, 25 blades migrated (ongoing, #23).
+- Docs rebuilt into an SDLC structure and refreshed for LW4/L13 (#36).
+- Removed duplicate `mergeConfigFrom`; refreshed the PHPStan baseline; applied Pint.
 
-> See `docs/v4/MIGRATION.md`, `docs/v4/IMPLEMENTATION-PLAN.md`, and the **v4.x — Post-4.0 Follow-ups** milestone for deferred work (theme strategy, trait consolidation, Vite, BelongsToMany, reorder isolation).
+> Post-4.0 follow-ups — theme-strategy completion (#23), trait consolidation (#28), Tailwind 4 (#24),
+> interactive a11y (#25), client-side column visibility (#48) — are tracked in the
+> **v4.x — Post-4.0 Follow-ups** milestone. See `docs/00-product/` for the roadmap and plans.
+
+[v4.0.0]: https://github.com/cleaniquecoders/laravel-livewire-tables/compare/v3.7.3...v4.0.0
 
 ## [v3.7.3] - 2025-05-03
 ### Bug Fixes
