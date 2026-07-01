@@ -78,9 +78,14 @@ Each feature is smeared across a `With* + *Configuration + *Helpers + *Styling` 
 
 1. **Pin the surface first.** Add a characterization test asserting the full public method list of
    `DataTableComponent` (reflect over the composed class). This guards every later slice.
-2. **Find the real order dependencies.** The "Specific Order" comment predates the current code —
-   audit whether ordering still matters (usually it's property-default init or trait-method conflict
-   resolution). Document each genuine dependency; most are likely spurious.
+2. **The order dependency is REAL — confirmed empirically.** Reordering the `use` statements
+   alphabetically breaks ~174 tests (verified). The cause is **not** PHP trait flattening (which is
+   order-independent) but **Livewire firing trait lifecycle hooks — `boot{Trait}()`, `mount{Trait}()`,
+   `updated{Trait}()` — in trait *declaration* order**. So one trait's `boot` sets up state a later
+   trait's `boot` reads. Therefore removing the constraint is not "just reorder": it requires making the
+   boot/mount **sequencing explicit** (e.g. a single `bootTables()` that calls each feature's setup in a
+   defined order, or explicit dependency ordering) so the `use` order stops being load-bearing. Map the
+   inter-hook dependencies first (grep `boot`/`mount`/`updated` across the `With*` traits).
 3. **Consolidate per feature.** For one feature at a time, merge its `With* + Configuration + Helpers
    + Styling` into a single trait (or a small Feature object). Start with the most self-contained:
    `Footer` → `SecondaryHeader` → `Search` → `Sorting` → `Pagination` → `Reordering` → `BulkActions`
