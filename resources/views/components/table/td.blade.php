@@ -2,16 +2,19 @@
 @props(['column', 'colIndex'])
 
 @php
-    $customAttributes = $this->getTdAttributes($column, $row, $colIndex, $rowIndex)
+    $customAttributes = $this->getTdAttributes($column, $row, $colIndex, $rowIndex);
+    // Resolve the row URL per row so a callback returning null skips the link
+    // (and the pointer cursor) for that specific row.
+    $rowUrl = $column->isClickable() ? $this->getTableRowUrl($row) : null;
 @endphp
 
 @if ($this->useFluxTable())
     <flux:table.cell>{{ $slot }}</flux:table.cell>
 @else
 <td wire:key="{{ $tableName . '-table-td-'.$row->{$primaryKey}.'-'.$column->getSlug() }}"
-    @if ($column->isClickable())
-        @if($this->getTableRowUrlTarget($row) === 'navigate') wire:navigate href="{{ $this->getTableRowUrl($row) }}"
-        @else onclick="window.open('{{ $this->getTableRowUrl($row) }}', '{{ $this->getTableRowUrlTarget($row) ?? '_self' }}')"
+    @if ($rowUrl)
+        @if($this->getTableRowUrlTarget($row) === 'navigate') wire:navigate href="{{ $rowUrl }}"
+        @else onclick="window.open('{{ $rowUrl }}', '{{ $this->getTableRowUrlTarget($row) ?? '_self' }}')"
         @endif
     @endif
         {{
@@ -25,7 +28,7 @@
                     'd-none' => $isBootstrap && $column && $column->shouldCollapseAlways(),
                     'd-none d-md-table-cell' => $isBootstrap && $column && $column->shouldCollapseOnMobile(),
                     'd-none d-lg-table-cell' => $isBootstrap && $column && $column->shouldCollapseOnTablet(),
-                    'laravel-livewire-tables-cursor' => $isBootstrap && $column && $column->isClickable(),
+                    'laravel-livewire-tables-cursor' => $isBootstrap && $rowUrl,
                 ])
                 ->except(['default','default-styling','default-colors'])
         }}
