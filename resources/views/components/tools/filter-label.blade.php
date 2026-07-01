@@ -4,6 +4,7 @@
 @php
     $filterLabelAttributes = $filter->getFilterLabelAttributes();
     $customLabelAttributes = $filter->getLabelAttributes();
+    $lwtTheme = lwtThemeName($isFlux ?? false, $isBootstrap4 ?? false, $isBootstrap5 ?? false);
 @endphp
 
 @if($filter->hasCustomFilterLabel() && !$filter->hasCustomPosition())
@@ -12,10 +13,10 @@
     <label for="{{ $for ?? $tableName.'-filter-'.$filter->getKey() }}" {{
             $attributes->merge($customLabelAttributes)->merge($filterLabelAttributes)
                 ->class([
-                    'block text-sm font-medium leading-5' => $isTailwind && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true)),
-                    'text-gray-700 dark:text-white' => $isTailwind && ($filterLabelAttributes['default-colors'] ?? ($filterLabelAttributes['default'] ?? true)),
-                    'd-block' => $isBootstrap && $filterLayout === 'slide-down' && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true)),
-                    'mb-2' => $isBootstrap && $filterLayout === 'popover' && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true)),
+                    lwtThemeClasses($lwtTheme,'filterlabel.styling') => $isTailwind && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true)),
+                    lwtThemeClasses($lwtTheme,'filterlabel.colors') => $isTailwind && ($filterLabelAttributes['default-colors'] ?? ($filterLabelAttributes['default'] ?? true)),
+                    lwtThemeClasses($lwtTheme,'filterlabel.slidedown') => $isBootstrap && $filterLayout === 'slide-down' && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true)),
+                    lwtThemeClasses($lwtTheme,'filterlabel.popover') => $isBootstrap && $filterLayout === 'popover' && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true)),
                 ])
                 ->except(['default', 'default-colors', 'default-styling'])
         }}

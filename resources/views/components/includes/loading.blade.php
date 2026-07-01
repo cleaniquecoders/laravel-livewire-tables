@@ -17,8 +17,7 @@
     <td colspan="{{ $colCount }}" wire:key="{{ $tableName }}-loader-column" {{
         $attributes->merge($loaderCell)
             ->class([
-                'py-4' => $isTailwind && ($loaderCell['default'] ?? true),
-                'py-4' => $isBootstrap && ($loaderCell['default'] ?? true),
+                'py-4' => ($loaderCell['default'] ?? true),
             ])
             ->except(['default','default-styling','default-colors', 'colspan','wire:key'])
     }}>
@@ -29,8 +28,7 @@
                 <div class="lds-hourglass"{{
                         $attributes->merge($loaderIcon)
                             ->class([
-                                'lds-hourglass' => $isTailwind && ($loaderIcon['default'] ?? true),
-                                'lds-hourglass' => $isBootstrap && ($loaderIcon['default'] ?? true),
+                                'lds-hourglass' => ($loaderIcon['default'] ?? true),
                             ])
                             ->except(['default','default-styling','default-colors'])
                 }}></div>

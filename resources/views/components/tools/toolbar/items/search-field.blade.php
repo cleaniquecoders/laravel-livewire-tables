@@ -11,8 +11,7 @@
 @else
 <div
     @class([
-        'mb-3 mb-md-0 input-group' => $isBootstrap,
-        'rounded-md shadow-sm' => $isTailwind,
+        $this->themeClasses('searchfield.wrapper') => true,
         'flex' => ($isTailwind && !$this->hasSearchIcon),
         'relative inline-flex flex-row' => $this->hasSearchIcon,
     ])>
