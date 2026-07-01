@@ -36,7 +36,8 @@
             <nav class="flex items-center gap-3 text-sm">
                 <a href="/themes/flux" target="_blank" class="inline-flex items-center gap-1 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"><x-workbench::icons.flux class="h-4 w-4" /> Flux</a>
                 <a href="/themes/tailwind" class="inline-flex items-center gap-1 font-semibold text-indigo-600 dark:text-indigo-400"><x-workbench::icons.tailwind class="h-4 w-4" /> Tailwind</a>
-                <a href="/themes/bootstrap" target="_blank" class="inline-flex items-center gap-1 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"><x-workbench::icons.bootstrap class="h-4 w-4" /> Bootstrap</a>
+                <a href="/themes/bootstrap4" target="_blank" class="inline-flex items-center gap-1 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"><x-workbench::icons.bootstrap class="h-4 w-4" /> Bootstrap 4</a>
+                <a href="/themes/bootstrap" target="_blank" class="inline-flex items-center gap-1 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"><x-workbench::icons.bootstrap class="h-4 w-4" /> Bootstrap 5</a>
                 <button
                     type="button"
                     onclick="document.documentElement.classList.toggle('dark')"

@@ -65,17 +65,18 @@ tables.
 | `/`                 | Overview          | Kitchen-sink table combining columns, filters, search, and paging    |
 | `/columns`          | Column types      | Every column type side by side                                       |
 | `/filters`          | Filter types      | Every filter type in the Filters popover                             |
-| `/features`         | Features          | Reorder, bulk actions, clickable rows, secondary header, footer, collapsing |
+| `/features`         | Features          | Reorder, bulk actions, clickable rows, secondary header, footer, collapsing columns, a loading placeholder, and a configurable area |
 | `/pagination`       | Pagination        | Simple, cursor, and none pagination modes                            |
 | `/empty`            | Empty state       | The Flux empty state                                                  |
 | `/themes/flux`      | Flux theme        | The table rendered with the flux theme only                          |
 | `/themes/tailwind`  | Tailwind theme    | The table rendered with the tailwind theme only                      |
-| `/themes/bootstrap` | Bootstrap theme   | The table rendered with a Bootstrap theme only                       |
+| `/themes/bootstrap4`| Bootstrap 4 theme | The table rendered with the bootstrap-4 theme only                   |
+| `/themes/bootstrap` | Bootstrap 5 theme | The table rendered with the bootstrap-5 theme only                   |
 
 Each `/themes/*` page loads **only** that theme's CSS/JS: the full Tailwind + Flux Vite bundle for the
-Flux page, a separate Tailwind-only bundle for the Tailwind page, and Bootstrap from a CDN for the
-Bootstrap page — so the global styles of one theme never collide with another on a shared page. Visiting
-`/themes` redirects to `/themes/flux`.
+Flux page, a separate Tailwind-only bundle for the Tailwind page, and Bootstrap 4 / Bootstrap 5 from a
+CDN for the two Bootstrap pages — so the global styles of one theme never collide with another on a
+shared page. Visiting `/themes` redirects to `/themes/flux`.
 
 ## Screenshots
 

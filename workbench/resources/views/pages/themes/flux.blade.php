@@ -8,8 +8,11 @@
         <flux:button size="xs" variant="ghost" href="/themes/tailwind" target="_blank">
             <x-workbench::icons.tailwind class="mr-1 inline h-4 w-4" /> Tailwind
         </flux:button>
+        <flux:button size="xs" variant="ghost" href="/themes/bootstrap4" target="_blank">
+            <x-workbench::icons.bootstrap class="mr-1 inline h-4 w-4" /> Bootstrap 4
+        </flux:button>
         <flux:button size="xs" variant="ghost" href="/themes/bootstrap" target="_blank">
-            <x-workbench::icons.bootstrap class="mr-1 inline h-4 w-4" /> Bootstrap
+            <x-workbench::icons.bootstrap class="mr-1 inline h-4 w-4" /> Bootstrap 5
         </flux:button>
     </div>
 

@@ -4,6 +4,7 @@ namespace Workbench\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use Workbench\App\Livewire\BootstrapTheme4Table;
 use Workbench\App\Livewire\BootstrapThemeTable;
 use Workbench\App\Livewire\ColumnTypesTable;
 use Workbench\App\Livewire\CursorPaginationTable;
@@ -40,6 +41,7 @@ class WorkbenchServiceProvider extends ServiceProvider
         Livewire::component('flux-theme-table', FluxThemeTable::class);
         Livewire::component('tailwind-theme-table', TailwindThemeTable::class);
         Livewire::component('bootstrap-theme-table', BootstrapThemeTable::class);
+        Livewire::component('bootstrap-theme4-table', BootstrapTheme4Table::class);
 
         // LivewireComponentFilter validates its backing component against
         // livewire.class_namespace + a studly dot-path, so point that at the

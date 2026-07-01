@@ -31,6 +31,11 @@ class FeaturesTable extends DataTableComponent
             ->setDefaultReorderSort('sort_order')
             ->setTableRowUrl(fn ($row) => 'https://rappasoft.com/docs/laravel-livewire-tables')
             ->setTableRowUrlTarget(fn ($row) => '_blank')
+            ->setLoadingPlaceholderEnabled()
+            ->setLoadingPlaceholderContent('Loading pets…')
+            ->setConfigurableAreas([
+                'before-toolbar' => 'workbench::partials.demo-configurable-area',
+            ])
             ->setPerPageAccepted([10, 25, 50]);
     }
 

@@ -58,9 +58,13 @@
                     <x-slot:icon><x-workbench::icons.tailwind /></x-slot:icon>
                     Tailwind
                 </flux:navlist.item>
+                <flux:navlist.item href="/themes/bootstrap4" target="_blank">
+                    <x-slot:icon><x-workbench::icons.bootstrap /></x-slot:icon>
+                    Bootstrap 4
+                </flux:navlist.item>
                 <flux:navlist.item href="/themes/bootstrap" target="_blank">
                     <x-slot:icon><x-workbench::icons.bootstrap /></x-slot:icon>
-                    Bootstrap
+                    Bootstrap 5
                 </flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>

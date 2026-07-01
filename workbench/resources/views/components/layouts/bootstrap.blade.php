@@ -20,7 +20,8 @@
                 {{-- Cross-theme links open in a new tab so assets stay isolated. --}}
                 <li class="nav-item"><a class="nav-link d-inline-flex align-items-center gap-1" href="/themes/flux" target="_blank"><x-workbench::icons.flux class="w-4 h-4" /> Flux</a></li>
                 <li class="nav-item"><a class="nav-link d-inline-flex align-items-center gap-1" href="/themes/tailwind" target="_blank"><x-workbench::icons.tailwind class="w-4 h-4" /> Tailwind</a></li>
-                <li class="nav-item"><a class="nav-link active fw-semibold d-inline-flex align-items-center gap-1" href="/themes/bootstrap"><x-workbench::icons.bootstrap class="w-4 h-4" /> Bootstrap</a></li>
+                <li class="nav-item"><a class="nav-link d-inline-flex align-items-center gap-1" href="/themes/bootstrap4" target="_blank"><x-workbench::icons.bootstrap class="w-4 h-4" /> Bootstrap 4</a></li>
+                <li class="nav-item"><a class="nav-link active fw-semibold d-inline-flex align-items-center gap-1" href="/themes/bootstrap"><x-workbench::icons.bootstrap class="w-4 h-4" /> Bootstrap 5</a></li>
                 <li class="nav-item">
                     <button type="button" class="btn btn-outline-secondary btn-sm"
                         onclick="const h=document.documentElement; h.setAttribute('data-bs-theme', h.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');"

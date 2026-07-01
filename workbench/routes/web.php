@@ -19,4 +19,5 @@ Route::view('/empty', 'workbench::pages.empty')->name('workbench.empty');
 Route::redirect('/themes', '/themes/flux');
 Route::view('/themes/flux', 'workbench::pages.themes.flux')->name('workbench.themes.flux');
 Route::view('/themes/tailwind', 'workbench::pages.themes.tailwind')->name('workbench.themes.tailwind');
+Route::view('/themes/bootstrap4', 'workbench::pages.themes.bootstrap4')->name('workbench.themes.bootstrap4');
 Route::view('/themes/bootstrap', 'workbench::pages.themes.bootstrap')->name('workbench.themes.bootstrap');
