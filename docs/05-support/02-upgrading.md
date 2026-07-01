@@ -2,7 +2,7 @@
 
 v4.0 of this fork targets **Laravel 12 and 13** with **Livewire 4**, and **drops Livewire 3** entirely. This page is a
 faithful summary of the canonical migration notes. For the full version, read
-[docs/v4/MIGRATION.md](../../docs/v4/MIGRATION.md).
+[docs/v4/MIGRATION.md](../v4/MIGRATION.md).
 
 The fork exists because upstream declined Livewire 4 support
 ([rappasoft#2315](https://github.com/rappasoft/laravel-livewire-tables/issues/2315), marked `wontfix`) and had not
@@ -76,4 +76,4 @@ unchanged. Run your test suite after upgrading.
 
 This page is a summary. The authoritative migration guide — including the full requirements table, package-developer
 notes (Pest 4, the Testbench workbench), and known post-4.0 follow-ups — lives at
-[docs/v4/MIGRATION.md](../../docs/v4/MIGRATION.md).
+[docs/v4/MIGRATION.md](../v4/MIGRATION.md).

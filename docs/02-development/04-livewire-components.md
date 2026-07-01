@@ -45,8 +45,8 @@ class PetsTable extends DataTableComponent
 The second argument to `Column::make($title, $from)` is the attribute (or dot-notated relationship path)
 the column reads from. Beyond the base `Column`, the package ships typed columns such as `BooleanColumn`,
 `ColorColumn`, `DateColumn`, `ImageColumn`, `LinkColumn`, and the `Count` / `Sum` / `Avg` aggregate
-columns. See [Creating columns](../columns/creating-columns.md) and the
-[Column types reference](../column-types/_index.md) for the full list.
+columns. See [Creating columns](../04-reference/03-columns/creating-columns.md) and the
+[Column types reference](../04-reference/04-column-types/README.md) for the full list.
 
 ## Adding filters
 
@@ -75,8 +75,8 @@ public function filters(): array
 
 The available filter types include `TextFilter`, `NumberFilter`, `SelectFilter`, `MultiSelectFilter`,
 `MultiSelectDropdownFilter`, `BooleanFilter`, `DateFilter`, `DateTimeFilter`, and `DateRangeFilter`. See
-[Creating filters](../filters/creating-filters.md) and
-[Applying filters](../filters/applying-filters.md).
+[Creating filters](../04-reference/05-filters/creating-filters.md) and
+[Applying filters](../04-reference/05-filters/applying-filters.md).
 
 ## Search, pagination, and column select
 
@@ -95,9 +95,9 @@ public function configure(): void
 }
 ```
 
-For deeper options, see [Search](../search/_index.md),
-[Column selection](../columns/column-selection.md), and [Pagination](../pagination/_index.md). Related
-row and interaction features are documented under [Rows](../rows/clickable-rows.md).
+For deeper options, see [Search](../04-reference/07-search/README.md),
+[Column selection](../04-reference/03-columns/column-selection.md), and [Pagination](../04-reference/09-pagination/README.md). Related
+row and interaction features are documented under [Rows](../04-reference/10-rows/clickable-rows.md).
 
 ## Switching themes
 

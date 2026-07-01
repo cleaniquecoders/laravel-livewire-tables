@@ -5,3 +5,6 @@ questions and troubleshooting, then read the upgrade guide when moving an existi
 
 - [FAQ and troubleshooting](01-faq.md)
 - [Upgrading from v3 to v4](02-upgrading.md)
+- [Legacy upgrade guide](03-legacy-upgrade-guide.md) — historical v1 → v2 → v3 upgrade notes
+- [Support the package](04-support-me.md)
+- [Questions and issues](05-questions-and-issues.md) — where to get help and report bugs

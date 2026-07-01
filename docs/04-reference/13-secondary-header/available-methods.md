@@ -1,0 +1,48 @@
+# Available Methods
+
+These are the available configuration methods for the secondary header.
+
+---
+
+## setSecondaryHeaderStatus
+
+Enabled by default, enable/disable the secondary header for the component.
+
+```php
+public function configure(): void
+{
+    $this->setSecondaryHeaderStatus(true);
+    $this->setSecondaryHeaderStatus(false);
+}
+```
+
+## setSecondaryHeaderEnabled
+
+Enable the secondary header on the component.
+
+```php
+public function configure(): void
+{
+    // Shorthand for $this->setSecondaryHeaderStatus(true);
+    $this->setSecondaryHeaderEnabled();
+}
+```
+
+## setSecondaryHeaderDisabled
+
+Disable the secondary header on the component.
+
+```php
+public function configure(): void
+{
+    // Shorthand for $this->setSecondaryHeaderStatus(false);
+    $this->setSecondaryHeaderDisabled();
+}
+```
+
+
+---
+
+See also:
+[secondary header styling](styling.md).
+[secondary header column configuration](../03-columns/secondary-header.md).

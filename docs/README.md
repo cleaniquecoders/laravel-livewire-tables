@@ -15,6 +15,7 @@ numbered SDLC structure) and the existing **feature reference** for day-to-day u
 | [01 · Architecture](01-architecture/README.md) | Component design, the trait composition, theming, assets |
 | [02 · Development](02-development/README.md) | Getting started, the workbench demo, testing, building components |
 | [03 · Deployment](03-deployment/README.md) | Release process and checklist |
+| [04 · Reference](04-reference/README.md) | End-user feature reference — every column, filter, and feature |
 | [05 · Support](05-support/README.md) | FAQ, troubleshooting, and the v3 → v4 upgrade guide |
 
 The Flux theme is the headline feature of v4.0 — see
@@ -23,18 +24,17 @@ The Flux theme is the headline feature of v4.0 — see
 
 ## Feature reference
 
-The full end-user reference for every feature:
-
-- [Getting started](start/_index.md) — requirements, installation, configuration, rendering
-- [Usage](usage/_index.md) — creating components, the query, configuration
-- [Filters](filters/_index.md) — creating and applying filters, filter pills
-- [Search](search/_index.md)
-- [Pagination](pagination/_index.md)
-- [Rows](rows/_index.md) — clickable rows
-- [Bulk actions](bulk-actions/_index.md)
-- [Reordering](reordering/_index.md)
-- [Footer](footer/_index.md)
-- [Miscellaneous](misc/_index.md) — tools, actions, lifecycle hooks, and more
+The full end-user reference for every column, filter, and feature lives under
+[04 · Reference](04-reference/README.md) — including
+[Getting started](04-reference/01-getting-started/README.md),
+[Columns](04-reference/03-columns/README.md),
+[Filters](04-reference/05-filters/README.md),
+[Search](04-reference/07-search/README.md),
+[Pagination](04-reference/09-pagination/README.md),
+[Rows](04-reference/10-rows/README.md),
+[Bulk actions](04-reference/11-bulk-actions/README.md),
+[Reordering](04-reference/12-reordering/README.md), and
+[more](04-reference/17-misc/README.md).
 
 ## v4 planning documents
 

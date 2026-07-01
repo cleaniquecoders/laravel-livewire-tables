@@ -1,13 +1,4 @@
-![Package Logo](https://banners.beyondco.de/Laravel%20Livewire%20Tables.png?theme=light&packageName=rappasoft%2Flaravel-livewire-tables&pattern=hideout&style=style_1&description=A+dynamic+table+component+for+Laravel+Livewire&md=1&fontSize=100px&images=table)
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/rappasoft/laravel-livewire-tables.svg?style=flat-square)](https://packagist.org/packages/rappasoft/laravel-livewire-tables)
-[![License](https://img.shields.io/github/license/cleaniquecoders/laravel-livewire-tables?style=flat-square)](LICENSE.md)
-[![Styling](https://github.com/cleaniquecoders/laravel-livewire-tables/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/cleaniquecoders/laravel-livewire-tables/actions/workflows/php-cs-fixer.yml)
-[![Tests](https://github.com/cleaniquecoders/laravel-livewire-tables/actions/workflows/run-tests.yml/badge.svg)](https://github.com/cleaniquecoders/laravel-livewire-tables/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/rappasoft/laravel-livewire-tables.svg?style=flat-square)](https://packagist.org/packages/rappasoft/laravel-livewire-tables)
-![PHP Stan Level 6](https://img.shields.io/badge/PHPStan-level%206-brightgreen.svg?style=flat)
-
-### Enjoying this package? [Buy me a beer 🍺](https://www.buymeacoffee.com/rappasoft)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/cleaniquecoders/laravel-livewire-tables.svg?style=flat-square)](https://packagist.org/packages/cleaniquecoders/laravel-livewire-tables) [![License](https://img.shields.io/github/license/cleaniquecoders/laravel-livewire-tables?style=flat-square)](LICENSE.md) [![Styling](https://github.com/cleaniquecoders/laravel-livewire-tables/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/cleaniquecoders/laravel-livewire-tables/actions/workflows/php-cs-fixer.yml) [![Tests](https://github.com/cleaniquecoders/laravel-livewire-tables/actions/workflows/run-tests.yml/badge.svg)](https://github.com/cleaniquecoders/laravel-livewire-tables/actions/workflows/run-tests.yml) [![Total Downloads](https://img.shields.io/packagist/dt/cleaniquecoders/laravel-livewire-tables.svg?style=flat-square)](https://packagist.org/packages/cleaniquecoders/laravel-livewire-tables) ![PHP Stan Level 6](https://img.shields.io/badge/PHPStan-level%206-brightgreen.svg?style=flat)
 
 A dynamic Laravel Livewire component for data tables.
 
@@ -24,8 +15,6 @@ v4.0 adds a **Flux theme** that renders the table and every control with native
 
 A runnable local demo of every column, filter, feature, and theme lives in the workbench — see
 [Development · Workbench](docs/02-development/02-workbench.md).
-
-### [Bootstrap 4 Demo](https://tables.laravel-boilerplate.com/bootstrap-4) | [Bootstrap 5 Demo](https://tables.laravel-boilerplate.com/bootstrap-5) | [Tailwind Demo](https://tables.laravel-boilerplate.com/tailwind) | [Demo Repository](https://github.com/rappasoft/laravel-livewire-tables-demo)
 
 ## Installation
 
