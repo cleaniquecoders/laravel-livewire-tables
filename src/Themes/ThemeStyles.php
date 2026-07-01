@@ -42,6 +42,10 @@ class ThemeStyles
             'tr.bulkactions.row' => 'bg-indigo-50 dark:bg-gray-900 dark:text-white',
             'tr.bulkactions.btn.styling' => 'ml-1 underline text-sm leading-5 font-medium focus:outline-none focus:underline transition duration-150 ease-in-out',
             'tr.bulkactions.btn.colors' => 'text-blue-600 text-gray-700 focus:text-gray-800 dark:text-white dark:hover:text-gray-400',
+            'filter.input.wrapper' => 'rounded-md shadow-sm',
+            'filter.input.styling' => 'block w-full rounded-md shadow-sm transition duration-150 ease-in-out focus:ring focus:ring-opacity-50',
+            'filter.input.colors' => 'border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-800 dark:text-white dark:border-gray-600',
+            'filter.input.bs' => '',
         ],
         'flux' => [
             'table.wrapper' => 'lwt-flux overflow-y-auto',
@@ -70,6 +74,10 @@ class ThemeStyles
             'tr.bulkactions.row' => '',
             'tr.bulkactions.btn.styling' => 'btn btn-primary btn-sm',
             'tr.bulkactions.btn.colors' => '',
+            'filter.input.wrapper' => 'mb-3 mb-md-0 input-group',
+            'filter.input.styling' => '',
+            'filter.input.colors' => '',
+            'filter.input.bs' => 'form-control',
         ],
         'bootstrap-5' => [
             'table.wrapper' => 'table-responsive',
@@ -95,6 +103,10 @@ class ThemeStyles
             'tr.bulkactions.row' => '',
             'tr.bulkactions.btn.styling' => 'btn btn-primary btn-sm',
             'tr.bulkactions.btn.colors' => '',
+            'filter.input.wrapper' => 'mb-3 mb-md-0 input-group',
+            'filter.input.styling' => '',
+            'filter.input.colors' => '',
+            'filter.input.bs' => 'form-control',
         ],
     ];
 
