@@ -2,18 +2,25 @@
 
 All notable changes to `laravel-livewire-tables` will be documented in this file
 
-## [Unreleased]
+## [v4.1.0] - 2026-07-02
+
+Closes out the entire v4 backlog: client-side column visibility, interactive accessibility,
+and the completion of the theme-strategy and trait-consolidation refactors. No breaking changes.
+
 ### Added
-- **Interactive accessibility** (#25) — Alpine `x-trap` focus traps on the filter/column-select/bulk-actions popovers (focus moves in, Tab wraps, ESC closes + returns focus) and a **keyboard alternative to drag-reorder**: the drag handle is focusable while reordering and moves the row with ArrowUp/ArrowDown.
-- **Opt-in client-side column visibility** (#48 / upstream #2260) — `setUseClientSideColumnVisibilityEnabled()`: every selectable column renders and the Columns dropdown toggles them instantly via Alpine `x-show` (entangled with `selectedColumns`; zero round-trips per toggle). Includes a workbench demo page (`/client-columns`).
+- **Opt-in client-side column visibility** (#48 / upstream #2260) — `setUseClientSideColumnVisibilityEnabled()`: every selectable column renders and the Columns dropdown toggles them instantly via Alpine `x-show` (entangled with `selectedColumns`; zero round-trips per toggle; syncs + persists on the next Livewire request). Collapsed-columns detail rows mirror the toggles; ignored on the Flux theme (its native cells carry no Alpine hooks). Includes a workbench demo page (`/client-columns`).
+- **Interactive accessibility** (#25) — Alpine `x-trap` focus traps on the filter/column-select/bulk-actions popovers (focus moves in, Tab wraps within, ESC closes + returns focus to the trigger) and a **keyboard alternative to drag-reorder**: the drag handle is focusable while reordering (`role="button"`, `aria-label`) and moves the row with ArrowUp/ArrowDown.
 
 ### Changed / Internal
-- **Theme-strategy refactor completed** (#23) — all 48 remaining blade slices migrated; every theme-varying class string now resolves through the `ThemeStyles` driver (+ `lwtThemeClasses()` static seam for `$this`-less views).
-- **Trait sprawl collapsed** (#28) — 52 exclusively-owned Configuration/Helpers/Styling satellites merged into their root `With*` traits (~97 → 78 files); the load-bearing Livewire boot order is documented and guarded by `TraitBootOrderTest`.
+- **Theme-strategy refactor completed** (#23) — all 48 blade slices migrated; every theme-varying class string now resolves through the `ThemeStyles` driver (+ `lwtThemeClasses()` static seam for `$this`-less views). Adding or restyling a theme is now a driver-map change, not a 59-file edit. Byte-identical throughout.
+- **Trait sprawl collapsed** (#28) — 52 exclusively-owned Configuration/Helpers/Styling satellites merged into their root `With*` traits (~97 → 78 files); the load-bearing Livewire boot order (`ComponentUtilities → WithColumns → WithColumnSelect`) is documented inline and guarded by `TraitBootOrderTest`.
 
 ### Fixed
 - Tailwind 4: color-ed focus rings moved off the removed `ring-opacity-*` utility to the color-alpha form (#24).
 - Latent typo in the filter-pills reset-all BS5 gate (`getFilterPillsResetAllButtonAttribute` → `...Attributes`).
+- 8 latent smells surfaced by the trait consolidation (`unset()` on nullable-typed properties; redundant `!== null` after `isset()`).
+
+[v4.1.0]: https://github.com/cleaniquecoders/laravel-livewire-tables/compare/v4.0.0...v4.1.0
 
 ## [v4.0.0] - 2026-07-01 (cleaniquecoders fork)
 
