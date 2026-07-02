@@ -38,7 +38,7 @@
             <div
                 x-on:click.away="if (!childElementOpen) { open = false }"
                 @keydown.window.escape="if (!childElementOpen) { open = false }"
-                x-cloak x-show="open"
+                x-cloak x-show="open" x-trap="open"
                 x-transition:enter="transition ease-out duration-100"
                 x-transition:enter-start="transform opacity-0 scale-95"
                 x-transition:enter-end="transform opacity-100 scale-100"

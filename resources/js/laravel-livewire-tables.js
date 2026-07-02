@@ -180,6 +180,10 @@ document.addEventListener('alpine:init', () => {
                 row.classList.add(...this.evenNotInOdd);
             });
             */
+            this.refreshEvenOddClasses();
+        },
+        refreshEvenOddClasses() {
+            let table = document.getElementById(this.tableId);
             let nextLoop = 'even';
             for (let i = 1, row; row = table.rows[i]; i++) {
                 if (!row.classList.contains('hidden') && !row.classList.contains('md:hidden') ) {
@@ -195,6 +199,29 @@ document.addEventListener('alpine:init', () => {
                     }
                 }
             }
+        },
+        moveRow(event, direction) {
+            // Keyboard alternative to drag-reorder (#25): ArrowUp/ArrowDown on the
+            // focused drag handle swaps the row with its neighbour; the order is
+            // read from the DOM on save, exactly like a drop.
+            if (!this.currentlyReorderingStatus) {
+                return;
+            }
+            this.setupEvenOddClasses();
+            let element = event.target.closest('tr');
+            let sibling = direction < 0 ? element.previousElementSibling : element.nextElementSibling;
+            if (!sibling || sibling.tagName !== 'TR') {
+                return;
+            }
+            let parent = element.parentNode;
+            if (direction < 0) {
+                parent.insertBefore(element, sibling);
+            }
+            else {
+                parent.insertBefore(sibling, element);
+            }
+            this.refreshEvenOddClasses();
+            event.target.focus();
         },
         reorderToggle() {
             if (this.currentlyReorderingStatus) {

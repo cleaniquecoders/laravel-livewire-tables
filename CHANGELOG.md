@@ -4,6 +4,7 @@ All notable changes to `laravel-livewire-tables` will be documented in this file
 
 ## [Unreleased]
 ### Added
+- **Interactive accessibility** (#25) — Alpine `x-trap` focus traps on the filter/column-select/bulk-actions popovers (focus moves in, Tab wraps, ESC closes + returns focus) and a **keyboard alternative to drag-reorder**: the drag handle is focusable while reordering and moves the row with ArrowUp/ArrowDown.
 - **Opt-in client-side column visibility** (#48 / upstream #2260) — `setUseClientSideColumnVisibilityEnabled()`: every selectable column renders and the Columns dropdown toggles them instantly via Alpine `x-show` (entangled with `selectedColumns`; zero round-trips per toggle). Includes a workbench demo page (`/client-columns`).
 
 ### Changed / Internal
