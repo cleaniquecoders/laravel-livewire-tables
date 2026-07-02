@@ -22,7 +22,7 @@
             <div>
                 @foreach($this->getCollapsedColumnsForContent as $colIndex => $column)
 
-                    <p wire:key="{{ $tableName }}-row-{{ $row->{$primaryKey} }}-collapsed-contents-{{ $colIndex }}" @class([
+                    <p wire:key="{{ $tableName }}-row-{{ $row->{$primaryKey} }}-collapsed-contents-{{ $colIndex }}"@if($clientSideXShow = $this->getClientSideVisibilityXShow($column)) x-cloak x-show="{{ $clientSideXShow }}"@endif @class([
                             $this->themeClasses('collapsed.p.base') => true,
                             $this->themeClasses('collapsed.p.a') => $column->shouldCollapseAlways(),
                             $this->themeClasses('collapsed.p.b') => !$column->shouldCollapseAlways() && !$column->shouldCollapseOnTablet() && $column->shouldCollapseOnMobile(),

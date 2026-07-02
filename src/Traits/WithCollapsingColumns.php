@@ -98,7 +98,7 @@ trait WithCollapsingColumns
     public function getCollapsedMobileColumns(): Collection
     {
         return $this->getColumns()
-            ->reject(fn (Column $column) => ($column->isHidden() || ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column))))
+            ->reject(fn (Column $column) => ($column->isHidden() || (! $this->useClientSideColumnVisibilityIsEnabled() && $column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column))))
             ->filter(fn (Column $column) => $column->shouldCollapseOnMobile())
             ->values();
     }
@@ -134,7 +134,7 @@ trait WithCollapsingColumns
     public function getCollapsedTabletColumns(): Collection
     {
         return $this->getColumns()
-            ->reject(fn (Column $column) => ($column->isHidden() || ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column))))
+            ->reject(fn (Column $column) => ($column->isHidden() || (! $this->useClientSideColumnVisibilityIsEnabled() && $column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column))))
             ->filter(fn (Column $column) => $column->shouldCollapseOnTablet())
             ->values();
     }
@@ -159,7 +159,7 @@ trait WithCollapsingColumns
     public function getCollapsedAlwaysColumns(): Collection
     {
         return $this->getColumns()
-            ->reject(fn (Column $column) => ($column->isHidden() || ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column))))
+            ->reject(fn (Column $column) => ($column->isHidden() || (! $this->useClientSideColumnVisibilityIsEnabled() && $column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column))))
             ->filter(fn (Column $column) => $column->shouldCollapseAlways())
             ->values();
     }
@@ -190,7 +190,7 @@ trait WithCollapsingColumns
     {
         $colspan = $this->getColspanCount();
         $columns = $this->getColumns()
-            ->reject(fn (Column $column) => ($column->isHidden() || ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column))))
+            ->reject(fn (Column $column) => ($column->isHidden() || (! $this->useClientSideColumnVisibilityIsEnabled() && $column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column))))
             ->reject(fn (Column $column) => $column->shouldNeverCollapse());
 
         return $columns;

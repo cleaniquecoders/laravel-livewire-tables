@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-livewire-tables` will be documented in this file
 
+## [Unreleased]
+### Added
+- **Opt-in client-side column visibility** (#48 / upstream #2260) — `setUseClientSideColumnVisibilityEnabled()`: every selectable column renders and the Columns dropdown toggles them instantly via Alpine `x-show` (entangled with `selectedColumns`; zero round-trips per toggle). Includes a workbench demo page (`/client-columns`).
+
+### Changed / Internal
+- **Theme-strategy refactor completed** (#23) — all 48 remaining blade slices migrated; every theme-varying class string now resolves through the `ThemeStyles` driver (+ `lwtThemeClasses()` static seam for `$this`-less views).
+- **Trait sprawl collapsed** (#28) — 52 exclusively-owned Configuration/Helpers/Styling satellites merged into their root `With*` traits (~97 → 78 files); the load-bearing Livewire boot order is documented and guarded by `TraitBootOrderTest`.
+
+### Fixed
+- Tailwind 4: color-ed focus rings moved off the removed `ring-opacity-*` utility to the color-alpha form (#24).
+- Latent typo in the filter-pills reset-all BS5 gate (`getFilterPillsResetAllButtonAttribute` → `...Attributes`).
+
 ## [v4.0.0] - 2026-07-01 (cleaniquecoders fork)
 
 First release of the cleaniquecoders fork: **Laravel 13 + Livewire 4**, a new **Flux UI theme**, and a

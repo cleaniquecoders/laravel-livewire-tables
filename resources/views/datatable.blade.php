@@ -8,7 +8,7 @@
 @php($localisationPath = $this->getLocalisationPath)
 
 <div>
-    <div x-data="{ currentlyReorderingStatus: false }">
+    <div x-data="{ currentlyReorderingStatus: false{!! $this->useClientSideColumnVisibilityIsEnabled() ? ", visibleColumns: \$wire.entangle('selectedColumns')" : '' !!} }">
         <div {{ $this->getTopLevelAttributes() }}>
 
             @includeWhen(

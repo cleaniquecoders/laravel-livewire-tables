@@ -11,7 +11,8 @@
 @if ($this->useFluxTable())
     <flux:table.cell>{{ $slot }}</flux:table.cell>
 @else
-<td wire:key="{{ $tableName . '-table-td-'.$row->{$primaryKey}.'-'.$column->getSlug() }}"
+<td wire:key="{{ $tableName . '-table-td-'.$row->{$primaryKey}.'-'.$column->getSlug() }}"@if($clientSideXShow = $this->getClientSideVisibilityXShow($column)) x-cloak x-show="{{ $clientSideXShow }}"@endif
+
     @if ($rowUrl)
         @if($this->getTableRowUrlTarget($row) === 'navigate') wire:navigate href="{{ $rowUrl }}"
         @else onclick="window.open('{{ $rowUrl }}', '{{ $this->getTableRowUrlTarget($row) ?? '_self' }}')"

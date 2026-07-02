@@ -55,6 +55,41 @@ Column::make('Address', 'address.address')
     ->selectedIf(Auth::user()),
 ```
 
+## Client-side column visibility (opt-in)
+
+By default, toggling a column in the Columns dropdown is **server-side**: a Livewire
+round-trip re-renders the table and deselected columns are not rendered at all.
+
+Opting in to client-side visibility renders **every** selectable column and toggles
+them instantly with Alpine `x-show` — no round-trip per toggle:
+
+```php
+public function configure(): void
+{
+    $this->setUseClientSideColumnVisibilityEnabled();
+}
+```
+
+Behaviour notes:
+
+- Toggling (including "All Columns") is instant and fires **no** network request.
+  The selection is entangled with `selectedColumns`, so it syncs to the server —
+  and persists to the session — on the **next** Livewire request (search, sort,
+  pagination, …).
+- `setExcludeDeselectedColumnsFromQuery()` is ignored in this mode: every rendered
+  column needs its data selected.
+- The trade-off is payload size: all columns render for every row. Prefer the
+  default server-side mode for very wide tables where deselected columns should
+  not be fetched or rendered.
+- The mode is **ignored on the Flux theme**: its native `flux:table` cells and
+  `flux:checkbox` dropdown carry no Alpine visibility hooks, so Flux keeps the
+  default server-side model.
+- Collapsed columns are fully supported: the collapsed-contents detail row
+  mirrors the client-side toggles via the same `x-show` bindings.
+
+Related methods: `setUseClientSideColumnVisibilityStatus(bool)`,
+`setUseClientSideColumnVisibilityEnabled()`, `setUseClientSideColumnVisibilityDisabled()`.
+
 ## Available Methods
 
 ### setColumnSelectStatus

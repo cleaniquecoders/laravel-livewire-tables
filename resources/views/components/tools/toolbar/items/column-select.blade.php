@@ -85,9 +85,11 @@
                                         ->except(['default-styling', 'default-colors'])
                                     }}
                                     wire:loading.attr="disabled"
-                                    type="checkbox"
-                                    @checked($this->getSelectableSelectedColumns()->count() === $this->getSelectableColumns()->count())
+                                    type="checkbox"@if($this->useClientSideColumnVisibilityIsEnabled()) x-on:click="{{ $this->getClientSideAllColumnsToggle() }}" x-bind:checked="{{ $this->getClientSideAllColumnsChecked() }}"@endif
+
+                                    @unless($this->useClientSideColumnVisibilityIsEnabled())@checked($this->getSelectableSelectedColumns()->count() === $this->getSelectableColumns()->count())
                                     @if($this->getSelectableSelectedColumns()->count() === $this->getSelectableColumns()->count())  wire:click="deselectAllColumns" @else wire:click="selectAllColumns" @endif
+@endunless
                                 >
                                 <span class="ml-2">{{ __($localisationPath.'All Columns') }}</span>
                             </label>
@@ -111,7 +113,8 @@
                                             ])
                                             ->except(['default-styling', 'default-colors'])
                                         }}
-                                        wire:model.live="selectedColumns" wire:target="selectedColumns"
+                                        @unless($this->useClientSideColumnVisibilityIsEnabled())wire:model.live="selectedColumns" wire:target="selectedColumns"@else x-model="visibleColumns" @endunless
+
                                         wire:loading.attr="disabled" type="checkbox"
                                         value="{{ $columnSlug }}" />
                                     <span class="ml-2">{{ $columnTitle }}</span>
@@ -164,7 +167,7 @@
                             <input
                                 wire:loading.attr="disabled"
                                 type="checkbox"
-                                @if($this->getSelectableSelectedColumns()->count() == $this->getSelectableColumns()->count()) checked wire:click="deselectAllColumns" @else unchecked wire:click="selectAllColumns" @endif
+                                @if($this->useClientSideColumnVisibilityIsEnabled()) x-on:click="{{ $this->getClientSideAllColumnsToggle() }}" x-bind:checked="{{ $this->getClientSideAllColumnsChecked() }}"@elseif($this->getSelectableSelectedColumns()->count() == $this->getSelectableColumns()->count()) checked wire:click="deselectAllColumns" @else unchecked wire:click="selectAllColumns" @endif
                             />
 
                             <span class="ml-2">{{ __($localisationPath.'All Columns') }}</span>
@@ -184,7 +187,7 @@
                                 ])
                                 ->except(['default-styling', 'default-colors'])
                             }}
-                            @if($this->getSelectableSelectedColumns()->count() == $this->getSelectableColumns()->count()) checked wire:click="deselectAllColumns" @else unchecked wire:click="selectAllColumns" @endif
+                            @if($this->useClientSideColumnVisibilityIsEnabled()) x-on:click="{{ $this->getClientSideAllColumnsToggle() }}" x-bind:checked="{{ $this->getClientSideAllColumnsChecked() }}"@elseif($this->getSelectableSelectedColumns()->count() == $this->getSelectableColumns()->count()) checked wire:click="deselectAllColumns" @else unchecked wire:click="selectAllColumns" @endif
                         />
 
                         <label wire:loading.attr="disabled" class="form-check-label">
@@ -205,8 +208,9 @@
                                 class="px-2 {{ $loop->last ? 'mb-0' : 'mb-1' }}"
                             >
                                 <input
-                                    wire:model.live="selectedColumns"
-                                    wire:target="selectedColumns"
+                                    @unless($this->useClientSideColumnVisibilityIsEnabled())wire:model.live="selectedColumns"
+                                    wire:target="selectedColumns"@else x-model="visibleColumns" @endunless
+
                                     wire:loading.attr="disabled" type="checkbox"
                                     value="{{ $columnSlug }}"
                                 />
@@ -216,8 +220,9 @@
                             </label>
                         @elseif($isBootstrap5)
                             <input
-                                wire:model.live="selectedColumns"
-                                wire:target="selectedColumns"
+                                @unless($this->useClientSideColumnVisibilityIsEnabled())wire:model.live="selectedColumns"
+                                wire:target="selectedColumns"@else x-model="visibleColumns" @endunless
+
                                 wire:loading.attr="disabled"
                                 type="checkbox"
                                 {{

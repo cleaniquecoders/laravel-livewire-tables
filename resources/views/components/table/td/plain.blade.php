@@ -12,7 +12,7 @@
             'hidden lg:table-cell' => $column && $column->shouldCollapseOnTablet(),
         ])
         ->except(['default','default-styling','default-colors'])
-    }} @if($hideUntilReorder) x-show="reorderDisplayColumn" @endif >
+    }} @if($hideUntilReorder) x-show="reorderDisplayColumn" @elseif($clientSideXShow = $this->getClientSideVisibilityXShow($column)) x-show="{{ $clientSideXShow }}" @endif >
         {{ $slot }}
     </td>
 @elseif ($isBootstrap)
@@ -25,7 +25,7 @@
             'd-none d-lg-table-cell' => $column && $column->shouldCollapseOnTablet(),
         ])
         ->except(['default','default-styling','default-colors'])
-    }}>
+    }}@if($clientSideXShow = $this->getClientSideVisibilityXShow($column)) x-cloak x-show="{{ $clientSideXShow }}"@endif>
         {{ $slot }}
     </td>
 @endif

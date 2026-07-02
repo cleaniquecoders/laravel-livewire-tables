@@ -25,7 +25,7 @@
         <flux:table.column>{{ $column->getTitle() }}</flux:table.column>
     @endif
 @else
-<th scope="col" @if($ariaSort) aria-sort="{{ $ariaSort }}" @endif {{
+<th scope="col" @if($ariaSort) aria-sort="{{ $ariaSort }}" @endif @if($clientSideXShow = $this->getClientSideVisibilityXShow($column))x-cloak x-show="{{ $clientSideXShow }}" @endif{{
     $attributes->merge($customThAttributes)
         ->class([
             $this->themeClasses('th.colors') => $isTailwind && (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),

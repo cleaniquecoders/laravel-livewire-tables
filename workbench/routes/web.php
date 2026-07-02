@@ -15,6 +15,7 @@ Route::view('/pagination', 'workbench::pages.pagination')->name('workbench.pagin
 Route::view('/empty', 'workbench::pages.empty')->name('workbench.empty');
 Route::view('/multi-table', 'workbench::pages.multi-table')->name('workbench.multi-table');
 Route::view('/responsive', 'workbench::pages.responsive')->name('workbench.responsive');
+Route::view('/client-columns', 'workbench::pages.client-columns')->name('workbench.client-columns');
 
 // Themes get separate pages so each loads only its own CSS/JS (Bootstrap's
 // global styles would otherwise collide with Tailwind/Flux on a shared page).

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Workbench\App\Livewire\BootstrapTheme4Table;
 use Workbench\App\Livewire\BootstrapThemeTable;
+use Workbench\App\Livewire\ClientSideColumnsTable;
 use Workbench\App\Livewire\ColumnTypesTable;
 use Workbench\App\Livewire\CursorPaginationTable;
 use Workbench\App\Livewire\DemoPetsTable;
@@ -48,6 +49,7 @@ class WorkbenchServiceProvider extends ServiceProvider
         Livewire::component('multi-table-reorderable', MultiTableReorderable::class);
         Livewire::component('multi-table-static', MultiTableStatic::class);
         Livewire::component('responsive-table', ResponsiveTable::class);
+        Livewire::component('client-side-columns-table', ClientSideColumnsTable::class);
 
         // LivewireComponentFilter validates its backing component against
         // livewire.class_namespace + a studly dot-path, so point that at the

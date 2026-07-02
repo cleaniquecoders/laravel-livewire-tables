@@ -38,6 +38,8 @@ trait WithColumnSelect
 
     protected bool $columnSelectHiddenOnTablet = false;
 
+    protected bool $useClientSideColumnVisibility = false;
+
     /*protected function queryStringWithColumnSelect(): array
     {
         if ($this->queryStringIsEnabled() && $this->columnSelectIsEnabled()) {
@@ -98,6 +100,34 @@ trait WithColumnSelect
     public function setColumnSelectDisabled(): self
     {
         $this->setColumnSelectStatus(false);
+
+        return $this;
+    }
+
+    /**
+     * Opt-in (#48 / upstream #2260): render ALL selectable columns and toggle
+     * their visibility client-side via Alpine x-show, instead of the default
+     * server-side model where deselected columns are not rendered at all.
+     * Column toggles become instant (no Livewire round-trip); the selection
+     * still syncs to the server (entangled) on the next Livewire request.
+     */
+    public function setUseClientSideColumnVisibilityStatus(bool $status): self
+    {
+        $this->useClientSideColumnVisibility = $status;
+
+        return $this;
+    }
+
+    public function setUseClientSideColumnVisibilityEnabled(): self
+    {
+        $this->setUseClientSideColumnVisibilityStatus(true);
+
+        return $this;
+    }
+
+    public function setUseClientSideColumnVisibilityDisabled(): self
+    {
+        $this->setUseClientSideColumnVisibilityStatus(false);
 
         return $this;
     }
@@ -201,7 +231,62 @@ trait WithColumnSelect
 
     public function getExcludeDeselectedColumnsFromQuery(): bool
     {
+        // Client-side visibility renders every selectable column (toggled via
+        // x-show), so their data must always be selected regardless of the flag.
+        if ($this->useClientSideColumnVisibilityIsEnabled()) {
+            return false;
+        }
+
         return $this->excludeDeselectedColumnsFromQuery;
+    }
+
+    /**
+     * Whether the client-side (Alpine x-show) column-visibility mode is active.
+     * Requires column select itself to be enabled — otherwise there is no
+     * selection state to mirror client-side. Ignored on the Flux theme: its
+     * native flux:table cells and flux:checkbox dropdown carry no x-show hooks,
+     * so flux keeps the default server-side model.
+     */
+    public function useClientSideColumnVisibilityIsEnabled(): bool
+    {
+        return $this->useClientSideColumnVisibility && $this->columnSelectIsEnabled() && ! $this->isFlux();
+    }
+
+    /**
+     * The Alpine x-show expression for a column when client-side visibility is
+     * active, or null when the column should render without one (mode off,
+     * no column, or a non-selectable/hidden column that always shows).
+     */
+    public function getClientSideVisibilityXShow(?Column $column): ?string
+    {
+        if (! $this->useClientSideColumnVisibilityIsEnabled() || is_null($column) || ! $column->isSelectable() || $column->isHidden()) {
+            return null;
+        }
+
+        return "visibleColumns.includes('".$column->getSlug()."')";
+    }
+
+    /**
+     * Alpine click handler for the "All Columns" checkbox in client-side mode:
+     * select-all mirrors selectAllColumns() (every column slug), deselect-all
+     * mirrors deselectAllColumns() (empty; setup re-adds non-selectable ones).
+     */
+    public function getClientSideAllColumnsToggle(): string
+    {
+        $allSlugs = json_encode($this->getColumns()->map(fn (Column $column) => $column->getSlug())->values()->toArray());
+
+        return "visibleColumns = \$event.target.checked ? {$allSlugs} : []";
+    }
+
+    /**
+     * Alpine checked-state expression for the "All Columns" checkbox in
+     * client-side mode: checked while every selectable column is visible.
+     */
+    public function getClientSideAllColumnsChecked(): string
+    {
+        $selectableSlugs = json_encode($this->getSelectableColumns()->map(fn (Column $column) => $column->getSlug())->values()->toArray());
+
+        return "{$selectableSlugs}.every(s => visibleColumns.includes(s))";
     }
 
     public function getColumnSelectIsHiddenOnMobile(): bool
@@ -281,9 +366,11 @@ trait WithColumnSelect
     #[Computed]
     public function selectedVisibleColumns(): array
     {
+        // In client-side visibility mode, deselected columns still render (their
+        // th/td carry an Alpine x-show) so toggling them needs no round-trip.
         return $this->getColumns()
             ->reject(fn (Column $column) => $column->isHidden())
-            ->reject(fn (Column $column) => ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)))
+            ->reject(fn (Column $column) => ! $this->useClientSideColumnVisibilityIsEnabled() && ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)))
             ->values()
             ->toArray();
     }
